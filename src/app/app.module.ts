@@ -35,7 +35,6 @@ import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import { ResumenComponent } from './component/general/resumen/resumen.component';
-import { DashboadComponent } from './component/general/dashboad/dashboad.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { SnackComponent } from './component/generico/snack/snack.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
@@ -43,22 +42,11 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { ResetearclaveComponent } from './component/generico/resetarclave/resetarclave.component';
 import { ConfirmarComponent } from './component/generico/confirmar/confirmar.component';
 import { AgmJsMarkerClustererModule } from '@agm/js-marker-clusterer';
-import { FormatomantenimientoComponent } from './component/general/formatomantenimiento/formatomantenimiento.component';
-import { FormatoReclamoComponent } from './component/general/formato-reclamo/formato-reclamo.component';
-import { DocenteComponent } from './component/docente/docente.component';
-import { DocenteeditarComponent } from './component/docenteeditar/docenteeditar.component';
-import { CatalogoComponent } from './component/catalogo/catalogo.component';
-import { CatalogoeditarComponent } from './component/catalogoeditar/catalogoeditar.component';
 import { UserComponent } from './component/user/user.component';
 import { UsereditComponent } from './component/useredit/useredit.component';
-import { SoportetecnicoComponent } from './component/soportetecnico/soportetecnico.component';
-import { SoportetecnicoeditarComponent } from './component/soportetecnicoeditar/soportetecnicoeditar.component';
-import { EquipoComponent } from './component/equipo/equipo.component';
-import { EquipoeditarComponent } from './component/equipoeditar/equipoeditar.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import { RegistroIncidenciasComponent } from './component/registro-incidencias/registro-incidencias.component';
-import { ControlIncidenciasComponent } from './component/control-incidencias/control-incidencias.component';
-import { AsignarIncidenciasComponent } from './component/asignar-incidencias/asignar-incidencias.component';
+import { EstudianteComponent } from './component/estudiante/estudiante.component';
+import { EstudianteeditarComponent } from './component/estudianteeditar/estudianteeditar.component';
 
 @NgModule({
   declarations: [
@@ -68,25 +56,13 @@ import { AsignarIncidenciasComponent } from './component/asignar-incidencias/asi
     HomeComponent,
     MenuComponent,
     ResumenComponent,
-    DashboadComponent,
     SnackComponent,
     ResetearclaveComponent,
     ConfirmarComponent,
-    FormatomantenimientoComponent,
-    FormatoReclamoComponent,
-    DocenteComponent,
-    DocenteeditarComponent,
-    CatalogoComponent,
-    CatalogoeditarComponent,
     UserComponent,
     UsereditComponent,
-    SoportetecnicoComponent,
-    SoportetecnicoeditarComponent,
-    EquipoComponent,
-    EquipoeditarComponent,
-    RegistroIncidenciasComponent,
-    ControlIncidenciasComponent,
-    AsignarIncidenciasComponent,
+    EstudianteComponent,
+    EstudianteeditarComponent,
   ],
   imports: [
     FormsModule,
@@ -125,11 +101,8 @@ import { AsignarIncidenciasComponent } from './component/asignar-incidencias/asi
   entryComponents:[
     SnackComponent,
     ResetearclaveComponent,
-    DocenteeditarComponent,
-    CatalogoeditarComponent,
     UsereditComponent,
-    SoportetecnicoeditarComponent,
-    EquipoeditarComponent
+    EstudianteeditarComponent
   ],
   providers: [appRoutingProviders, { provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]

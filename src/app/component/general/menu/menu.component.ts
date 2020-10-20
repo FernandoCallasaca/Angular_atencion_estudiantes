@@ -48,7 +48,7 @@ export class MenuComponent extends BaseComponent implements OnInit {
   }
 
   openDialogClave(): void {
-    console.log(this.usuario)
+    console.log(this.usuario);
     let data = {
       data: this.usuario,
       titulo: "Cambiar Contraseña",
@@ -63,6 +63,4 @@ export class MenuComponent extends BaseComponent implements OnInit {
 
     });
   }
-
-
 }

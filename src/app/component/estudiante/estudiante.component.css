@@ -1,14 +1,14 @@
 table {
     width: 100%;
-  }
-  
-  .contenedor {
+}
+
+.contenedor {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;
-  }
-  
-  .contenedorBody {
+}
+
+.contenedorBody {
     margin: 1%;
-  }
+}
