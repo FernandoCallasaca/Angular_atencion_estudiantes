@@ -7,7 +7,9 @@ import { Router } from '@angular/router';
 import { BaseComponent } from '../base/base.component';
 import { ResultadoApi } from '../../interface/common.interface';
 import { Confirmar } from '../../interface/confirmar.interface';
+
 import { GeneralService } from '../../service/general.service';
+
 import { ResetearclaveComponent } from '../generico/resetarclave/resetarclave.component';
 import { ConfirmarComponent } from '../generico/confirmar/confirmar.component';
 import { EstudianteeditarComponent } from './../estudianteeditar/estudianteeditar.component';
@@ -20,7 +22,10 @@ import { EstudianteeditarComponent } from './../estudianteeditar/estudianteedita
 })
 export class EstudianteComponent extends BaseComponent implements OnInit {
 
-  tit: String = "Estudiante";
+  numeros: number[] = [1, 2, 3, 3];
+
+  // tslint:disable-next-line: ban-types
+  tit: String = 'Estudiante';
 
   textfilter = '';
 
@@ -55,9 +60,10 @@ export class EstudianteComponent extends BaseComponent implements OnInit {
     }
     this._general_service.getEstudiante(this.getToken().token).subscribe(
       result => {
-        try { 
+        try {
           if (result.estado) {
-            console.log(result);
+            console.log('Estudiantes');
+            console.log(result.data);
             this.tablaEstudiante = new MatTableDataSource < any > (result.data);
             this.tablaEstudiante.sort = this.sort;
             this.tablaEstudiante.paginator = this.paginator;

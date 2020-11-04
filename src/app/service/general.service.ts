@@ -23,6 +23,7 @@ export class GeneralService {
         });
         return this._http.post(this.url + 'general/getestudiante', {}, { headers: reqHeader });
     }
+
     deleteEstudiante(data, token): Observable<any> {
         var reqHeader = new HttpHeaders({
             'Content-Type': 'application/json',
@@ -31,6 +32,7 @@ export class GeneralService {
         console.log(data)
         return this._http.post(this.url + 'general/deleteestudiante', data, { headers: reqHeader });
     }
+
     saveEstudiante(data, token): Observable<any> {
         var reqHeader = new HttpHeaders({
             'Content-Type': 'application/json',
@@ -57,7 +59,7 @@ export class GeneralService {
 
 
 
-    
+
     getDocente(token): Observable<any> {
         var reqHeader = new HttpHeaders({
             'Content-Type': 'application/json',
