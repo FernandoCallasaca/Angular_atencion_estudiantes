@@ -57,7 +57,12 @@ import { UsuarioEditarComponent } from './component/usuario-editar/usuario-edita
 import { CarnetUInfoComponent } from './component//tramites/tramite-carnet-universitario/carnet-u-info/carnet-u-info.component';
 import { CarnetUTramiteComponent } from './component//tramites/tramite-carnet-universitario/carnet-u-tramite/carnet-u-tramite.component';
 import { ControlTramitesComponent } from './component/tramites/control-tramites/control-tramites.component';
-
+import { ConstanciaEgresadoInfoComponent } from './component/tramites/tramite-constancia-de-egresado/constancia-egresado-info/constancia-egresado-info.component';
+import { ConstanciaEgresadoTramiteComponent } from './component/tramites/tramite-constancia-de-egresado/constancia-egresado-tramite/constancia-egresado-tramite.component';
+import { ConstanciaEstudiosTramiteComponent } from './component/tramites/tramite-constancia-de-estudios/constancia-estudios-tramite/constancia-estudios-tramite.component';
+import { ConstanciaEstudiosInfoComponent } from './component/tramites/tramite-constancia-de-estudios/constancia-estudios-info/constancia-estudios-info.component';
+import { ConstanciaPromedioTramiteComponent } from './component/tramites/tramite-constancia-de-promedio/constancia-promedio-tramite/constancia-promedio-tramite.component';
+import { ConstanciaPromedioInfoComponent } from './component/tramites/tramite-constancia-de-promedio/constancia-promedio-info/constancia-promedio-info.component';
 
 @NgModule({
   declarations: [
@@ -82,6 +87,12 @@ import { ControlTramitesComponent } from './component/tramites/control-tramites/
     CarnetUInfoComponent,
     CarnetUTramiteComponent,
     ControlTramitesComponent,
+    ConstanciaEgresadoInfoComponent,
+    ConstanciaEgresadoTramiteComponent,
+    ConstanciaEstudiosTramiteComponent,
+    ConstanciaEstudiosInfoComponent,
+    ConstanciaPromedioTramiteComponent,
+    ConstanciaPromedioInfoComponent,
   ],
   imports: [
     FormsModule,
@@ -126,7 +137,10 @@ import { ControlTramitesComponent } from './component/tramites/control-tramites/
     EstudianteeditarComponent,
     AdministradorEditarComponent,
     UsuarioEditarComponent,
-    CarnetUInfoComponent
+    CarnetUInfoComponent,
+    ConstanciaEgresadoInfoComponent,
+    ConstanciaEstudiosInfoComponent,
+    ConstanciaPromedioInfoComponent,
   ],
   providers: [appRoutingProviders, { provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
