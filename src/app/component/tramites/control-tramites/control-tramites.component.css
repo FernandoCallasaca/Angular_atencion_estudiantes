@@ -10,7 +10,18 @@
 .contenedor {
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 20px;
 }
 .space-card {
   margin: 20px;
+}
+.contenido-card {
+ margin-bottom: 15%;
+}
+.botones-final{
+  margin-bottom: 0px;
+  margin-right: 14px;
+  position: absolute;
+  bottom: 3%;
+  right: 1%;
 }

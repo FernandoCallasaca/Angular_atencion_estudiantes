@@ -9,15 +9,19 @@
       <mat-card-subtitle>El carnet en tus manos</mat-card-subtitle>
     </mat-card-header>
     <img mat-card-image src="https://www.sunedu.gob.pe/wp-content/uploads/2019/05/carne-universitario-sunedu-2019.jpg" alt="Photo of a Shiba Inu">
-    <mat-card-content>
+    <mat-card-content class="contenido-card">
       <p [ngStyle]="{'text-align':'justify'}">
         El nuevo carné universitario destaca la incorporación del DNI del estudiante como dato de identificación oficial, así como su moderno diseño con elementos de seguridad similares a los incorporados en los billetes y pasaportes. Cuenta también con un código de lectura rápida (QR) diseñado para smartphones, que permitirá validar con facilidad la autenticidad del documento.
       </p>
-    </mat-card-content>
+    </mat-card-content >
     <!-- Aquí en el Mat Card Actions se colocan todas las acciones que hagas con el card -->
     <mat-card-actions>
       <!-- Aquí un boton para abrir el dialogo de información del trámite -->
-      <button mat-stroked-button color="primary" (click)="openDialogTramiteUniversitario()">Seguir Leyendo...</button>
+      <div class="botones-final">
+        <button mat-stroked-button color="primary" (click)="openDialogTramiteUniversitario()">Seguir Leyendo...
+        </button>
+      </div>
+      
     </mat-card-actions>
   </mat-card>
 
@@ -31,7 +35,7 @@
       <mat-card-subtitle>Adquiere tu constancia de notas</mat-card-subtitle>
     </mat-card-header>
     <img mat-card-image src="https://academiasantillana.com/wp-content/uploads/2019/10/certificado_santillana_formacion.jpg" alt="Photo of a Shiba Inu">
-    <mat-card-content>
+    <mat-card-content class="contenido-card">
       <p [ngStyle]="{'text-align':'justify'}">
         Dependiendo del estado académico del estudiante pueden salir tres tipos de constancias:
       </p>
@@ -39,12 +43,15 @@
         <li>Del egresado</li>
         <li>Del estudiante</li>
         <li>Promocional</li>
-      </ol>
+      </ol> 
     </mat-card-content>
     <!-- Aquí en el Mat Card Actions se colocan todas las acciones que hagas con el card -->
     <mat-card-actions>
       <!-- Aquí un boton para abrir el dialogo de información del trámite -->
-      <button mat-stroked-button color="primary" (click)="openDialogTramiteConstanciaPromedio()">Seguir Leyendo...</button>
+      <div class="botones-final">
+        <button mat-stroked-button color="primary" (click)="openDialogTramiteConstanciaPromedio()">Seguir Leyendo...
+        </button>
+      </div>
     </mat-card-actions>
   </mat-card>
 
@@ -57,16 +64,20 @@
       <mat-card-subtitle>Adquiere tu constancia de estudios ya!</mat-card-subtitle>
     </mat-card-header>
     <img mat-card-image src= "https://image.freepik.com/vector-gratis/ilustracion-plana-personaje-que-trabaja-computadora-casa-prevencion-virus-corona_155707-26.jpg" alt="Photo of a Shiba Inu">
-    <mat-card-content>
+    <mat-card-content class="contenido-card">
       <p [ngStyle]="{'text-align':'justify'}">
         Este documento acredita que estás matriculado y estás cursando el periodo vigente o que estuviste cursando hasta un periodo académico determinado, mencionando las fechas de inicio y culminación de este periodo en nuestra Universidad.
       </p>
 
-    </mat-card-content>
+    </mat-card-content >
     <!-- Aquí en el Mat Card Actions se colocan todas las acciones que hagas con el card -->
     <mat-card-actions>
       <!-- Aquí un boton para abrir el dialogo de información del trámite -->
-      <button mat-stroked-button color="primary" (click)="openDialogTramiteConstanciaEstudios()">Seguir Leyendo...</button>
+      <div class="botones-final">
+        <button mat-stroked-button color="primary" (click)="openDialogTramiteConstanciaEstudios()">Seguir Leyendo...
+        </button>
+      </div>
+      
     </mat-card-actions>
   </mat-card>
 
@@ -79,7 +90,7 @@
       <mat-card-subtitle>Adquiere tu constancia de egresado</mat-card-subtitle>
     </mat-card-header>
     <img mat-card-image src= "https://lh3.googleusercontent.com/proxy/TK_eo3wzNH1GQ1BLrNJ0stdfkfQmxhPYBQkLExKr_4L_V7UdtonG_v5Wf_cQ0rLmGyq-zZkzYOc5mXM1u_o-oZaJAyEjwHSOOFpPuuP1gzVKLY5yVK7-klD9ECX1eO6cczv2ag" alt="Photo of a Shiba Inu">
-    <mat-card-content>
+    <mat-card-content class="contenido-card">
       <p [ngStyle]="{'text-align':'justify'}">
         Es el documento que acredita que el estudiante culminó sus estudios completos, el procedimiento solo se lleva a cabo para declarar al estudiante como egresado.
       </p>
@@ -88,7 +99,10 @@
     <!-- Aquí en el Mat Card Actions se colocan todas las acciones que hagas con el card -->
     <mat-card-actions>
       <!-- Aquí un boton para abrir el dialogo de información del trámite -->
-      <button mat-stroked-button color="primary" (click)="openDialogTramiteConstanciaEgresado()">Seguir Leyendo...</button>
+      <div class="botones-final">
+        <button mat-stroked-button color="primary" (click)="openDialogTramiteConstanciaEgresado()">Seguir Leyendo 
+        </button>
+      </div>
     </mat-card-actions>
   </mat-card>
 </div>
