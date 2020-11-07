@@ -7,28 +7,34 @@ import { SeguridadService } from '../../../service/seguridad.service';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  providers:[SeguridadService]
+  providers: [SeguridadService]
 })
 export class LoginComponent extends BaseComponent implements OnInit {
-  public typepassword:String="password";
-  public iconpassword:String ="visibility_off";
+  public typepassword: String = 'password';
+  public iconpassword: String = 'visibility_off';
   ruta_img_login: String;
-  flag=false;
-  dataLogin = {
-    c_username: "",
-    c_password: ""
-  };
-  resultado = {
-    expiration: "",
-    token: "",
-    cMensaje: "",
-    flag:false
-  };
-  isActive:boolean= true;
 
-  constructor(public _login_service: SeguridadService, public router: Router, public snackBar: MatSnackBar) { 
-    super(snackBar,router);
-    this.ruta_img_login = "assets/images/fondologin1.png";
+  flag = false;
+  dataLogin = {
+    c_username: '',
+    c_password: ''
+  };
+
+  resultado = {
+    expiration: '',
+    token: '',
+    cMensaje: '',
+    flag: false
+  };
+
+  isActive: boolean = true;
+
+  constructor(
+    public _login_service: SeguridadService,
+    public router: Router,
+    public snackBar: MatSnackBar) {
+    super(snackBar, router);
+    this.ruta_img_login = 'assets/images/fondologin1.png';
   }
 
   ngOnInit() {
@@ -42,7 +48,7 @@ export class LoginComponent extends BaseComponent implements OnInit {
         console.log(result);
         if (result.estado) {
           this.setToken(result);
-          this.router.navigate(['/estudiante']);
+          this.router.navigate(['/infotramite']);
           this.isLogin();
         } else {
           this.openSnackBar(result.mensaje, 99);
@@ -58,12 +64,12 @@ export class LoginComponent extends BaseComponent implements OnInit {
       });
   }
   changetipepassword(){
-    if(this.typepassword=="password"){
-      this.typepassword="text";
-      this.iconpassword="visibility";
-    }else{
-      this.typepassword="password";
-      this.iconpassword="visibility_off";
+    if (this.typepassword === 'password') {
+      this.typepassword = 'text';
+      this.iconpassword = 'visibility';
+    } else {
+      this.typepassword = 'password';
+      this.iconpassword = 'visibility_off';
     }
   }
 }

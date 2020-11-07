@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>Edición docente {{estudiante.nombres}}</h1>
+<h1 mat-dialog-title>Edición Estudiante {{estudiante.nombres}}</h1>
 <form class="example-container" #newForm="ngForm" (ngSubmit)="AlertaGuardadoElemento(newForm)">
   <div mat-dialog-content class="contenedor">
 
@@ -13,32 +13,12 @@
         [(ngModel)]="estudiante.apellidos" type='text' required/>
     </mat-form-field>
 
-    <table class="example-full-width" cellspacing="0"><tr>
-      <td>
-        <mat-form-field>
-          <mat-label>DNI</mat-label>
-          <input matInput #dni placeholder="Ex. 00000000" name="dni" #c_username="ngModel"
-            [(ngModel)]="estudiante.dni" type='number' required maxlength="8"/>
-            <mat-hint class="error" *ngIf="estudiante.dni.length > 8">El DNI tiene que ser igual a 8</mat-hint>
-            <mat-hint align="end">{{dni.value.length}} / 8</mat-hint>
-        </mat-form-field>
-    </td>
-    <td>
-      <mat-form-field class="example-full-width">
-        <mat-label>Teléfono</mat-label>
-        <span matPrefix>+51 &nbsp;</span>
-        <input type="number" matInput placeholder="555-555-1234" name="telefono" #c_username="ngModel"
-        [(ngModel)]="estudiante.telefono" required>
-        <mat-icon matSuffix>phone</mat-icon>
-      </mat-form-field>
-    </td>
-    </tr></table>
 
     <mat-form-field class="example-full-width">
-      <mat-label>Correo Electrónico</mat-label>
-      <input matInput placeholder="Ex. pat@example.com" name="correo" c_username="ngModel"
-      [(ngModel)]="estudiante.correo" required type="email">
-    </mat-form-field> 
+      <mat-label>Código</mat-label>
+      <input matInput placeholder="Ex. pat@example.com" name="codigo" c_username="ngModel"
+      [(ngModel)]="estudiante.codigo" required type="text">
+    </mat-form-field>
 
   </div>
   <div mat-dialog-actions>

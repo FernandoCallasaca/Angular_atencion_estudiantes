@@ -12,25 +12,25 @@ import { GeneralService } from '../../service/general.service'; // Aquí importa
 
 import { ResetearclaveComponent } from '../generico/resetarclave/resetarclave.component';
 import { ConfirmarComponent } from '../generico/confirmar/confirmar.component';
-import { EstudianteeditarComponent } from './../estudianteeditar/estudianteeditar.component';
+import { AdministradorEditarComponent } from './../administrador-editar/administrador-editar.component';
 
 @Component({
-  selector: 'app-estudiante',
-  templateUrl: './estudiante.component.html',
-  styleUrls: ['./estudiante.component.css'],
-  providers: [ GeneralService ] // En nuestro decorador agregamos nuestro servicio en el apartado de providers
+  selector: 'app-administrador',
+  templateUrl: './administrador.component.html',
+  styleUrls: ['./administrador.component.css'],
+  providers: [ GeneralService ]
 })
-export class EstudianteComponent extends BaseComponent implements OnInit {
+export class AdministradorComponent extends BaseComponent implements OnInit {
 
   // tslint:disable-next-line: ban-types
-  tit: String = 'Estudiante';
+  tit: String = 'Administrador';
 
   textfilter = '';
 
-  displayedColumns: string[] = ['editar', 'nombres', 'apellidos', 'codigo', 'usuario', 'eliminar'];
+  displayedColumns: string[] = ['editar', 'nombres', 'apellidos', 'direccion', 'rol', 'usuario', 'eliminar'];
 
 
-  public tablaEstudiante: MatTableDataSource < any > ;
+  public tablaAdministrador: MatTableDataSource < any > ;
   public confirmar: Confirmar;
 
   @ViewChild(MatPaginator, {
@@ -50,21 +50,21 @@ export class EstudianteComponent extends BaseComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.gettablaEstudiante();
+    this.gettablaAdministrador();
   }
 
-  gettablaEstudiante() {
+  gettablaAdministrador() {
     let request = {
     }
-    this._general_service.getEstudiante(this.getToken().token).subscribe(
+    this._general_service.getAdministrador(this.getToken().token).subscribe(
       result => {
         try {
           if (result.estado) {
-            console.log('Estudiantes');
+            console.log('Administrador');
             console.log(result.data);
-            this.tablaEstudiante = new MatTableDataSource < any > (result.data);
-            this.tablaEstudiante.sort = this.sort;
-            this.tablaEstudiante.paginator = this.paginator;
+            this.tablaAdministrador = new MatTableDataSource < any > (result.data);
+            this.tablaAdministrador.sort = this.sort;
+            this.tablaAdministrador.paginator = this.paginator;
           } else {
             this.openSnackBar(result.mensaje, 99);
           }
@@ -79,19 +79,19 @@ export class EstudianteComponent extends BaseComponent implements OnInit {
   }
 
   applyFilter(filterValue: String) {
-    this.tablaEstudiante.filter = filterValue.trim().toLowerCase();
+    this.tablaAdministrador.filter = filterValue.trim().toLowerCase();
   }
 
-  openDialog(estudiante): void {
-    const dialogRef = this.dialog.open(EstudianteeditarComponent, {
+  openDialog(administrador): void {
+    const dialogRef = this.dialog.open(AdministradorEditarComponent, {
       width: '750px',
       data: {
-        estudiante: estudiante
+        administrador: administrador
       }
     });
     dialogRef.afterClosed().subscribe(result => {
       try {
-        this.gettablaEstudiante();
+        this.gettablaAdministrador();
 
       } catch (error) {
         console.log(error);
@@ -99,17 +99,17 @@ export class EstudianteComponent extends BaseComponent implements OnInit {
     });
   }
 
-  eliminar(estudiante) {
-    if (confirm("Estar Seguro de eliminar al estudiante " + estudiante.nombres)) {
+  eliminar(administrador) {
+    if (confirm("Estar Seguro de eliminar al administrador " + administrador.nombres)) {
       console.log("Implement delete functionality here");
 
-      this._general_service.deleteEstudiante(estudiante, this.getToken().token).subscribe(
+      this._general_service.deleteAdministrador(administrador, this.getToken().token).subscribe(
         result => {
           try {
             if (result.estado) {
-              console.log("Se eliminó correctamente el estudiante");
-              this.gettablaEstudiante();
-              this.openSnackBar("Se eliminó correctamente el estudiante", 99);
+              console.log("Se eliminó correctamente el administrador");
+              this.gettablaAdministrador();
+              this.openSnackBar("Se eliminó correctamente el administrador", 99);
             } else {
               this.openSnackBar(result.mensaje, 99);
             }
@@ -126,5 +126,4 @@ export class EstudianteComponent extends BaseComponent implements OnInit {
         });
     }
   }
-
 }

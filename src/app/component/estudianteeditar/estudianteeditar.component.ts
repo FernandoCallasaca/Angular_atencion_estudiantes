@@ -37,11 +37,10 @@ export class EstudianteeditarComponent extends BaseComponent implements OnInit {
       this.editar = false;
       this.estudiante = {
         id_estudiante: 0,
+        id_usuario: 0,
         nombres: '',
         apellidos: '',
-        dni: '',
-        telefono: '',
-        correo: '',
+        codigo: '',
       };
       this.identidad = 0;
     } else {

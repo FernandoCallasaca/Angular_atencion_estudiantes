@@ -1,10 +1,9 @@
 export interface Estudiante {
     id_estudiante: number;
+    id_usuario: number;
     nombres: string;
     apellidos: string;
-    dni: string;
-    telefono: string;
-    correo: string;
+    codigo: string;
 }
 
 export interface EstudiantesEditar {

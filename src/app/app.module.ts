@@ -47,6 +47,13 @@ import { UsereditComponent } from './component/useredit/useredit.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { EstudianteComponent } from './component/estudiante/estudiante.component';
 import { EstudianteeditarComponent } from './component/estudianteeditar/estudianteeditar.component';
+import { InformacionTramiteComponent } from './component/informacion-tramite/informacion-tramite.component';
+import { TramitePracticasComponent } from './component/tramite-practicas/tramite-practicas.component';
+import { MenuPrincipalComponent } from './component/menu-principal/menu-principal.component';
+import { AdministradorComponent } from './component/administrador/administrador.component';
+import { AdministradorEditarComponent } from './component/administrador-editar/administrador-editar.component';
+import { UsuarioComponent } from './component/usuario/usuario.component';
+import { UsuarioEditarComponent } from './component/usuario-editar/usuario-editar.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +70,13 @@ import { EstudianteeditarComponent } from './component/estudianteeditar/estudian
     UsereditComponent,
     EstudianteComponent,
     EstudianteeditarComponent,
+    InformacionTramiteComponent,
+    TramitePracticasComponent,
+    MenuPrincipalComponent,
+    AdministradorComponent,
+    AdministradorEditarComponent,
+    UsuarioComponent,
+    UsuarioEditarComponent,
   ],
   imports: [
     FormsModule,
@@ -102,7 +116,9 @@ import { EstudianteeditarComponent } from './component/estudianteeditar/estudian
     SnackComponent,
     ResetearclaveComponent,
     UsereditComponent,
-    EstudianteeditarComponent
+    EstudianteeditarComponent,
+    AdministradorEditarComponent,
+    UsuarioEditarComponent
   ],
   providers: [appRoutingProviders, { provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]

@@ -28,7 +28,11 @@ export class MenuComponent extends BaseComponent implements OnInit {
       map(result => result.matches)
     );
 
-  constructor(private breakpointObserver: BreakpointObserver, public router: Router, public snackBar: MatSnackBar, public dialog: MatDialog) {
+  constructor(
+    private breakpointObserver: BreakpointObserver,
+    public router: Router,
+    public snackBar: MatSnackBar,
+    public dialog: MatDialog) {
     super(snackBar, router);
   }
 
