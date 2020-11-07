@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { InformacionTramiteComponent } from './informacion-tramite.component';
+import { CarnetUTramiteComponent } from './carnet-u-tramite.component';
 
-describe('InformacionTramiteComponent', () => {
-  let component: InformacionTramiteComponent;
-  let fixture: ComponentFixture<InformacionTramiteComponent>;
+describe('CarnetUTramiteComponent', () => {
+  let component: CarnetUTramiteComponent;
+  let fixture: ComponentFixture<CarnetUTramiteComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ InformacionTramiteComponent ]
+      declarations: [ CarnetUTramiteComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(InformacionTramiteComponent);
+    fixture = TestBed.createComponent(CarnetUTramiteComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

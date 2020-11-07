@@ -47,13 +47,16 @@ import { UsereditComponent } from './component/useredit/useredit.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { EstudianteComponent } from './component/estudiante/estudiante.component';
 import { EstudianteeditarComponent } from './component/estudianteeditar/estudianteeditar.component';
-import { InformacionTramiteComponent } from './component/informacion-tramite/informacion-tramite.component';
-import { TramitePracticasComponent } from './component/tramite-practicas/tramite-practicas.component';
 import { MenuPrincipalComponent } from './component/menu-principal/menu-principal.component';
 import { AdministradorComponent } from './component/administrador/administrador.component';
 import { AdministradorEditarComponent } from './component/administrador-editar/administrador-editar.component';
 import { UsuarioComponent } from './component/usuario/usuario.component';
 import { UsuarioEditarComponent } from './component/usuario-editar/usuario-editar.component';
+
+import { CarnetUInfoComponent } from './component//tramites/tramite-carnet-universitario/carnet-u-info/carnet-u-info.component';
+import { CarnetUTramiteComponent } from './component//tramites/tramite-carnet-universitario/carnet-u-tramite/carnet-u-tramite.component';
+import { ControlTramitesComponent } from './component/tramites/control-tramites/control-tramites.component';
+
 
 @NgModule({
   declarations: [
@@ -70,13 +73,14 @@ import { UsuarioEditarComponent } from './component/usuario-editar/usuario-edita
     UsereditComponent,
     EstudianteComponent,
     EstudianteeditarComponent,
-    InformacionTramiteComponent,
-    TramitePracticasComponent,
     MenuPrincipalComponent,
     AdministradorComponent,
     AdministradorEditarComponent,
     UsuarioComponent,
     UsuarioEditarComponent,
+    CarnetUInfoComponent,
+    CarnetUTramiteComponent,
+    ControlTramitesComponent,
   ],
   imports: [
     FormsModule,
@@ -112,13 +116,15 @@ import { UsuarioEditarComponent } from './component/usuario-editar/usuario-edita
       apiKey: 'AIzaSyDpcWweoH2IqPSGvBX91N46EsIdY-IfNiY'
     })
   ],
+  // Aquí manualmente copias el componente que termina en info ya que es un diálogo
   entryComponents:[
     SnackComponent,
     ResetearclaveComponent,
     UsereditComponent,
     EstudianteeditarComponent,
     AdministradorEditarComponent,
-    UsuarioEditarComponent
+    UsuarioEditarComponent,
+    CarnetUInfoComponent
   ],
   providers: [appRoutingProviders, { provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]

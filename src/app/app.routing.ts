@@ -1,6 +1,6 @@
-//Importar modulos de router de angular
+// Importar modulos de router de angular
 import {ModuleWithProviders} from '@angular/core';
-import {Routes,RouterModule} from '@angular/router';
+import {Routes, RouterModule} from '@angular/router';
 
 import { LoginComponent } from './component/seguridad/login/login.component';
 import { AppComponent } from './app.component';
@@ -11,11 +11,10 @@ import { EstudianteComponent } from './component/estudiante/estudiante.component
 import { AdministradorComponent } from './component/administrador/administrador.component';
 import { UsuarioComponent } from './component/usuario/usuario.component';
 
+import { ControlTramitesComponent } from './component/tramites/control-tramites/control-tramites.component';
 
-import { InformacionTramiteComponent } from './component/informacion-tramite/informacion-tramite.component';
-import { TramitePracticasComponent } from './component/tramite-practicas/tramite-practicas.component';
+import { CarnetUTramiteComponent } from './component/tramites/tramite-carnet-universitario/carnet-u-tramite/carnet-u-tramite.component';
 
-import { UserComponent } from './component/user/user.component';
 
 //Array de rutas
 const appRoutes:Routes=[
@@ -27,8 +26,10 @@ const appRoutes:Routes=[
     {path: 'estudiante', component: EstudianteComponent},
     {path: 'administrador', component: AdministradorComponent},
     {path: 'usuario', component: UsuarioComponent},
-    {path: 'infotramite', component: InformacionTramiteComponent},
-    {path: 'practicas', component: TramitePracticasComponent},
+    {path: 'infotramite', component: ControlTramitesComponent},
+
+    {path: 'carnetuniversitario', component: CarnetUTramiteComponent},
+
     {path: '**', component: LoginComponent}
 ]
 export const appRoutingProviders: any[] = [];
