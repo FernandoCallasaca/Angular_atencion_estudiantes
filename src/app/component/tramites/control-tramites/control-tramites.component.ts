@@ -17,7 +17,8 @@ import { ConstanciaPromedioInfoComponent } from './../../tramites/tramite-consta
   styleUrls: ['./control-tramites.component.css']
 })
 export class ControlTramitesComponent extends BaseComponent implements OnInit {
-  public mostrandoIf: boolean = false
+  public mostrandoIf: boolean = false;
+
   constructor(
     private breakpointObserver: BreakpointObserver,
     public router: Router,
@@ -96,21 +97,7 @@ export class ControlTramitesComponent extends BaseComponent implements OnInit {
       }
     });
   }
-  openDialogConsulta() {
-    const dialogRef = this.dialog.open(ConstanciaPromedioInfoComponent, {
-      width: '750px',
-      hasBackdrop: false,
-      disableClose: true
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      try {
-        // this.gettablaEstudiante();
-
-      } catch (error) {
-        console.log(error);
-      }
-    });  
-  }
+  
   mostrarElementoNgIf() {
     if (this.mostrandoIf) {
       this.mostrandoIf = false;
