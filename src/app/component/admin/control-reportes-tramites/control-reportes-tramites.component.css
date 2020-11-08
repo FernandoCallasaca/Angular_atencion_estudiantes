@@ -1,0 +1,14 @@
+table {
+  width: 100%;
+}
+
+.contenedorBody {
+margin: 1%;
+}
+
+.contenedor {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}

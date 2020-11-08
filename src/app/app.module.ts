@@ -66,6 +66,7 @@ import { ConstanciaPromedioInfoComponent } from './component/tramites/tramite-co
 import { DragGropFilesComponent } from './component/tramites/upload-files/drag-grop-files/drag-grop-files.component';
 import { ProgressComponent } from './component/tramites/upload-files/progress/progress.component';
 import { DndDirective } from './directivas/dnd.directive';
+import { ControlReportesTramitesComponent } from './component/admin/control-reportes-tramites/control-reportes-tramites.component';
 
 @NgModule({
   declarations: [
@@ -99,6 +100,7 @@ import { DndDirective } from './directivas/dnd.directive';
     DragGropFilesComponent,
     ProgressComponent,
     DndDirective,
+    ControlReportesTramitesComponent,
   ],
   imports: [
     FormsModule,

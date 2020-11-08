@@ -91,4 +91,20 @@ export class GeneralService {
       console.log(data)
       return this._http.post(this.url + 'general/saveusuario', data, { headers: reqHeader });
     }
+
+    getTipoTramite(token): Observable<any> {
+      var reqHeader = new HttpHeaders({
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + token
+      });
+      return this._http.post(this.url + 'general/gettipotramite', {}, { headers: reqHeader });
+    }
+
+    getVwTramites(request,token): Observable<any> {
+      var reqHeader = new HttpHeaders({
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + token
+      });
+      return this._http.post(this.url + 'general/getvwtramites', request, { headers: reqHeader });
+    }
 }
