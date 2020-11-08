@@ -12,3 +12,9 @@ margin: 1%;
   justify-content: space-around;
   flex-wrap: wrap;
 }
+mat-panel-title {
+  align-items: center;
+}
+mat-panel-description {
+  align-items: center;
+}

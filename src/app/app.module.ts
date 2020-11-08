@@ -67,6 +67,7 @@ import { DragGropFilesComponent } from './component/tramites/upload-files/drag-g
 import { ProgressComponent } from './component/tramites/upload-files/progress/progress.component';
 import { DndDirective } from './directivas/dnd.directive';
 import { ControlReportesTramitesComponent } from './component/admin/control-reportes-tramites/control-reportes-tramites.component';
+import { EstadoTramitesComponent } from './component/admin/estado-tramites/estado-tramites.component';
 
 @NgModule({
   declarations: [
@@ -101,6 +102,7 @@ import { ControlReportesTramitesComponent } from './component/admin/control-repo
     ProgressComponent,
     DndDirective,
     ControlReportesTramitesComponent,
+    EstadoTramitesComponent,
   ],
   imports: [
     FormsModule,

@@ -18,6 +18,7 @@ import { ConstanciaPromedioTramiteComponent } from './component/tramites/tramite
 import { ConstanciaEstudiosTramiteComponent } from './component/tramites/tramite-constancia-de-estudios/constancia-estudios-tramite/constancia-estudios-tramite.component';
 import { ConstanciaEgresadoTramiteComponent } from './component/tramites/tramite-constancia-de-egresado/constancia-egresado-tramite/constancia-egresado-tramite.component';
 import { ControlReportesTramitesComponent } from './component/admin/control-reportes-tramites/control-reportes-tramites.component';
+import { EstadoTramitesComponent } from './component/admin/estado-tramites/estado-tramites.component';
 
 //Array de rutas
 const appRoutes:Routes=[
@@ -33,9 +34,10 @@ const appRoutes:Routes=[
 
     {path: 'carnetuniversitario', component: CarnetUTramiteComponent},
     {path: 'constanciapromedio', component: ConstanciaPromedioTramiteComponent },
-    {path: 'constanciaestudios', component: ConstanciaEstudiosTramiteComponent  },
-    {path: 'constanciaegresado', component: ConstanciaEgresadoTramiteComponent  },
-    {path: 'reportestramites', component: ControlReportesTramitesComponent  },
+    {path: 'constanciaestudios', component: ConstanciaEstudiosTramiteComponent },
+    {path: 'constanciaegresado', component: ConstanciaEgresadoTramiteComponent },
+    {path: 'reportestramites', component: ControlReportesTramitesComponent },
+    {path: 'estadotramites', component: EstadoTramitesComponent },
     {path: '**', component: LoginComponent}
 ]
 export const appRoutingProviders: any[] = [];
