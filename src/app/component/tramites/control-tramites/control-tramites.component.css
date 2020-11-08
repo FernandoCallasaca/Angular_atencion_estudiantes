@@ -25,3 +25,8 @@
   bottom: 3%;
   right: 1%;
 }
+.boton-consultas{
+  position:fixed;
+  bottom:30px;
+  right:5px;
+}
