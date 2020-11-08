@@ -40,6 +40,9 @@
   </fieldset>
 
   <div class="datospeticion">
+    <div style="display: flex; justify-content: center; margin: 0px;">
+      <button (click)="openDialog()" style="margin-top: 10px; width:60%" mat-stroked-button color="primary">¿Qué documentos debo presentar?...</button>
+    </div>
     <app-drag-grop-files (eventoArchivos)="eventoArchivosRecibidos($event)" [files]="files"></app-drag-grop-files>
   </div>
 

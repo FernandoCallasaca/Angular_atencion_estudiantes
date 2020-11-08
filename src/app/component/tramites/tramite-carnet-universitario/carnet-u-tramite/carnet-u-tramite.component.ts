@@ -2,12 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'; // Para utilizar un formulario reactivo
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
+import { MatDialog } from '@angular/material';
 
 import { GeneralService } from './../../../../service/general.service';
 import { BaseComponent } from './../../../base/base.component';
 import { MatSnackBar } from '@angular/material';
 import { Router } from '@angular/router';
 import { AppSettings } from 'src/app/common/appsettings';
+
+import { CarnetUInfoComponent } from './../../../tramites/tramite-carnet-universitario/carnet-u-info/carnet-u-info.component';
 
 @Component({
   selector: 'app-carnet-u-tramite',
@@ -26,7 +29,8 @@ export class CarnetUTramiteComponent extends BaseComponent implements OnInit {
     public snackBar: MatSnackBar,
     public router: Router,
     private generalService: GeneralService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    public dialog: MatDialog
   ) {
     super(snackBar, router);
   }
@@ -40,5 +44,18 @@ export class CarnetUTramiteComponent extends BaseComponent implements OnInit {
     this.files = filesUpdate;
     console.log('Archivos Agregados');
     console.log(this.files);
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(CarnetUInfoComponent, {
+      width: '750px',
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      try {
+
+      } catch (error) {
+        console.log(error);
+      }
+    });
   }
 }
