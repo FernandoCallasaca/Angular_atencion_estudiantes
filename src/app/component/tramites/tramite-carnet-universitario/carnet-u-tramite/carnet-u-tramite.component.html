@@ -6,11 +6,11 @@
     <div class="contenedor">
       <div class="groupHeader">
         <span style="width: 30%">Fecha:</span>
-        <input type="text" matInput>
+        <input readonly style="text-align: center;" type="text" matInput value="{{fechaActualizada}}">
       </div>
       <div class="groupHeader">
-        <span style="width: 30%">Nro de Solicitud:</span>
-        <input type="text" matInput>
+        <span style="width: 100%">Nro de Solicitud:</span>
+        <input readonly style="text-align: center;" type="text" matInput value="0001">
       </div>
     </div>
   </div>
@@ -41,14 +41,14 @@
 
   <div class="datospeticion">
     <div style="display: flex; justify-content: center; margin: 0px;">
-      <button (click)="openDialog()" style="margin-top: 10px; width:60%" mat-stroked-button color="primary">¿Qué documentos debo presentar?...</button>
+      <button (click)="openDialog()" style="margin-top: 10px; width:60%" mat-stroked-button color="primary"><span style="text-align: center;">¿Qué documentos debo presentar?...</span></button>
     </div>
     <app-drag-grop-files (eventoArchivos)="eventoArchivosRecibidos($event)" [files]="files"></app-drag-grop-files>
   </div>
 
   <div class="contenedorBody" style="margin-bottom: 1%;">
     <div class="contenedor">
-      <button mat-raised-button color="accent">LIMPIAR</button>
+      <button mat-raised-button color="warn">LIMPIAR</button>
       <button mat-raised-button color="primary">ENVIAR</button>
     </div>
   </div>

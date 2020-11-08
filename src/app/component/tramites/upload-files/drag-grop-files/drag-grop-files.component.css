@@ -1,7 +1,7 @@
 .container {
   width: 75%;
   height: 20%;
-  padding: 2%;
+  padding: 0% 2% 3%;
   text-align: center;
   border: dashed 1px #979797;
   position: relative;

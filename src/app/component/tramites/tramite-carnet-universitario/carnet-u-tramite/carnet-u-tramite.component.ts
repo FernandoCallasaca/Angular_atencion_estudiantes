@@ -24,6 +24,8 @@ export class CarnetUTramiteComponent extends BaseComponent implements OnInit {
   // al componente drag-drop y así recibir los archivos agregados
   // cada vez que haya un cambios
   files = [];
+  fecha: Date;
+  fechaActualizada = '';
 
   constructor(
     public snackBar: MatSnackBar,
@@ -36,6 +38,9 @@ export class CarnetUTramiteComponent extends BaseComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.fecha = new Date();
+    console.log(this.fecha);
+    this.fechaActualizada = this.fecha.getDate() + ' / ' + (this.fecha.getMonth() + 1) + ' / ' + this.fecha.getFullYear();
   }
 
   // Creamos un método para recibir el evento de los archivos
