@@ -18,6 +18,8 @@ import { ConstanciaPromedioInfoComponent } from './../../tramites/tramite-consta
 })
 export class ControlTramitesComponent extends BaseComponent implements OnInit {
 
+  dialogOpen = false;
+
   constructor(
     private breakpointObserver: BreakpointObserver,
     public router: Router,
@@ -95,19 +97,27 @@ export class ControlTramitesComponent extends BaseComponent implements OnInit {
       }
     });
   }
-  openDialogConsulta() {
-    const dialogRef = this.dialog.open(ConstanciaPromedioInfoComponent, {
-      width: '750px',
-      hasBackdrop: false,
-      disableClose: true
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      try {
-        // this.gettablaEstudiante();
+  openDialogConsulta(openBool: boolean) {
+    console.log(openBool);
+    if (openBool === false) {
+      const dR = this.dialog;
+      dR.closeAll();
+      this.dialogOpen = openBool;
+    } else {
+      const dialogRef = this.dialog.open(ConstanciaPromedioInfoComponent, {
+        width: '750px',
+        hasBackdrop: false,
+        disableClose: false
+      });
+      dialogRef.afterClosed().subscribe(result => {
+        try {
+          // this.gettablaEstudiante();
 
-      } catch (error) {
-        console.log(error);
-      }
-    });
+        } catch (error) {
+          console.log(error);
+        }
+      });
+      this.dialogOpen = openBool;
+    }
   }
 }
