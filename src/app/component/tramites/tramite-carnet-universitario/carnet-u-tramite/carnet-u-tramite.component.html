@@ -2,7 +2,7 @@
 <form action="" style="margin: 0% 10%">
 
   <div class="contenedorBody">
-    <h2 class="h2">TRÁMITE UNIVERSITARIO</h2>
+    <h2 class="h2">TRÁMITE CARNET UNIVERSITARIO</h2>
     <div class="contenedor">
       <div class="groupHeader">
         <span style="width: 30%">Fecha:</span>
@@ -38,4 +38,15 @@
       <textarea rows="4" matInput placeholder="Mi petición se refiere a..."></textarea>
     </mat-form-field>
   </fieldset>
+
+  <div class="datospeticion">
+    <app-drag-grop-files (eventoArchivos)="eventoArchivosRecibidos($event)" [files]="files"></app-drag-grop-files>
+  </div>
+
+  <div class="contenedorBody" style="margin-bottom: 1%;">
+    <div class="contenedor">
+      <button mat-raised-button color="accent">LIMPIAR</button>
+      <button mat-raised-button color="primary">ENVIAR</button>
+    </div>
+  </div>
 </form>

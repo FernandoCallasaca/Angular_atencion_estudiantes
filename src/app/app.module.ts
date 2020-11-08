@@ -63,6 +63,9 @@ import { ConstanciaEstudiosTramiteComponent } from './component/tramites/tramite
 import { ConstanciaEstudiosInfoComponent } from './component/tramites/tramite-constancia-de-estudios/constancia-estudios-info/constancia-estudios-info.component';
 import { ConstanciaPromedioTramiteComponent } from './component/tramites/tramite-constancia-de-promedio/constancia-promedio-tramite/constancia-promedio-tramite.component';
 import { ConstanciaPromedioInfoComponent } from './component/tramites/tramite-constancia-de-promedio/constancia-promedio-info/constancia-promedio-info.component';
+import { DragGropFilesComponent } from './component/tramites/upload-files/drag-grop-files/drag-grop-files.component';
+import { ProgressComponent } from './component/tramites/upload-files/progress/progress.component';
+import { DndDirective } from './directivas/dnd.directive';
 
 @NgModule({
   declarations: [
@@ -93,6 +96,9 @@ import { ConstanciaPromedioInfoComponent } from './component/tramites/tramite-co
     ConstanciaEstudiosInfoComponent,
     ConstanciaPromedioTramiteComponent,
     ConstanciaPromedioInfoComponent,
+    DragGropFilesComponent,
+    ProgressComponent,
+    DndDirective,
   ],
   imports: [
     FormsModule,

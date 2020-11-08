@@ -17,6 +17,11 @@ import { AppSettings } from 'src/app/common/appsettings';
 })
 export class CarnetUTramiteComponent extends BaseComponent implements OnInit {
 
+  // Creamos un arreglo para enviarlo como output
+  // al componente drag-drop y así recibir los archivos agregados
+  // cada vez que haya un cambios
+  files = [];
+
   constructor(
     public snackBar: MatSnackBar,
     public router: Router,
@@ -29,4 +34,11 @@ export class CarnetUTramiteComponent extends BaseComponent implements OnInit {
   ngOnInit() {
   }
 
+  // Creamos un método para recibir el evento de los archivos
+  // Posteriormente a ello actualizamos nuestro arreglo files
+  eventoArchivosRecibidos(filesUpdate: any) {
+    this.files = filesUpdate;
+    console.log('Archivos Agregados');
+    console.log(this.files);
+  }
 }
