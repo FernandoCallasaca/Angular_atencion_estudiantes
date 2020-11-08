@@ -1,3 +1,53 @@
+.contenedorBody {
+  margin: 0% 10%;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+.h2 {
+  color: #161936;
+}
 .contenedor {
-  margin: 5%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  border: 1.5px solid #7c8393;
+  padding: 7px 0px;
+  width: 100%
+}
+.groupHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 5px;
+  width: 42%;
+}
+input {
+  border-radius: 3px;
+  border-style: solid;
+  border-color:#cdc9c9;
+  padding: 6px;
+}
+input:hover {
+  border-color: #474f94;
+}
+span {
+  font-size: 15px;
+  text-align: center;
+}
+
+.datosinteresado {
+  margin: 2% 4%;
+  border: 1.5px solid  #7c8393;
+}
+.groupHeader-datos {
+  display: flex;
+  justify-content:space-between;
+  width: 90%;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 8px 3px;
+}
+.datospeticion {
+  margin: 2% 4%;
+  border: 1.5px solid  #7c8393;
 }

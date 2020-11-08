@@ -1,5 +1,41 @@
 <app-menu-principal></app-menu-principal>
-<div class="contenedor">
-  <h2>TRÁMITE UNIVERSITARIO</h2>
-  <p>Leti... Aquí haces el formulario :)</p>
-</div>
+<form action="" style="margin: 0% 10%">
+
+  <div class="contenedorBody">
+    <h2 class="h2">TRÁMITE UNIVERSITARIO</h2>
+    <div class="contenedor">
+      <div class="groupHeader">
+        <span style="width: 30%">Fecha:</span>
+        <input type="text" matInput>
+      </div>
+      <div class="groupHeader">
+        <span style="width: 30%">Nro de Solicitud:</span>
+        <input type="text" matInput>
+      </div>
+    </div>
+  </div>
+
+  <fieldset class="datosinteresado">
+    <legend class="h2">DATOS DEL INTERESADO</legend>
+    <div class="groupHeader-datos">
+      <span style="width: 30%" >Código:</span>
+      <input checked focus style="width: 32%;" type="text" matInput>
+    </div>
+    <div class="groupHeader-datos">
+      <span style="width: 30%">Nombres:</span>
+      <input style="width: 64%;" type="text" matInput>
+    </div>
+    <div class="groupHeader-datos">
+      <span style="width: 30%">Apellidos:</span>
+      <input style="width: 64%;" type="text" matInput>
+    </div>
+  </fieldset>
+
+  <fieldset class="datospeticion">
+    <legend class="h2">DATOS DEL PETICIÓN</legend>
+    <mat-form-field style="width:100%" class="example-full-width">
+      <mat-label>Indique a dónde se remitirá su documento y aclare aquí brevemente su petición</mat-label>
+      <textarea rows="4" matInput placeholder="Mi petición se refiere a..."></textarea>
+    </mat-form-field>
+  </fieldset>
+</form>
