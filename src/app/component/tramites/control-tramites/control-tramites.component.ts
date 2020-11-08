@@ -17,12 +17,13 @@ import { ConstanciaPromedioInfoComponent } from './../../tramites/tramite-consta
   styleUrls: ['./control-tramites.component.css']
 })
 export class ControlTramitesComponent extends BaseComponent implements OnInit {
-
+  public mostrandoIf: boolean = false
   constructor(
     private breakpointObserver: BreakpointObserver,
     public router: Router,
     public snackBar: MatSnackBar,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    
   ) {
     super(snackBar, router);
   }
@@ -108,6 +109,15 @@ export class ControlTramitesComponent extends BaseComponent implements OnInit {
       } catch (error) {
         console.log(error);
       }
-    });
+    });  
+  }
+  mostrarElementoNgIf() {
+    if (this.mostrandoIf) {
+      this.mostrandoIf = false;
+      console.log(this.mostrandoIf);
+    } else {
+      this.mostrandoIf = true;
+      console.log(this.mostrandoIf);
+    }
   }
 }

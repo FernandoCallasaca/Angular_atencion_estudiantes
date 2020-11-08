@@ -87,7 +87,7 @@
       <mat-card-title>Constancia De Egresado</mat-card-title>
       <mat-card-subtitle>Adquiere tu constancia de egresado</mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image src= "https://lh3.googleusercontent.com/proxy/TK_eo3wzNH1GQ1BLrNJ0stdfkfQmxhPYBQkLExKr_4L_V7UdtonG_v5Wf_cQ0rLmGyq-zZkzYOc5mXM1u_o-oZaJAyEjwHSOOFpPuuP1gzVKLY5yVK7-klD9ECX1eO6cczv2ag" alt="Photo of a Shiba Inu">
+    <img mat-card-image src= "https://lh3.googleusercontent.com/proxy/ENigC4Ic3VdUPCBw-05ACkrELspjWDAH5oO6_kJYkiD8BE7_VFiDNDmZ4jijmT2harZWKMMvPFQGCUDd3GLOcULAeXw1A44WI_4qRoPd-LC0W00SaPi2m8MylkMKabzlSNNJ2w" alt="Photo of a Shiba Inu">
     <mat-card-content class="contenido-card">
       <p [ngStyle]="{'text-align':'justify'}">
         Es el documento que acredita que el estudiante culminó sus estudios completos, el procedimiento solo se lleva a cabo para declarar al estudiante como egresado.
@@ -106,11 +106,24 @@
 
   <mat-card-actions>
     <div class="boton-consultas">
-      <button (click)="openDialogConsulta()" mat-mini-fab color="warn" aria-label="Example icon button with a filter list icon">
+      <button (click)="mostrarElementoNgIf()" mat-mini-fab color="warn">
         <mat-icon>forward_to_inbox</mat-icon>
       </button>
     </div>
   </mat-card-actions>
+
+
+  <mat-card *ngIf="mostrandoIf" class="example-card space-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>Constancia De Egresado</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="contenido-card">
+      <p [ngStyle]="{'text-align':'justify'}">
+        Es el documento que acredita que el estudiante culminó sus estudios completos, el procedimiento solo se lleva a cabo para declarar al estudiante como egresado.
+      </p>
+    </mat-card-content>
+  </mat-card>
 
 </div>
 
