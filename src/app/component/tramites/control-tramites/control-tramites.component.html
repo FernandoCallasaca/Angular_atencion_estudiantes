@@ -61,7 +61,7 @@
       <mat-card-title>Constancia De Estudios</mat-card-title>
       <mat-card-subtitle>Adquiere tu constancia de estudios ya!</mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image src= "https://image.freepik.com/vector-gratis/ilustracion-plana-personaje-que-trabaja-computadora-casa-prevencion-virus-corona_155707-26.jpg" alt="Photo of a Shiba Inu">
+    <img mat-card-image src= "https://lh3.googleusercontent.com/proxy/6pc0AuNlc6oe9p9Ubk7w2_AywzUvMf2bT2bebhXZCBx45v4IhOlQIeDhaANzZgx9PLzEK_tenUs01YS37b6MgrWokW7W3BA5Xdwnb9_dqH0gLw8k4iECLoDcCsvgNW9C" alt="Constancia De Estudios">
     <mat-card-content class="contenido-card">
       <p [ngStyle]="{'text-align':'justify'}">
         Este documento acredita que estás matriculado y estás cursando el periodo vigente o que estuviste cursando hasta un periodo académico determinado, mencionando las fechas de inicio y culminación de este periodo en nuestra Universidad.
@@ -87,7 +87,7 @@
       <mat-card-title>Constancia De Egresado</mat-card-title>
       <mat-card-subtitle>Adquiere tu constancia de egresado</mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image src= "https://lh3.googleusercontent.com/proxy/ENigC4Ic3VdUPCBw-05ACkrELspjWDAH5oO6_kJYkiD8BE7_VFiDNDmZ4jijmT2harZWKMMvPFQGCUDd3GLOcULAeXw1A44WI_4qRoPd-LC0W00SaPi2m8MylkMKabzlSNNJ2w" alt="Photo of a Shiba Inu">
+    <img mat-card-image src= "https://i.pinimg.com/736x/45/dc/28/45dc28891df7f8f12a07ab7f486b1537.jpg" alt="Constancia de egresado">
     <mat-card-content class="contenido-card">
       <p [ngStyle]="{'text-align':'justify'}">
         Es el documento que acredita que el estudiante culminó sus estudios completos, el procedimiento solo se lleva a cabo para declarar al estudiante como egresado.
@@ -113,15 +113,24 @@
   </mat-card-actions>
 
 
-  <mat-card *ngIf="mostrandoIf" class="example-card space-card">
+  <mat-card *ngIf="mostrandoIf" class="card-consultas">
     <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>Constancia De Egresado</mat-card-title>
+      <div mat-card-avatar class="header-image-consultas"></div>
+      <mat-card-title>Bienvenido a la consulta de tramites!!</mat-card-title>
+      <mat-card-subtitle>En que podemos ayudarte?</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content class="contenido-card">
-      <p [ngStyle]="{'text-align':'justify'}">
-        Es el documento que acredita que el estudiante culminó sus estudios completos, el procedimiento solo se lleva a cabo para declarar al estudiante como egresado.
-      </p>
+      <mat-form-field class="input-consulta" >
+        <mat-label>Asunto:</mat-label>
+        <textarea matInput placeholder="Ex. Requisitos del tramite..."></textarea>
+        <mat-icon matSuffix>mode_edit</mat-icon>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="input-consulta">
+        <mat-label>Mensaje:</mat-label>
+        <textarea matInput placeholder="Ex. Cuales son los requisitos..."></textarea>
+        <mat-icon matSuffix>mode_edit</mat-icon>
+      </mat-form-field>
     </mat-card-content>
   </mat-card>
 

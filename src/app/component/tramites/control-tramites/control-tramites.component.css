@@ -6,7 +6,10 @@
   background-image: url('https://image.freepik.com/iconos-gratis/persona-importante_318-10744.jpg');
   background-size: cover;
 }
-
+.header-image-consultas{
+  background-image: url('https://image.freepik.com/vector-gratis/dibujos-animados-perfil-mujer_18591-58478.jpg');
+  background-size: contain;
+}
 .contenedor {
   display: flex;
   flex-wrap: wrap;
@@ -29,4 +32,13 @@
   position: fixed;
   bottom: 30px;
   right: 5px;
+}
+.card-consultas{
+  position: fixed;
+  width: 380px;
+  bottom: 30px;
+  right: 50px;
+}
+.input-consulta{
+  width: 100%;
 }
