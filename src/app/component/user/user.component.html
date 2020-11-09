@@ -20,13 +20,13 @@
           </ng-container>
           <ng-container matColumnDef="username">
             <th mat-header-cell *matHeaderCellDef color="error"> Username </th>
-            <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
           </ng-container>
           <ng-container matColumnDef="password">
             <th mat-header-cell *matHeaderCellDef color="error"> Password </th>
-            <td mat-cell *matCellDef="let element"> {{element.password}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.contrasenia}} </td>
           </ng-container>
-          
+
           <!-- Button Eliminar -->
           <ng-container matColumnDef="eliminar">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Eliminar </th>
@@ -39,11 +39,11 @@
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <ng-template let-row matRowDef cdkVirtualFor [matRowDefColumns]="displayedColumns">
             <tr mat-row></tr>
-  
+
           </ng-template>
-  
+
         </table>
-  
+
         <mat-paginator [pageSizeOptions]="pagin" showFirstLastButtons></mat-paginator>
       </mat-card>
     </div>

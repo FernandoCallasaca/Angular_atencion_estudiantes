@@ -39,7 +39,7 @@ import {
 export class UsereditComponent extends BaseComponent implements OnInit {
 
   hide = true;
-  
+
   usuarios = [];
 
   usuario: Usuarios;
@@ -61,8 +61,8 @@ export class UsereditComponent extends BaseComponent implements OnInit {
       this.editar = false;
       this.usuario = {
         id_usuario: 0,
-        username: '',
-        password: ''
+        nombre: '',
+        contrasenia: ''
       };
       this.identidad = 0;
     } else {

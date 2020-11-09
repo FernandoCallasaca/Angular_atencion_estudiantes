@@ -23,8 +23,7 @@ export class ControlTramitesComponent extends BaseComponent implements OnInit {
     private breakpointObserver: BreakpointObserver,
     public router: Router,
     public snackBar: MatSnackBar,
-    public dialog: MatDialog,
-    
+    public dialog: MatDialog
   ) {
     super(snackBar, router);
   }
@@ -97,7 +96,7 @@ export class ControlTramitesComponent extends BaseComponent implements OnInit {
       }
     });
   }
-  
+
   mostrarElementoNgIf() {
     if (this.mostrandoIf) {
       this.mostrandoIf = false;

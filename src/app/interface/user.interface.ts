@@ -1,7 +1,7 @@
 export interface Usuarios {
     id_usuario: number;
-    username: string;
-    password: string;
+    nombre: string;
+    contrasenia: string;
 }
 
 export interface UsuariosEditar{

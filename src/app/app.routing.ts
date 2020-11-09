@@ -9,7 +9,7 @@ import { ResumenComponent} from './component/general/resumen/resumen.component';
 
 import { EstudianteComponent } from './component/estudiante/estudiante.component';
 import { AdministradorComponent } from './component/administrador/administrador.component';
-import { UsuarioComponent } from './component/usuario/usuario.component';
+import { UserComponent } from './component/user/user.component';
 
 import { ControlTramitesComponent } from './component/tramites/control-tramites/control-tramites.component';
 
@@ -29,7 +29,7 @@ const appRoutes:Routes=[
     {path:'app',component:AppComponent},
     {path: 'estudiante', component: EstudianteComponent},
     {path: 'administrador', component: AdministradorComponent},
-    {path: 'usuario', component: UsuarioComponent},
+    {path: 'usuario', component: UserComponent},
     {path: 'infotramite', component: ControlTramitesComponent},
 
     {path: 'carnetuniversitario', component: CarnetUTramiteComponent},

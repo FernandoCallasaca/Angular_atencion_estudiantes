@@ -51,8 +51,6 @@ import { EstudianteeditarComponent } from './component/estudianteeditar/estudian
 import { MenuPrincipalComponent } from './component/menu-principal/menu-principal.component';
 import { AdministradorComponent } from './component/administrador/administrador.component';
 import { AdministradorEditarComponent } from './component/administrador-editar/administrador-editar.component';
-import { UsuarioComponent } from './component/usuario/usuario.component';
-import { UsuarioEditarComponent } from './component/usuario-editar/usuario-editar.component';
 
 import { CarnetUInfoComponent } from './component//tramites/tramite-carnet-universitario/carnet-u-info/carnet-u-info.component';
 import { CarnetUTramiteComponent } from './component//tramites/tramite-carnet-universitario/carnet-u-tramite/carnet-u-tramite.component';
@@ -87,8 +85,6 @@ import { EstadoTramitesComponent } from './component/admin/estado-tramites/estad
     MenuPrincipalComponent,
     AdministradorComponent,
     AdministradorEditarComponent,
-    UsuarioComponent,
-    UsuarioEditarComponent,
     CarnetUInfoComponent,
     CarnetUTramiteComponent,
     ControlTramitesComponent,
@@ -146,7 +142,6 @@ import { EstadoTramitesComponent } from './component/admin/estado-tramites/estad
     UsereditComponent,
     EstudianteeditarComponent,
     AdministradorEditarComponent,
-    UsuarioEditarComponent,
     CarnetUInfoComponent,
     ConstanciaEgresadoInfoComponent,
     ConstanciaEstudiosInfoComponent,
