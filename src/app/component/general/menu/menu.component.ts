@@ -31,10 +31,6 @@ export class MenuComponent extends BaseComponent implements OnInit {
 
   public tramitedocumentario: boolean = false;
   public estadotramites: boolean = false;
-  // public administracion_proyecto: boolean = false;
-  // public mapa: boolean = false;
-  // public proyecto_fase: boolean = false;
-  // public dashboar: boolean = false;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
