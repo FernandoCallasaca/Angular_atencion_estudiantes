@@ -42,3 +42,7 @@
 .input-consulta{
   width: 100%;
 }
+.boton-interno{
+  position: relative;
+  left: 40%;
+}
