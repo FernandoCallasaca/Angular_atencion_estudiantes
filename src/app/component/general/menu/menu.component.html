@@ -12,16 +12,19 @@
               <mat-icon>people_alt</mat-icon>
               <span>Administradores</span>
           </a>
-          <a mat-list-item [routerLink]="['/estudiante']">
+          <a mat-list-item [routerLink]="['/estudiante']" *ngIf="estudiantes">
               <mat-icon>sentiment_very_satisfied</mat-icon>
               <span>Estudiantes</span>
           </a>
-          <br>
-          <a mat-list-item [routerLink]="['/reportestramites']">
+          <a mat-list-item [routerLink]="['/reportestramites']" *ngIf="reportetramites">
               <mat-icon>recent_actors</mat-icon>
               <span>Trámites - Estudiantes</span>
           </a>
-          <a mat-list-item [routerLink]="['/estadotramites']">
+          <a mat-list-item [routerLink]="['/infotramite']" *ngIf="tramitedocumentario">
+              <mat-icon>recent_actors</mat-icon>
+              <span>Trámites Documentarios</span>
+          </a>
+          <a mat-list-item [routerLink]="['/estadotramites']" *ngIf="estadotramites">
               <mat-icon>fact_check</mat-icon>
               <span>Estado Trámites</span>
           </a>
