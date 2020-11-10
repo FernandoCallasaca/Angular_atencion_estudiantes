@@ -1,1 +1,65 @@
-<p>reinicio-estudios-info works!</p>
+<h1 mat-dialog-title>TRÁMITE DE REINICIO DE ESTUDIOS</h1>
+<hr/>
+<mat-dialog-content class="mat-typography">
+  <p>
+    Los estudiantes que deseen solicitar reinicio de estudios, deben seguir los siguientes pasos:
+  </p>
+    <p><strong>Paso 1.</strong> Realizar los siguientes pagos:</p>
+    <table class="tablita">
+        <tr>
+          <th>Concepto</th>   
+          <th>Codigo</th>  
+          <th>Monto</th> 
+        </tr> 
+        <tr>
+            <td>Trámite administrativo</td>   
+            <td>C11060001</td>  
+            <td>S/. 13.00</td>
+        </tr>
+        <tr>
+            <td>Constancia de no deudor </td>   
+            <td>C43080001 </td>  
+            <td>S/. 29.00</td>
+        </tr>
+      </table>
+    <ul>
+        <li>En cualquier agencia de Caja Municipal Cusco, Credinka ó mediante el servicio de pagos
+            virtuales (Leer instructivo: https://www.uandina.edu.pe/index.php/pagos-virtuales/).
+            </li>
+    </ul>
+
+     <p><strong>Paso 2.</strong>  Enviar un mensaje DESDE EL CORREO INSTITUCIONAL DEL ESTUDIANTE al correo
+        vracuac@uandina.edu.pe , con los siguientes datos:</p>
+<ul>
+     <strong><li>En Asunto:</li></strong>
+        <ul>
+            <li>Solicito reinicio de estudios.</li>
+        </ul> 
+    <strong><li>En El Cuerpo:</li></strong>
+    <ul>
+        <li>Código de estudiante.</li>
+        <li>Apellidos y Nombres.</li>
+        <li>Escuela Profesional.</li>
+        <li>Número de celular.</li>
+        <li>Adjuntar váucher de pago de Trámite Administrativo escaneado o fotografiado.</li>
+        <li>Adjuntar váucher de pago Constancia de no deudor escaneado o fotografiado.</li>
+        <li>Adjuntar DNI escaneado o fotografiado.</li>
+    </ul>  
+</ul>
+<strong><p>Nota:</p></strong> 
+<ul>
+    <li>El estudiante está exento de pagar por reinicio de estudios, más no por el trámite que este
+        implica.</li>
+    <li>El estudiante debe estar atento al correo electrónico o celular por si hubiera alguna
+        observación en el trámite.</li>
+    <li>Fechas de solicitud de reinicio de estudios del 17/07/2020 al 12/08/2020.</li>
+    <li>Deberá realizar la solicitud desde su correo institucional caso contrario su petición no será
+        atendida.</li>
+    <li>Si tienes problemas para acceder a tu cuenta, revisa el siguiente link:
+        https://www.uandina.edu.pe/index.php/direccion-tecnologias-informacion/</li>
+</ul>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-stroked-button color="accent" (click)="openReinicioEstudios()">REALIZAR TRÁMITE</button>
+</mat-dialog-actions>

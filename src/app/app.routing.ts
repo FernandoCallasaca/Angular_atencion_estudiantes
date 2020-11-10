@@ -16,6 +16,7 @@ import { ControlTramitesComponent } from './component/tramites/control-tramites/
 import { CursosEquivalentesTramiteComponent } from './component/tramites/tramite-cursos-equivalentes/cursos-equivalentes-tramite/cursos-equivalentes-tramite.component';
 import { CambioHorarioTramiteComponent } from './component/tramites/tramite-cambio-de-horario/cambio-horario-tramite/cambio-horario-tramite.component';
 import { MatriculaTramiteComponent } from './component/tramites/tramite-de-matricula/matricula-tramite/matricula-tramite.component';
+import { ReinicioEstudiosTramiteComponent } from './component/tramites/tramite-reinicio-de-estudios/reinicio-estudios-tramite/reinicio-estudios-tramite.component';
 import { OtrosTramitesTramiteComponent } from './component/tramites/otros-tramites/otros-tramites-tramite/otros-tramites-tramite.component';
 
 import { CarnetUTramiteComponent } from './component/tramites/tramite-carnet-universitario/carnet-u-tramite/carnet-u-tramite.component';
@@ -39,6 +40,7 @@ const appRoutes:Routes=[
 
     {path: 'cursosequivalentes', component: CursosEquivalentesTramiteComponent},
     {path: 'matricula', component: MatriculaTramiteComponent },
+    {path: 'reinicioestudios', component: ReinicioEstudiosTramiteComponent },
     {path: 'cambiohorario', component: CambioHorarioTramiteComponent},
     {path: 'otrostramites', component: OtrosTramitesTramiteComponent},
     

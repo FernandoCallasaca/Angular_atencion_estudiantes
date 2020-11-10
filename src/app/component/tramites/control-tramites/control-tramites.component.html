@@ -10,8 +10,11 @@
     <img mat-card-image src="https://static.vecteezy.com/system/resources/previews/001/059/987/non_2x/businessman-presenting-analytical-results-concept-illustration-vector.jpg" alt="Cursos Equivalentes">
     <mat-card-content class="contenido-card">
       <p [ngStyle]="{'text-align':'justify'}">
-        Los cursos equivalentes...
+        Para poder matricularte a una carrera externa a la tuya, deberas hacer la siguiente solicitud:
       </p>
+      <ul>
+        <li>Solicitudes de matrícula, por equivalencias, en otra Escuela Profesional de la FIA.</li>
+      </ul>
     </mat-card-content >
     <!-- Aquí en el Mat Card Actions se colocan todas las acciones que hagas con el card -->
     <mat-card-actions>
@@ -56,8 +59,13 @@
     <img mat-card-image src="https://image.freepik.com/vector-gratis/ilustracion-vector-concepto-evaluacion-empleado_107173-16694.jpg" alt="Tramite de matricula">
     <mat-card-content class="contenido-card">
       <p [ngStyle]="{'text-align':'justify'}">
-          El tramite de matricula...
+          Para poder realizar la matricula de un alumno de la universidad, se podran realizar diferentes tipos de matriculas. Como son:
       </p>
+      <ol>
+        <li>Solicitudes de matrícula hasta 26 créditos, cursos paralelos y cruce de horarios.</li>
+        <li>Solicitudes Curso Dirigido.</li>
+        <li>Otras Solicitudes con respecto a matriculas.   </li>
+      </ol>
     </mat-card-content >
     <!-- Aquí en el Mat Card Actions se colocan todas las acciones que hagas con el card -->
     <mat-card-actions>
@@ -79,14 +87,19 @@
     <img mat-card-image src="https://www.viabcp.com/wcm/connect/95fdc130-c4c8-4170-abaa-203b12258dd1/480x290.png?MOD=AJPERES&CACHEID=ROOTWORKSPACE-95fdc130-c4c8-4170-abaa-203b12258dd1-niZ2Ma6" alt="Tramite de matricula">
     <mat-card-content class="contenido-card">
       <p [ngStyle]="{'text-align':'justify'}">
-          El tramite de reinicio de estudios...
+        Para solicitar reinicio de estudios para estudiantes que han sido separados por bajo rendimiento academico. se deben seguir los siguientes pasos:
+
       </p>
+      <ol>
+        <li>Realizar pagos que se detallaran a continuacion.</li>
+        <li>Enviar un mensaje desde el correo institucional del estudiante.</li>
+      </ol>
     </mat-card-content >
     <!-- Aquí en el Mat Card Actions se colocan todas las acciones que hagas con el card -->
     <mat-card-actions>
       <!-- Aquí un boton para abrir el dialogo de información del trámite -->
       <div class="botones-final">
-        <button mat-stroked-button color="primary" (click)="openDialogTramiteMatricula()">Seguir Leyendo...
+        <button mat-stroked-button color="primary" (click)="openDialogTramiteReinicioEstudios()">Seguir Leyendo...
         </button>
       </div>
     </mat-card-actions>
