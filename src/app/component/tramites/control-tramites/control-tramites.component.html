@@ -1,229 +1,231 @@
-<app-menu-principal></app-menu-principal>
-<div class="contenedor">
-  <!-- Card del Trámite de Cursos Equivalentes -->
-  <mat-card class="example-card space-card">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>Cursos Equivalentes</mat-card-title>
-      <mat-card-subtitle>Envia tu solicitud para Cursos Equivalentes</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src="https://static.vecteezy.com/system/resources/previews/001/059/987/non_2x/businessman-presenting-analytical-results-concept-illustration-vector.jpg" alt="Cursos Equivalentes">
-    <mat-card-content class="contenido-card">
-      <p [ngStyle]="{'text-align':'justify'}">
-        Los cursos equivalentes...
-      </p>
-    </mat-card-content >
-    <!-- Aquí en el Mat Card Actions se colocan todas las acciones que hagas con el card -->
+<app-menu>
+
+  <div class="contenedor">
+    <!-- Card del Trámite de Cursos Equivalentes -->
+    <mat-card class="example-card space-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>Cursos Equivalentes</mat-card-title>
+        <mat-card-subtitle>Envia tu solicitud para Cursos Equivalentes</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="https://static.vecteezy.com/system/resources/previews/001/059/987/non_2x/businessman-presenting-analytical-results-concept-illustration-vector.jpg" alt="Cursos Equivalentes">
+      <mat-card-content class="contenido-card">
+        <p [ngStyle]="{'text-align':'justify'}">
+          Los cursos equivalentes...
+        </p>
+      </mat-card-content >
+      <!-- Aquí en el Mat Card Actions se colocan todas las acciones que hagas con el card -->
+      <mat-card-actions>
+        <!-- Aquí un boton para abrir el dialogo de información del trámite -->
+        <div class="botones-final">
+          <button mat-stroked-button color="primary" (click)="openDialogTramiteCursosEquivalentes()">Seguir Leyendo...
+          </button>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+
+    <!-- Card del Trámite de Cambio de Horario -->
+    <mat-card class="example-card space-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>Cambio de Horario</mat-card-title>
+        <mat-card-subtitle>Envia tu solicitud para Cambio de Horario</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="https://image.freepik.com/vector-gratis/concepto-ilustracion-recordatorio-agenda-planificacion-empresarial-grupo-empleados-felices-escribir-horario-notas-adhesivas_78434-55.jpg" alt="Cambio de Horario">
+      <mat-card-content class="contenido-card">
+        <p [ngStyle]="{'text-align':'justify'}">
+          El cambio de horario...
+        </p>
+      </mat-card-content >
+      <!-- Aquí en el Mat Card Actions se colocan todas las acciones que hagas con el card -->
+      <mat-card-actions>
+        <!-- Aquí un boton para abrir el dialogo de información del trámite -->
+        <div class="botones-final">
+          <button mat-stroked-button color="primary" (click)="openDialogTramiteCambioHorario()">Seguir Leyendo...
+          </button>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+
+    <!-- Card del Trámite de Matricula -->
+    <mat-card class="example-card space-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>Tramite de Matricula</mat-card-title>
+        <mat-card-subtitle>Envia tu solicitud para Tramite de Matricula</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="https://image.freepik.com/vector-gratis/ilustracion-vector-concepto-evaluacion-empleado_107173-16694.jpg" alt="Tramite de matricula">
+      <mat-card-content class="contenido-card">
+        <p [ngStyle]="{'text-align':'justify'}">
+            El tramite de matricula...
+        </p>
+      </mat-card-content >
+      <!-- Aquí en el Mat Card Actions se colocan todas las acciones que hagas con el card -->
+      <mat-card-actions>
+        <!-- Aquí un boton para abrir el dialogo de información del trámite -->
+        <div class="botones-final">
+          <button mat-stroked-button color="primary" (click)="openDialogTramiteMatricula()">Seguir Leyendo...
+          </button>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+
+    <!-- Card del Trámite Carnet Universitario -->
+    <mat-card class="example-card space-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>Carnet Universitario</mat-card-title>
+        <mat-card-subtitle>El carnet en tus manos</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="https://preyproject.com/static/reseller_a.2d882ab4.png" alt="Carnet universitario">
+      <mat-card-content class="contenido-card">
+        <p [ngStyle]="{'text-align':'justify'}">
+          El nuevo carné universitario destaca la incorporación del DNI del estudiante como dato de identificación oficial, así como su moderno diseño con elementos de seguridad similares a los incorporados en los billetes y pasaportes. Cuenta también con un código de lectura rápida (QR) diseñado para smartphones, que permitirá validar con facilidad la autenticidad del documento.
+        </p>
+      </mat-card-content >
+      <!-- Aquí en el Mat Card Actions se colocan todas las acciones que hagas con el card -->
+      <mat-card-actions>
+        <!-- Aquí un boton para abrir el dialogo de información del trámite -->
+        <div class="botones-final">
+          <button mat-stroked-button color="primary" (click)="openDialogTramiteUniversitario()">Seguir Leyendo...
+          </button>
+        </div>
+
+      </mat-card-actions>
+    </mat-card>
+
+    <!-- Card del Trámite Constancia de promedio ponderado acumulado -->
+    <mat-card class="example-card space-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>Constancia De Promedio Ponderado Acumulado</mat-card-title>
+        <mat-card-subtitle>Adquiere tu constancia de notas</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="https://academiasantillana.com/wp-content/uploads/2019/10/certificado_santillana_formacion.jpg" alt="Constancia de promedio">
+      <mat-card-content class="contenido-card">
+        <p [ngStyle]="{'text-align':'justify'}">
+          Dependiendo del estado académico del estudiante pueden salir tres tipos de constancias:
+        </p>
+        <ol>
+          <li>Del egresado</li>
+          <li>Del estudiante</li>
+          <li>Promocional</li>
+        </ol>
+      </mat-card-content>
+      <!-- Aquí en el Mat Card Actions se colocan todas las acciones que hagas con el card -->
+      <mat-card-actions>
+        <!-- Aquí un boton para abrir el dialogo de información del trámite -->
+        <div class="botones-final">
+          <button mat-stroked-button color="primary" (click)="openDialogTramiteConstanciaPromedio()">Seguir Leyendo...
+          </button>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+
+
+    <!-- Card del Trámite Constancia de estudios -->
+    <mat-card class="example-card space-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>Constancia De Estudios</mat-card-title>
+        <mat-card-subtitle>Adquiere tu constancia de estudios ya!</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src= "https://www.viabcp.com/wcm/connect/95fdc130-c4c8-4170-abaa-203b12258dd1/480x290.png?MOD=AJPERES&CACHEID=ROOTWORKSPACE-95fdc130-c4c8-4170-abaa-203b12258dd1-niZ2Ma6" alt="Constancia De Estudios">
+      <mat-card-content class="contenido-card">
+        <p [ngStyle]="{'text-align':'justify'}">
+          Este documento acredita que estás matriculado y estás cursando el periodo vigente o que estuviste cursando hasta un periodo académico determinado, mencionando las fechas de inicio y culminación de este periodo en nuestra Universidad.
+        </p>
+
+      </mat-card-content >
+      <!-- Aquí en el Mat Card Actions se colocan todas las acciones que hagas con el card -->
+      <mat-card-actions>
+        <!-- Aquí un boton para abrir el dialogo de información del trámite -->
+        <div class="botones-final">
+          <button mat-stroked-button color="primary" (click)="openDialogTramiteConstanciaEstudios()">Seguir Leyendo...
+          </button>
+        </div>
+
+      </mat-card-actions>
+    </mat-card>
+
+
+    <!-- Card del Trámite Constancia de egresado -->
+    <mat-card class="example-card space-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>Constancia De Egresado</mat-card-title>
+        <mat-card-subtitle>Adquiere tu constancia de egresado</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src= "https://image.freepik.com/vector-gratis/graduados-mascaras-medicas_52683-39674.jpg" alt="Constancia de egresado">
+      <mat-card-content class="contenido-card">
+        <p [ngStyle]="{'text-align':'justify'}">
+          Es el documento que acredita que el estudiante culminó sus estudios completos, el procedimiento solo se lleva a cabo para declarar al estudiante como egresado.
+        </p>
+
+      </mat-card-content>
+      <!-- Aquí en el Mat Card Actions se colocan todas las acciones que hagas con el card -->
+      <mat-card-actions>
+        <!-- Aquí un boton para abrir el dialogo de información del trámite -->
+        <div class="botones-final">
+          <button mat-stroked-button color="primary" (click)="openDialogTramiteConstanciaEgresado()">Seguir Leyendo
+          </button>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+
+    <!-- Card del Otros tramites -->
+    <mat-card class="example-card space-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>Otro tipo de tramite</mat-card-title>
+        <mat-card-subtitle>Envia tu solicitud para otro tramite</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="https://www.sesametime.com/assets/wp-content/uploads/2020/01/pasos-para-calcular-valor-horas-trabajo.jpg" alt="Photo of a Shiba Inu">
+      <mat-card-content class="contenido-card">
+        <p [ngStyle]="{'text-align':'justify'}">
+            Otros tipos de tramites...
+        </p>
+      </mat-card-content >
+      <!-- Aquí en el Mat Card Actions se colocan todas las acciones que hagas con el card -->
+      <mat-card-actions>
+        <!-- Aquí un boton para abrir el dialogo de información del trámite -->
+        <div class="botones-final">
+          <button mat-stroked-button color="primary" (click)="openDialogOtrosTramites()">Seguir Leyendo...
+          </button>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+
     <mat-card-actions>
-      <!-- Aquí un boton para abrir el dialogo de información del trámite -->
-      <div class="botones-final">
-        <button mat-stroked-button color="primary" (click)="openDialogTramiteCursosEquivalentes()">Seguir Leyendo...
+      <div class="boton-consultas">
+        <button (click)="mostrarElementoNgIf()" mat-mini-fab color="warn">
+          <mat-icon>forward_to_inbox</mat-icon>
         </button>
       </div>
     </mat-card-actions>
-  </mat-card>
-
-  <!-- Card del Trámite de Cambio de Horario -->
-  <mat-card class="example-card space-card">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>Cambio de Horario</mat-card-title>
-      <mat-card-subtitle>Envia tu solicitud para Cambio de Horario</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src="https://image.freepik.com/vector-gratis/concepto-ilustracion-recordatorio-agenda-planificacion-empresarial-grupo-empleados-felices-escribir-horario-notas-adhesivas_78434-55.jpg" alt="Cambio de Horario">
-    <mat-card-content class="contenido-card">
-      <p [ngStyle]="{'text-align':'justify'}">
-        El cambio de horario...
-      </p>
-    </mat-card-content >
-    <!-- Aquí en el Mat Card Actions se colocan todas las acciones que hagas con el card -->
-    <mat-card-actions>
-      <!-- Aquí un boton para abrir el dialogo de información del trámite -->
-      <div class="botones-final">
-        <button mat-stroked-button color="primary" (click)="openDialogTramiteCambioHorario()">Seguir Leyendo...
-        </button>
-      </div>
-    </mat-card-actions>
-  </mat-card>
-
-  <!-- Card del Trámite de Matricula -->
-  <mat-card class="example-card space-card">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>Tramite de Matricula</mat-card-title>
-      <mat-card-subtitle>Envia tu solicitud para Tramite de Matricula</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src="https://image.freepik.com/vector-gratis/ilustracion-vector-concepto-evaluacion-empleado_107173-16694.jpg" alt="Tramite de matricula">
-    <mat-card-content class="contenido-card">
-      <p [ngStyle]="{'text-align':'justify'}">
-          El tramite de matricula...
-      </p>
-    </mat-card-content >
-    <!-- Aquí en el Mat Card Actions se colocan todas las acciones que hagas con el card -->
-    <mat-card-actions>
-      <!-- Aquí un boton para abrir el dialogo de información del trámite -->
-      <div class="botones-final">
-        <button mat-stroked-button color="primary" (click)="openDialogTramiteMatricula()">Seguir Leyendo...
-        </button>
-      </div>
-    </mat-card-actions>
-  </mat-card>
-
-  <!-- Card del Trámite Carnet Universitario -->
-  <mat-card class="example-card space-card">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>Carnet Universitario</mat-card-title>
-      <mat-card-subtitle>El carnet en tus manos</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src="https://preyproject.com/static/reseller_a.2d882ab4.png" alt="Carnet universitario">
-    <mat-card-content class="contenido-card">
-      <p [ngStyle]="{'text-align':'justify'}">
-        El nuevo carné universitario destaca la incorporación del DNI del estudiante como dato de identificación oficial, así como su moderno diseño con elementos de seguridad similares a los incorporados en los billetes y pasaportes. Cuenta también con un código de lectura rápida (QR) diseñado para smartphones, que permitirá validar con facilidad la autenticidad del documento.
-      </p>
-    </mat-card-content >
-    <!-- Aquí en el Mat Card Actions se colocan todas las acciones que hagas con el card -->
-    <mat-card-actions>
-      <!-- Aquí un boton para abrir el dialogo de información del trámite -->
-      <div class="botones-final">
-        <button mat-stroked-button color="primary" (click)="openDialogTramiteUniversitario()">Seguir Leyendo...
-        </button>
-      </div>
-
-    </mat-card-actions>
-  </mat-card>
-
-  <!-- Card del Trámite Constancia de promedio ponderado acumulado -->
-  <mat-card class="example-card space-card">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>Constancia De Promedio Ponderado Acumulado</mat-card-title>
-      <mat-card-subtitle>Adquiere tu constancia de notas</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src="https://academiasantillana.com/wp-content/uploads/2019/10/certificado_santillana_formacion.jpg" alt="Constancia de promedio">
-    <mat-card-content class="contenido-card">
-      <p [ngStyle]="{'text-align':'justify'}">
-        Dependiendo del estado académico del estudiante pueden salir tres tipos de constancias:
-      </p>
-      <ol>
-        <li>Del egresado</li>
-        <li>Del estudiante</li>
-        <li>Promocional</li>
-      </ol>
-    </mat-card-content>
-    <!-- Aquí en el Mat Card Actions se colocan todas las acciones que hagas con el card -->
-    <mat-card-actions>
-      <!-- Aquí un boton para abrir el dialogo de información del trámite -->
-      <div class="botones-final">
-        <button mat-stroked-button color="primary" (click)="openDialogTramiteConstanciaPromedio()">Seguir Leyendo...
-        </button>
-      </div>
-    </mat-card-actions>
-  </mat-card>
 
 
-  <!-- Card del Trámite Constancia de estudios -->
-  <mat-card class="example-card space-card">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>Constancia De Estudios</mat-card-title>
-      <mat-card-subtitle>Adquiere tu constancia de estudios ya!</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src= "https://www.viabcp.com/wcm/connect/95fdc130-c4c8-4170-abaa-203b12258dd1/480x290.png?MOD=AJPERES&CACHEID=ROOTWORKSPACE-95fdc130-c4c8-4170-abaa-203b12258dd1-niZ2Ma6" alt="Constancia De Estudios">
-    <mat-card-content class="contenido-card">
-      <p [ngStyle]="{'text-align':'justify'}">
-        Este documento acredita que estás matriculado y estás cursando el periodo vigente o que estuviste cursando hasta un periodo académico determinado, mencionando las fechas de inicio y culminación de este periodo en nuestra Universidad.
-      </p>
+    <mat-card *ngIf="mostrandoIf" class="card-consultas">
+      <mat-card-header>
+        <div mat-card-avatar class="header-image-consultas"></div>
+        <mat-card-title>Bienvenido a la consulta de tramites!!</mat-card-title>
+        <mat-card-subtitle>En que podemos ayudarte?</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content class="contenido-card">
+        <mat-form-field class="input-consulta" >
+          <mat-label>Asunto:</mat-label>
+          <textarea matInput placeholder="Ex. Requisitos del tramite..."></textarea>
+          <mat-icon matSuffix>mode_edit</mat-icon>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="input-consulta">
+          <mat-label>Mensaje:</mat-label>
+          <textarea matInput placeholder="Ex. Cuales son los requisitos..."></textarea>
+          <mat-icon matSuffix>mode_edit</mat-icon>
+        </mat-form-field>
+      </mat-card-content>
+    </mat-card>
 
-    </mat-card-content >
-    <!-- Aquí en el Mat Card Actions se colocan todas las acciones que hagas con el card -->
-    <mat-card-actions>
-      <!-- Aquí un boton para abrir el dialogo de información del trámite -->
-      <div class="botones-final">
-        <button mat-stroked-button color="primary" (click)="openDialogTramiteConstanciaEstudios()">Seguir Leyendo...
-        </button>
-      </div>
+  </div>
 
-    </mat-card-actions>
-  </mat-card>
-
-
-  <!-- Card del Trámite Constancia de egresado -->
-  <mat-card class="example-card space-card">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>Constancia De Egresado</mat-card-title>
-      <mat-card-subtitle>Adquiere tu constancia de egresado</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src= "https://image.freepik.com/vector-gratis/graduados-mascaras-medicas_52683-39674.jpg" alt="Constancia de egresado">
-    <mat-card-content class="contenido-card">
-      <p [ngStyle]="{'text-align':'justify'}">
-        Es el documento que acredita que el estudiante culminó sus estudios completos, el procedimiento solo se lleva a cabo para declarar al estudiante como egresado.
-      </p>
-
-    </mat-card-content>
-    <!-- Aquí en el Mat Card Actions se colocan todas las acciones que hagas con el card -->
-    <mat-card-actions>
-      <!-- Aquí un boton para abrir el dialogo de información del trámite -->
-      <div class="botones-final">
-        <button mat-stroked-button color="primary" (click)="openDialogTramiteConstanciaEgresado()">Seguir Leyendo
-        </button>
-      </div>
-    </mat-card-actions>
-  </mat-card>
-
-  <!-- Card del Otros tramites -->
-  <mat-card class="example-card space-card">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>Otro tipo de tramite</mat-card-title>
-      <mat-card-subtitle>Envia tu solicitud para otro tramite</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src="https://www.sesametime.com/assets/wp-content/uploads/2020/01/pasos-para-calcular-valor-horas-trabajo.jpg" alt="Photo of a Shiba Inu">
-    <mat-card-content class="contenido-card">
-      <p [ngStyle]="{'text-align':'justify'}">
-          Otros tipos de tramites...
-      </p>
-    </mat-card-content >
-    <!-- Aquí en el Mat Card Actions se colocan todas las acciones que hagas con el card -->
-    <mat-card-actions>
-      <!-- Aquí un boton para abrir el dialogo de información del trámite -->
-      <div class="botones-final">
-        <button mat-stroked-button color="primary" (click)="openDialogOtrosTramites()">Seguir Leyendo...
-        </button>
-      </div>
-    </mat-card-actions>
-  </mat-card>
-
-  <mat-card-actions>
-    <div class="boton-consultas">
-      <button (click)="mostrarElementoNgIf()" mat-mini-fab color="warn">
-        <mat-icon>forward_to_inbox</mat-icon>
-      </button>
-    </div>
-  </mat-card-actions>
-
-
-  <mat-card *ngIf="mostrandoIf" class="card-consultas">
-    <mat-card-header>
-      <div mat-card-avatar class="header-image-consultas"></div>
-      <mat-card-title>Bienvenido a la consulta de tramites!!</mat-card-title>
-      <mat-card-subtitle>En que podemos ayudarte?</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content class="contenido-card">
-      <mat-form-field class="input-consulta" >
-        <mat-label>Asunto:</mat-label>
-        <textarea matInput placeholder="Ex. Requisitos del tramite..."></textarea>
-        <mat-icon matSuffix>mode_edit</mat-icon>
-      </mat-form-field>
-      <br>
-      <mat-form-field class="input-consulta">
-        <mat-label>Mensaje:</mat-label>
-        <textarea matInput placeholder="Ex. Cuales son los requisitos..."></textarea>
-        <mat-icon matSuffix>mode_edit</mat-icon>
-      </mat-form-field>
-    </mat-card-content>
-  </mat-card>
-
-</div>
-
+</app-menu>

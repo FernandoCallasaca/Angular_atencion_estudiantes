@@ -26,6 +26,11 @@ export class MenuComponent extends BaseComponent implements OnInit {
 
   public user: boolean = false;
   public administrador: boolean = false;
+  public estudiantes: boolean = false;
+  public reportetramites: boolean = false;
+
+  public tramitedocumentario: boolean = false;
+  public estadotramites: boolean = false;
   // public administracion_proyecto: boolean = false;
   // public mapa: boolean = false;
   // public proyecto_fase: boolean = false;
@@ -55,29 +60,23 @@ export class MenuComponent extends BaseComponent implements OnInit {
       this.rol = this.usuario.c_rolename;
 
       switch (this.usuario.id_role) {
-        case 1:
-          this.setearMenu(true, false);
+        case 1: // estudiante
+          this.setearMenu(false, false, false, false, true, true);
           break;
         case 2:
-          this.setearMenu(false, true);
+          this.setearMenu(true, true, true, true, false, false);
           break;
-        // case 3:
-        //   this.setearMenu(false, false);
-        //   break;
-        // case 5:
-        //   this.setearMenu(false, false);
-        //   break;
       }
     }
   }
 
-  setearMenu(b_usuario, b_administrador) {
+  setearMenu(b_usuario, b_administrador, b_estudiantes, b_reportetramites, b_tramitedocumentario, b_estadotramites) {
     this.user = b_usuario;
     this.administrador = b_administrador;
-    // this.administracion_proyecto = b_administracion_proyecto;
-    // this.mapa = b_mapa;
-    // this.proyecto_fase = b_proyecto_fase;
-    // this.dashboar = b_dashboar;
+    this.estudiantes = b_estudiantes;
+    this.reportetramites = b_reportetramites;
+    this.tramitedocumentario = b_tramitedocumentario;
+    this.estadotramites = b_estadotramites;
   }
 
   logoff() {

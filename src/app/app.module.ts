@@ -48,7 +48,6 @@ import { UsereditComponent } from './component/useredit/useredit.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { EstudianteComponent } from './component/estudiante/estudiante.component';
 import { EstudianteeditarComponent } from './component/estudianteeditar/estudianteeditar.component';
-import { MenuPrincipalComponent } from './component/menu-principal/menu-principal.component';
 import { AdministradorComponent } from './component/administrador/administrador.component';
 import { AdministradorEditarComponent } from './component/administrador-editar/administrador-editar.component';
 
@@ -90,7 +89,6 @@ import { MatriculaTramiteComponent } from './component/tramites/tramite-de-matri
     UsereditComponent,
     EstudianteComponent,
     EstudianteeditarComponent,
-    MenuPrincipalComponent,
     AdministradorComponent,
     AdministradorEditarComponent,
     CarnetUInfoComponent,
