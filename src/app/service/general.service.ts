@@ -107,4 +107,12 @@ export class GeneralService {
       });
       return this._http.post(this.url + 'general/getvwtramites', request, { headers: reqHeader });
     }
+
+    getInfoEstudianteUsuario(token): Observable<any> {
+      var reqHeader = new HttpHeaders({
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + token
+      });
+      return this._http.post(this.url + 'general/getinfoestudianteusuario', {}, { headers: reqHeader });
+    }
 }

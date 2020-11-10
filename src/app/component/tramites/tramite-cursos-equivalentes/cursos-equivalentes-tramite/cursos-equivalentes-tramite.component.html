@@ -11,7 +11,7 @@
         </div>
         <div class="groupHeader">
           <span style="width: 100%">Nro de Solicitud:</span>
-          <input readonly style="text-align: center;" type="text" matInput value="0001">
+          <input readonly style="text-align: center;" type="text" matInput value="{{nroTramite}}">
         </div>
       </div>
     </div>
@@ -20,15 +20,15 @@
       <legend class="h2">DATOS DEL INTERESADO</legend>
       <div class="groupHeader-datos">
         <span style="width: 30%" >Código:</span>
-        <input checked focus style="width: 32%;" type="text" matInput>
+        <input readonly checked focus style="width: 32%;" type="text" matInput value="{{infoUsuario.codigo}}">
       </div>
       <div class="groupHeader-datos">
         <span style="width: 30%">Nombres:</span>
-        <input style="width: 64%;" type="text" matInput>
+        <input readonly style="width: 64%;" type="text" matInput value="{{infoUsuario.nombres}}">
       </div>
       <div class="groupHeader-datos">
         <span style="width: 30%">Apellidos:</span>
-        <input style="width: 64%;" type="text" matInput>
+        <input readonly style="width: 64%;" type="text" matInput value="{{infoUsuario.apellidos}}">
       </div>
     </fieldset>
 
