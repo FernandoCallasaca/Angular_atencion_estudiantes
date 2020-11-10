@@ -53,7 +53,7 @@ export class MenuComponent extends BaseComponent implements OnInit {
       this.usuario = this.getToken().data;
       console.log('Usuario Menu');
       console.log(this.usuario);
-      this.rol = this.usuario.c_rolename;
+      this.rol = this.usuario.id_role;
 
       switch (this.usuario.id_role) {
         case 1: // estudiante

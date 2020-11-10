@@ -9,7 +9,8 @@
   padding: 0%;
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  background-image: url('../../../../assets/images/fondologin5.png');
+  background-image: url('../../../../assets/img/fondo.jpeg');
+  opacity: 0.9;
 }
 .example-fill-remaining-space {
     flex: 1 1 auto;
@@ -21,28 +22,27 @@
 }
 
 .example-card {
-   max-width: 450px;
-   widows:450px;
-   min-width: 300px;
- }
- .login-contenedor{
-    height: 50%;
-   display: flex;
-   align-items: center;
-   justify-content: center;
- }
- .submitload{
+  max-width: 450px;
+  widows:450px;
+  min-width: 300px;
+}
+.login-contenedor{
   height: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
- }
- .errorLogin{
-   color: red;
-   
- }
+}
+.submitload{
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.errorLogin{
+  color: red;
+}
 .example-container {
-   width: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -58,7 +58,7 @@
   justify-content: center;
   padding-top: 0px;
   margin: 10px;
-  
+
 }
 .imglogo1{
   width: 200px;

@@ -47,7 +47,11 @@ export class LoginComponent extends BaseComponent implements OnInit {
         console.log(result);
         if (result.estado) {
           this.setToken(result);
-          this.router.navigate(['/reportestramites']);
+          if (this.getToken().data.id_role === 1) {
+            this.router.navigate(['/infotramite']);
+          } else {
+            this.router.navigate(['/reportestramites']);
+          }
           this.isLogin();
         } else {
           this.openSnackBar(result.mensaje, 99);
