@@ -74,6 +74,8 @@ import { CursosEquivalentesTramiteComponent } from './component/tramites/tramite
 import { CursosEquivalentesInfoComponent } from './component/tramites/tramite-cursos-equivalentes/cursos-equivalentes-info/cursos-equivalentes-info.component';
 import { MatriculaInfoComponent } from './component/tramites/tramite-de-matricula/matricula-info/matricula-info.component';
 import { MatriculaTramiteComponent } from './component/tramites/tramite-de-matricula/matricula-tramite/matricula-tramite.component';
+import { ReinicioEstudiosTramiteComponent } from './component/tramites/tramite-reinicio-de-estudios/reinicio-estudios-tramite/reinicio-estudios-tramite.component';
+import { ReinicioEstudiosInfoComponent } from './component/tramites/tramite-reinicio-de-estudios/reinicio-estudios-info/reinicio-estudios-info.component';
 
 @NgModule({
   declarations: [
@@ -115,6 +117,8 @@ import { MatriculaTramiteComponent } from './component/tramites/tramite-de-matri
     CursosEquivalentesInfoComponent,
     MatriculaInfoComponent,
     MatriculaTramiteComponent,
+    ReinicioEstudiosTramiteComponent,
+    ReinicioEstudiosInfoComponent,
   ],
   imports: [
     FormsModule,
