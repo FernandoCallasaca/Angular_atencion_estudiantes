@@ -13,6 +13,7 @@ import { CursosEquivalentesInfoComponent } from './../../tramites/tramite-cursos
 import { CambioHorarioInfoComponent } from './../../tramites/tramite-cambio-de-horario/cambio-horario-info/cambio-horario-info.component';
 import { MatriculaInfoComponent } from './../../tramites/tramite-de-matricula/matricula-info/matricula-info.component';
 import { OtrosTramitesInfoComponent } from './../../tramites/otros-tramites/otros-tramites-info/otros-tramites-info.component';
+import { ReinicioEstudiosInfoComponent } from './../../tramites/tramite-reinicio-de-estudios/reinicio-estudios-info/reinicio-estudios-info.component';
 
 
 @Component({
@@ -69,6 +70,23 @@ export class ControlTramitesComponent extends BaseComponent implements OnInit {
   }
   openDialogTramiteMatricula(): void {
     const dialogRef = this.dialog.open(MatriculaInfoComponent , {
+      width: '750px',
+      // data: {
+      //   estudiante: estudiante
+      // }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      try {
+        // this.gettablaEstudiante();
+
+      } catch (error) {
+        console.log(error);
+      }
+    });
+  }
+
+  openDialogTramiteReinicioEstudios(): void {
+    const dialogRef = this.dialog.open(ReinicioEstudiosInfoComponent , {
       width: '750px',
       // data: {
       //   estudiante: estudiante

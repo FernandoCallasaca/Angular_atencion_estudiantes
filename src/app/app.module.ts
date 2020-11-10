@@ -167,7 +167,8 @@ import { ReinicioEstudiosInfoComponent } from './component/tramites/tramite-rein
     CambioHorarioInfoComponent,
     MatriculaInfoComponent,
     CursosEquivalentesInfoComponent,
-    OtrosTramitesInfoComponent
+    OtrosTramitesInfoComponent,
+    ReinicioEstudiosInfoComponent
   ],
   providers: [appRoutingProviders, { provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
