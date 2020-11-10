@@ -9,6 +9,10 @@ import { CarnetUInfoComponent } from './../../tramites/tramite-carnet-universita
 import { ConstanciaEgresadoInfoComponent } from './../../tramites/tramite-constancia-de-egresado/constancia-egresado-info/constancia-egresado-info.component';
 import { ConstanciaEstudiosInfoComponent } from './../../tramites/tramite-constancia-de-estudios/constancia-estudios-info/constancia-estudios-info.component';
 import { ConstanciaPromedioInfoComponent } from './../../tramites/tramite-constancia-de-promedio/constancia-promedio-info/constancia-promedio-info.component';
+import { CursosEquivalentesInfoComponent } from './../../tramites/tramite-cursos-equivalentes/cursos-equivalentes-info/cursos-equivalentes-info.component';
+import { CambioHorarioInfoComponent } from './../../tramites/tramite-cambio-de-horario/cambio-horario-info/cambio-horario-info.component';
+import { MatriculaInfoComponent } from './../../tramites/tramite-de-matricula/matricula-info/matricula-info.component';
+import { OtrosTramitesInfoComponent } from './../../tramites/otros-tramites/otros-tramites-info/otros-tramites-info.component';
 
 
 @Component({
@@ -31,6 +35,55 @@ export class ControlTramitesComponent extends BaseComponent implements OnInit {
   ngOnInit() {
   }
 
+  openDialogTramiteCursosEquivalentes(): void {
+    const dialogRef = this.dialog.open(CursosEquivalentesInfoComponent, {
+      width: '750px',
+      // data: {
+      //   estudiante: estudiante
+      // }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      try {
+        // this.gettablaEstudiante();
+
+      } catch (error) {
+        console.log(error);
+      }
+    });
+  }
+  openDialogTramiteCambioHorario(): void {
+    const dialogRef = this.dialog.open(CambioHorarioInfoComponent, {
+      width: '750px',
+      // data: {
+      //   estudiante: estudiante
+      // }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      try {
+        // this.gettablaEstudiante();
+
+      } catch (error) {
+        console.log(error);
+      }
+    });
+  }
+  openDialogTramiteMatricula(): void {
+    const dialogRef = this.dialog.open(MatriculaInfoComponent , {
+      width: '750px',
+      // data: {
+      //   estudiante: estudiante
+      // }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      try {
+        // this.gettablaEstudiante();
+
+      } catch (error) {
+        console.log(error);
+      }
+    });
+  }
+  
   openDialogTramiteUniversitario(): void {
     const dialogRef = this.dialog.open(CarnetUInfoComponent, {
       width: '750px',
@@ -97,6 +150,23 @@ export class ControlTramitesComponent extends BaseComponent implements OnInit {
     });
   }
 
+  openDialogOtrosTramites(): void {
+    const dialogRef = this.dialog.open(OtrosTramitesInfoComponent , {
+      width: '750px',
+      // data: {
+      //   estudiante: estudiante
+      // }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      try {
+        // this.gettablaEstudiante();
+
+      } catch (error) {
+        console.log(error);
+      }
+    });
+  }
+  
   mostrarElementoNgIf() {
     if (this.mostrandoIf) {
       this.mostrandoIf = false;

@@ -66,6 +66,14 @@ import { ProgressComponent } from './component/tramites/upload-files/progress/pr
 import { DndDirective } from './directivas/dnd.directive';
 import { ControlReportesTramitesComponent } from './component/admin/control-reportes-tramites/control-reportes-tramites.component';
 import { EstadoTramitesComponent } from './component/admin/estado-tramites/estado-tramites.component';
+import { OtrosTramitesTramiteComponent } from './component/tramites/otros-tramites/otros-tramites-tramite/otros-tramites-tramite.component';
+import { OtrosTramitesInfoComponent } from './component/tramites/otros-tramites/otros-tramites-info/otros-tramites-info.component';
+import { CambioHorarioInfoComponent } from './component/tramites/tramite-cambio-de-horario/cambio-horario-info/cambio-horario-info.component';
+import { CambioHorarioTramiteComponent } from './component/tramites/tramite-cambio-de-horario/cambio-horario-tramite/cambio-horario-tramite.component';
+import { CursosEquivalentesTramiteComponent } from './component/tramites/tramite-cursos-equivalentes/cursos-equivalentes-tramite/cursos-equivalentes-tramite.component';
+import { CursosEquivalentesInfoComponent } from './component/tramites/tramite-cursos-equivalentes/cursos-equivalentes-info/cursos-equivalentes-info.component';
+import { MatriculaInfoComponent } from './component/tramites/tramite-de-matricula/matricula-info/matricula-info.component';
+import { MatriculaTramiteComponent } from './component/tramites/tramite-de-matricula/matricula-tramite/matricula-tramite.component';
 
 @NgModule({
   declarations: [
@@ -99,6 +107,14 @@ import { EstadoTramitesComponent } from './component/admin/estado-tramites/estad
     DndDirective,
     ControlReportesTramitesComponent,
     EstadoTramitesComponent,
+    OtrosTramitesTramiteComponent,
+    OtrosTramitesInfoComponent,
+    CambioHorarioInfoComponent,
+    CambioHorarioTramiteComponent,
+    CursosEquivalentesTramiteComponent,
+    CursosEquivalentesInfoComponent,
+    MatriculaInfoComponent,
+    MatriculaTramiteComponent,
   ],
   imports: [
     FormsModule,
@@ -146,6 +162,10 @@ import { EstadoTramitesComponent } from './component/admin/estado-tramites/estad
     ConstanciaEgresadoInfoComponent,
     ConstanciaEstudiosInfoComponent,
     ConstanciaPromedioInfoComponent,
+    CambioHorarioInfoComponent,
+    MatriculaInfoComponent,
+    CursosEquivalentesInfoComponent,
+    OtrosTramitesInfoComponent
   ],
   providers: [appRoutingProviders, { provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
