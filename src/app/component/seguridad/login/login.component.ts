@@ -3,6 +3,9 @@ import { MatSnackBar } from '@angular/material';
 import { Router } from "@angular/router";
 import { BaseComponent } from '../../base/base.component';
 import { SeguridadService } from '../../../service/seguridad.service';
+
+import { MatDialog } from '@angular/material';
+import { RegistroEstudianteComponent } from './../registro-estudiante/registro-estudiante.component';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -32,7 +35,8 @@ export class LoginComponent extends BaseComponent implements OnInit {
   constructor(
     public _login_service: SeguridadService,
     public router: Router,
-    public snackBar: MatSnackBar) {
+    public snackBar: MatSnackBar,
+    public dialog: MatDialog) {
     super(snackBar, router);
     this.ruta_img_login = 'assets/images/fondologin1.png';
   }
@@ -74,5 +78,21 @@ export class LoginComponent extends BaseComponent implements OnInit {
       this.typepassword = 'password';
       this.iconpassword = 'visibility_off';
     }
+  }
+  openDialogRegister() {
+    const dialogRef = this.dialog.open(RegistroEstudianteComponent , {
+      width: '500px',
+      // data: {
+      //   estudiante: estudiante
+      // }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      try {
+        // this.gettablaEstudiante();
+
+      } catch (error) {
+        console.log(error);
+      }
+    });
   }
 }

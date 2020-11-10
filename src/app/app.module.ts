@@ -75,6 +75,8 @@ import { MatriculaInfoComponent } from './component/tramites/tramite-de-matricul
 import { MatriculaTramiteComponent } from './component/tramites/tramite-de-matricula/matricula-tramite/matricula-tramite.component';
 import { ReinicioEstudiosTramiteComponent } from './component/tramites/tramite-reinicio-de-estudios/reinicio-estudios-tramite/reinicio-estudios-tramite.component';
 import { ReinicioEstudiosInfoComponent } from './component/tramites/tramite-reinicio-de-estudios/reinicio-estudios-info/reinicio-estudios-info.component';
+import { RegistroEstudianteComponent } from './component/seguridad/registro-estudiante/registro-estudiante.component';
+
 
 @NgModule({
   declarations: [
@@ -117,6 +119,7 @@ import { ReinicioEstudiosInfoComponent } from './component/tramites/tramite-rein
     MatriculaTramiteComponent,
     ReinicioEstudiosTramiteComponent,
     ReinicioEstudiosInfoComponent,
+    RegistroEstudianteComponent,
   ],
   imports: [
     FormsModule,
@@ -168,7 +171,8 @@ import { ReinicioEstudiosInfoComponent } from './component/tramites/tramite-rein
     MatriculaInfoComponent,
     CursosEquivalentesInfoComponent,
     OtrosTramitesInfoComponent,
-    ReinicioEstudiosInfoComponent
+    ReinicioEstudiosInfoComponent,
+    RegistroEstudianteComponent
   ],
   providers: [appRoutingProviders, { provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
