@@ -19,9 +19,17 @@ export class MenuComponent extends BaseComponent implements OnInit {
   @Input() titulo: String;
 
   public usuario: any;
-  public username: string = "Usuario";
+  public username: string = "Logearse";
   public role: any;
   public menu: any;
+  public rol = '';
+
+  public user: boolean = false;
+  public administrador: boolean = false;
+  // public administracion_proyecto: boolean = false;
+  // public mapa: boolean = false;
+  // public proyecto_fase: boolean = false;
+  // public dashboar: boolean = false;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -37,13 +45,41 @@ export class MenuComponent extends BaseComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.username = this.getToken().data;
+    console.log(this.username);
+    if (this.bLogin) {
+      this.username = this.getToken().data.nombre;
+      this.usuario = this.getToken().data;
+      console.log('Usuario Menu');
+      console.log(this.usuario);
+      this.rol = this.usuario.c_rolename;
 
-
-    // if (this.bLogin) {
-    //   this.username = this.getToken().data.c_username;
-    //   this.usuario = this.getToken().data;
-    // }
+      switch (this.usuario.id_role) {
+        case 1:
+          this.setearMenu(true, false);
+          break;
+        case 2:
+          this.setearMenu(false, true);
+          break;
+        // case 3:
+        //   this.setearMenu(false, false);
+        //   break;
+        // case 5:
+        //   this.setearMenu(false, false);
+        //   break;
+      }
+    }
   }
+
+  setearMenu(b_usuario, b_administrador) {
+    this.user = b_usuario;
+    this.administrador = b_administrador;
+    // this.administracion_proyecto = b_administracion_proyecto;
+    // this.mapa = b_mapa;
+    // this.proyecto_fase = b_proyecto_fase;
+    // this.dashboar = b_dashboar;
+  }
+
   logoff() {
     localStorage.clear();
     this.isLogin();

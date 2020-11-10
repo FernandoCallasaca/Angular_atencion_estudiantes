@@ -12,7 +12,7 @@ import { Router } from "@angular/router";
 export class BaseComponent implements OnInit {
 
   bLogin:boolean=true;
-  
+
   objsnack: SnackInterface = {
     mensaje: "",
     tipo: 0
@@ -24,24 +24,24 @@ export class BaseComponent implements OnInit {
     public snackBar: MatSnackBar, public router: Router
   ) {
     this.isLogin();
-    console.log('getToken() - Constructor');
-    console.log(this.getToken());
+    // console.log('getToken() - Constructor');
+    // console.log(this.getToken());
   }
 
   ngOnInit() {
-    console.log('getToken() - ngonInit');
-    console.log(this.getToken());
+    // console.log('getToken() - ngonInit');
+    // console.log(this.getToken());
   }
 
 
   public isLogin() {
     if (this.getToken() == null) {
       this.router.navigate(['/login']);
-      this.bLogin=false;
+      this.bLogin = false;
     } else{
-      this.bLogin=true;
+      this.bLogin = true;
     }
-    console.log('blogin');
+    // console.log('blogin');
     console.log(this.bLogin);
   }
 
@@ -53,7 +53,7 @@ export class BaseComponent implements OnInit {
     var currentUser = JSON.parse(localStorage.getItem('currentUser'));
     return currentUser.tocken;
   }
-  
+
   public getUsuarioLogin(): String {
     var currentUser = JSON.parse(localStorage.getItem('user'));
     return currentUser.token;
@@ -63,14 +63,18 @@ export class BaseComponent implements OnInit {
   }
 
   public openSnackBar(mensaje: String, tipo: number) {
-    this.objsnack.mensaje = mensaje;
-    this.objsnack.tipo = tipo;
-    this.snackBar.openFromComponent(SnackComponent, {
-      duration: 2500,
-      data: this.objsnack
-    });
+    if (mensaje == 'Token inválido!.') {
+      localStorage.clear();
+      this.router.navigate(['/login']);
+    } else {
+      this.objsnack.mensaje = mensaje;
+      this.objsnack.tipo = tipo;
+      this.snackBar.openFromComponent(SnackComponent, {
+        duration: 2500,
+        data: this.objsnack
+      });
+    }
   }
-
 
   numberOnly(event): boolean {
     const charCode = (event.which) ? event.which : event.keyCode;
@@ -78,5 +82,15 @@ export class BaseComponent implements OnInit {
       return false;
     }
     return true;
+  }
+
+  decimalOnly(event: any) {
+    const pattern = /[0-9\.\ ]/;
+    let inputChar = String.fromCharCode(event.charCode);
+    console.log('dato ingresado: ' + inputChar);
+    if (!pattern.test(inputChar)) {
+      // invalid character, prevent input
+      event.preventDefault();
+    }
   }
 }

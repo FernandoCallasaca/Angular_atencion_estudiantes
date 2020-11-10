@@ -16,6 +16,7 @@ import { MatDialog } from '@angular/material';
 export class MenuPrincipalComponent extends BaseComponent implements OnInit {
 
   public username: string = 'Usuario';
+  public usuario: any;
 
   constructor(
     private breakpointObserver: BreakpointObserver,
@@ -27,6 +28,9 @@ export class MenuPrincipalComponent extends BaseComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.username = this.getToken().data.nombre;
+    console.log('Username');
+    console.log(this.username);
   }
 
   logoff() {

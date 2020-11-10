@@ -44,11 +44,10 @@ export class LoginComponent extends BaseComponent implements OnInit {
     console.log(this.dataLogin);
     this._login_service.login(this.dataLogin).subscribe(
       result => {
-        console.log('resultado');
         console.log(result);
         if (result.estado) {
           this.setToken(result);
-          this.router.navigate(['/infotramite']);
+          this.router.navigate(['/reportestramites']);
           this.isLogin();
         } else {
           this.openSnackBar(result.mensaje, 99);
@@ -64,7 +63,7 @@ export class LoginComponent extends BaseComponent implements OnInit {
       });
   }
   changetipepassword(){
-    if (this.typepassword === 'password') {
+    if (this.typepassword == 'password') {
       this.typepassword = 'text';
       this.iconpassword = 'visibility';
     } else {
