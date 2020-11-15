@@ -132,4 +132,27 @@ export class GeneralService {
       return this._http.post(this.url + 'general/getvwestadotramites', request, { headers: reqHeader });
     }
 
+    getUsuariosForRegister(token): Observable<any> {
+      var reqHeader = new HttpHeaders({
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + token
+      });
+      return this._http.post(this.url + 'general/getusuarioforregister', {}, { headers: reqHeader });
+    }
+
+    saveUsuarioForRegister(request,token): Observable<any> {
+      var reqHeader = new HttpHeaders({
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + token
+      });
+      return this._http.post(this.url + 'general/saveusuarioforregister', request, { headers: reqHeader });
+    }
+
+    saveEstudianteForRegister(request,token): Observable<any> {
+    var reqHeader = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + token
+    });
+    return this._http.post(this.url + 'general/saveusuarisaveestudianteforregisteroforregister', request, { headers: reqHeader });
+    }
 }
