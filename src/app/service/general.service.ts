@@ -115,4 +115,21 @@ export class GeneralService {
       });
       return this._http.post(this.url + 'general/getinfoestudianteusuario', {}, { headers: reqHeader });
     }
+
+    getEstadoTramite(token): Observable<any> {
+      var reqHeader = new HttpHeaders({
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + token
+      });
+      return this._http.post(this.url + 'general/getestadostramite', {}, { headers: reqHeader });
+    }
+
+    getVwEstadoTramites(request,token): Observable<any> {
+      var reqHeader = new HttpHeaders({
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + token
+      });
+      return this._http.post(this.url + 'general/getvwestadotramites', request, { headers: reqHeader });
+    }
+
 }

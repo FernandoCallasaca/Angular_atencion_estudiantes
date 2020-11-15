@@ -31,6 +31,7 @@ export class MenuComponent extends BaseComponent implements OnInit {
 
   public tramitedocumentario: boolean = false;
   public estadotramites: boolean = false;
+  public controlestadotramites: boolean = false;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -57,22 +58,23 @@ export class MenuComponent extends BaseComponent implements OnInit {
 
       switch (this.usuario.id_role) {
         case 1: // estudiante
-          this.setearMenu(false, false, false, false, true, true);
+          this.setearMenu(false, false, false, false, true, true,false);
           break;
         case 2:
-          this.setearMenu(true, true, true, true, false, false);
+          this.setearMenu(true, true, true, true, false, false,true);
           break;
       }
     }
   }
 
-  setearMenu(b_usuario, b_administrador, b_estudiantes, b_reportetramites, b_tramitedocumentario, b_estadotramites) {
+  setearMenu(b_usuario, b_administrador, b_estudiantes, b_reportetramites, b_tramitedocumentario, b_estadotramites, b_controlestadotramites) {
     this.user = b_usuario;
     this.administrador = b_administrador;
     this.estudiantes = b_estudiantes;
     this.reportetramites = b_reportetramites;
     this.tramitedocumentario = b_tramitedocumentario;
     this.estadotramites = b_estadotramites;
+    this.controlestadotramites = b_controlestadotramites;
   }
 
   logoff() {

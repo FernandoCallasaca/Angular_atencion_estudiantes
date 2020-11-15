@@ -1,0 +1,16 @@
+.mat-stepper-horizontal {
+    margin-top: 8px;
+    margin: 1%;
+  }
+  
+  .mat-form-field {
+    margin-top: 16px;
+    margin: 1%;
+  }
+
+  .contenedor {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }

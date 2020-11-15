@@ -76,6 +76,7 @@ import { MatriculaTramiteComponent } from './component/tramites/tramite-de-matri
 import { ReinicioEstudiosTramiteComponent } from './component/tramites/tramite-reinicio-de-estudios/reinicio-estudios-tramite/reinicio-estudios-tramite.component';
 import { ReinicioEstudiosInfoComponent } from './component/tramites/tramite-reinicio-de-estudios/reinicio-estudios-info/reinicio-estudios-info.component';
 import { RegistroEstudianteComponent } from './component/seguridad/registro-estudiante/registro-estudiante.component';
+import { ControlEstadoTramitesComponent } from './component/admin/control-estado-tramites/control-estado-tramites.component';
 
 
 @NgModule({
@@ -120,6 +121,7 @@ import { RegistroEstudianteComponent } from './component/seguridad/registro-estu
     ReinicioEstudiosTramiteComponent,
     ReinicioEstudiosInfoComponent,
     RegistroEstudianteComponent,
+    ControlEstadoTramitesComponent,
   ],
   imports: [
     FormsModule,

@@ -31,6 +31,10 @@
               <mat-icon>fact_check</mat-icon>
               <span>Estado Trámites</span>
           </a>
+          <a mat-list-item [routerLink]="['/controlestadotramites']" *ngIf="controlestadotramites">
+            <mat-icon>fact_check</mat-icon>
+            <span>Control Estado Trámites</span>
+        </a>
         </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
