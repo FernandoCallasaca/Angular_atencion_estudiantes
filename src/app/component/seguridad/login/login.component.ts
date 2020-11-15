@@ -89,6 +89,7 @@ export class LoginComponent extends BaseComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       try {
         // this.gettablaEstudiante();
+        // Aquí debería entrar todo
 
       } catch (error) {
         console.log(error);
