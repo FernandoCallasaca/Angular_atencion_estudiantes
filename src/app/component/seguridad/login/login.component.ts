@@ -111,7 +111,7 @@ export class LoginComponent extends BaseComponent implements OnInit {
           });
 
       } catch (error) {
-        console.log(error);
+
       }
     });
   }
