@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 
@@ -19,99 +19,35 @@ import { MatDialog } from '@angular/material';
 export class RegistroEstudianteComponent
   extends BaseComponent
   implements OnInit {
-  nombres = '';
-  apellidos = '';
-  codigo = '';
-  usuario = '';
-  contrasenia = '';
 
-  idUsuario = -1;
-
-  // emailFormControl = new FormControl('', [
-  //   Validators.required,
-  //   Validators.email,
-  // ]);
+  form: FormGroup;
 
   constructor(
     public snackBar: MatSnackBar,
     public router: Router,
     private generalService: GeneralService,
-    public dialogRef: MatDialog
+    public dialogRef: MatDialog,
+    private formBuilder: FormBuilder,
   ) {
     super(snackBar, router);
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.buildForm();
+  }
 
-  guardar() {
-    console.log(`Nombres: ${this.nombres}`);
-    console.log(`Apellidos: ${this.apellidos}`);
-    console.log(`Codigo: ${this.codigo}`);
-    console.log(`Usuario: ${this.usuario}`);
-    console.log(`Contraseña: ${this.contrasenia}`);
-    const reqUsuario = {
-      id_usuario: 0,
-      nombre: this.usuario,
-      contrasenia: this.contrasenia,
-    };
-    this.generalService
-      .saveUsuario(reqUsuario, this.getToken().token)
-      .subscribe(
-        (result) => {
-          this.generalService.getUsuario(this.getToken().token).subscribe(
-            (result) => {
-              const idNewUser = result.data[0].id_usuario;
-              const reqEstudiante = {
-                id_estudiante: 0,
-                id_usuario: idNewUser,
-                nombres: this.nombres,
-                apellidos: this.apellidos,
-                codigo: this.codigo,
-              };
-              this.generalService
-                .saveEstudiante(reqEstudiante, this.getToken().token)
-                .subscribe(
-                  (result) => {
-                    console.log('Entro');
-                    if (result.estado) {
-                      console.log('Se guardó correctamente el estudiante');
-                    } else {
-                      this.openSnackBar(result.mensaje, 99);
-                    }
-                  },
-                  (error) => {
-                    try {
-                      this.openSnackBar(
-                        error.error.Detail,
-                        error.error.StatusCode
-                      );
-                    } catch (error) {
-                      this.openSnackBar(
-                        AppSettings.SERVICE_NO_CONECT_SERVER,
-                        99
-                      );
-                    }
-                  }
-                );
-            },
-            (error) => {
-              try {
-                this.openSnackBar(error.error.Detail, error.error.StatusCode);
-              } catch (error) {
-                this.openSnackBar(AppSettings.SERVICE_NO_CONECT_SERVER, 99);
-              }
-            }
-          );
-        },
-        (error) => {
-          try {
-            this.openSnackBar(error.error.Detail, error.error.StatusCode);
-          } catch (error) {
-            this.openSnackBar(AppSettings.SERVICE_NO_CONECT_SERVER, 99);
-          }
-        }
-      );
-      const dR = this.dialogRef;
-      dR.closeAll();
+  private buildForm() {
+    this.form = this.formBuilder.group({
+      nombres: ['', [Validators.required]],
+      apellidos: ['', [Validators.required]],
+      codigo: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      contrasenia: ['', [Validators.required]],
+    });
+  }
+  saveUserAndStudent(event: Event) {
+    event.preventDefault();
+    // Aquí agregamos al usuario luego conseguimos su id, posterior a ello guardamos el estudiante
+
   }
 }
