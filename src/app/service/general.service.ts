@@ -153,6 +153,6 @@ export class GeneralService {
         'Content-Type': 'application/json',
         'Authorization': 'Bearer ' + token
     });
-    return this._http.post(this.url + 'general/saveusuarisaveestudianteforregisteroforregister', request, { headers: reqHeader });
+    return this._http.post(this.url + 'general/saveestudianteforregister', request, { headers: reqHeader });
     }
 }

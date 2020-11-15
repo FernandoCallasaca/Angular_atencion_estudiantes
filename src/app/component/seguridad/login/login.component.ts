@@ -82,14 +82,34 @@ export class LoginComponent extends BaseComponent implements OnInit {
   openDialogRegister() {
     const dialogRef = this.dialog.open(RegistroEstudianteComponent , {
       width: '500px',
-      // data: {
-      //   estudiante: estudiante
-      // }
     });
     dialogRef.afterClosed().subscribe(result => {
       try {
-        console.log('Result del afterClosed dialog');
-        console.log(result);
+        const req = {
+          c_username: result.email,
+          c_password: result.contrasenia
+        };
+        this._login_service.login(req).subscribe(
+          result => {
+            if (result.estado) {
+              this.setToken(result);
+              if (this.getToken().data.id_role === 1) {
+                this.router.navigate(['/infotramite']);
+              } else {
+                this.router.navigate(['/reportestramites']);
+              }
+              this.isLogin();
+            } else {
+              this.openSnackBar(result.mensaje, 99);
+              this.isLogin();
+            }
+
+          }, error => {
+            console.log(error);
+            this.openSnackBar(error.error.Detail, error.error.StatusCode);
+            this.isLogin();
+          });
+
       } catch (error) {
         console.log(error);
       }

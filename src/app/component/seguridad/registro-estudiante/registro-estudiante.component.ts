@@ -48,6 +48,30 @@ export class RegistroEstudianteComponent
   saveUserAndStudent(event: Event) {
     event.preventDefault();
     // Aquí agregamos al usuario luego conseguimos su id, posterior a ello guardamos el estudiante
-
+    const req = {
+      nombre: this.form.value.email,
+      contrasenia: this.form.value.contrasenia
+    };
+    this.generalService.saveUsuarioForRegister(req, this.getToken()).subscribe(
+      result => {
+        this.generalService.getUsuariosForRegister(this.getToken()).subscribe(
+          result => {
+            const idNewUser = result.data.filter(user => user.nombre === this.form.value.email
+              && user.contrasenia === this.form.value.contrasenia).map(user => user.id_usuario);
+            const req1 = {
+              id_usuario: idNewUser,
+              nombres: this.form.value.nombres,
+              apellidos: this.form.value.apellidos,
+              codigo: this.form.value.codigo
+            };
+            this.generalService.saveEstudianteForRegister(req1, this.getToken()).subscribe(
+              result => {
+                console.log('Ya se guardó satisfactoriamente el estudiante');
+              }
+            );
+          }
+        );
+      }
+    );
   }
 }
