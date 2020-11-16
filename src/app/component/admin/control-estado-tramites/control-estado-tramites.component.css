@@ -14,3 +14,15 @@
     justify-content: space-around;
     flex-wrap: wrap;
   }
+
+  .contenedorBody {
+    padding: 0;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  h2{
+    margin: 1%;
+  }

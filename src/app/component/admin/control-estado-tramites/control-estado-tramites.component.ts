@@ -33,6 +33,9 @@ export class ControlEstadoTramitesComponent extends BaseComponent implements OnI
   textfilter = '';
 
   public tablaTramitesCursos: MatTableDataSource<any>;
+  public tablaTramitesMatriculas: MatTableDataSource<any>;
+  public tablaTramitesReinicio: MatTableDataSource<any>;
+
   displayedColumns: string[] = ['nombres', 'apellidos', 'codigo', 'fecha', 'observacion', 'estado'];
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: false }) sort: MatSort;
@@ -51,17 +54,29 @@ export class ControlEstadoTramitesComponent extends BaseComponent implements OnI
     this.getEstudiantes();
     this.getTipoTramite();
     this.getTablaTramitesCursos();
+    this.getTablaTramitesMatriculas();
+    this.getTablaTramitesReinicio() 
     this.getEstadoTramite();
   }
 
-  selectEstudiante(idEst) {
+  selectEstudiante(idEst,Tramite) {
     this.idEstudiante = idEst;
-    this.getTablaTramitesCursos();
+    if (Tramite == 1)
+      this.getTablaTramitesCursos();
+    if (Tramite == 2)
+      this.getTablaTramitesMatriculas();
+    if (Tramite == 3)
+     this.getTablaTramitesReinicio();
   }
 
-  selectEstadoTramite(estadoTra) {
+  selectEstadoTramite(estadoTra,Tramite) {
     this.estadoTramite = estadoTra;
-    this.getTablaTramitesCursos();
+    if (Tramite == 1)
+      this.getTablaTramitesCursos();
+    if (Tramite == 2)
+      this.getTablaTramitesMatriculas();
+    if (Tramite == 3)
+      this.getTablaTramitesReinicio();
   }
 
   applyFilter(filterValue: String) {
@@ -153,6 +168,71 @@ export class ControlEstadoTramitesComponent extends BaseComponent implements OnI
         } catch (error) {
           this.openSnackBar(AppSettings.SERVICE_NO_CONECT_SERVER, 99);
         }
+      });
+  }
+  //trae la tabla de tramites de matriculas
+  getTablaTramitesMatriculas() {
+    this.idTipoTramite = 6;
+    let request = {
+      id_estudiante: this.idEstudiante,
+      estado: this.estadoTramite,
+      id_tipo: this.idTipoTramite
+
+    } 
+    console.log(request);
+    
+    this._general_service.getVwEstadoTramites(request, this.getToken().token).subscribe(
+      result => {
+
+        try {
+          if (result.estado) {
+            console.log(result);
+            this.tablaTramitesMatriculas = new MatTableDataSource<any>(result.data);
+            this.tablaTramitesMatriculas.sort = this.sort;
+            this.tablaTramitesMatriculas.paginator = this.paginator;
+          } else {
+            this.openSnackBar(result.mensaje, 99);
+          }
+        } catch (error) {
+          this.openSnackBar(AppSettings.SERVICE_NO_CONECT_SERVER, 99);
+        } finally {
+          this.applyFilter(this.textfilter);
+        }
+      }, error => {
+        this.openSnackBar(error.error, 99);
+      });
+  }
+
+  //trae la tabla de tramites de reinicio de estudios
+  getTablaTramitesReinicio() {
+    this.idTipoTramite = 7;
+    let request = {
+      id_estudiante: this.idEstudiante,
+      estado: this.estadoTramite,
+      id_tipo: this.idTipoTramite
+
+    } 
+    console.log(request);
+    
+    this._general_service.getVwEstadoTramites(request, this.getToken().token).subscribe(
+      result => {
+
+        try {
+          if (result.estado) {
+            console.log(result);
+            this.tablaTramitesReinicio = new MatTableDataSource<any>(result.data);
+            this.tablaTramitesReinicio.sort = this.sort;
+            this.tablaTramitesReinicio.paginator = this.paginator;
+          } else {
+            this.openSnackBar(result.mensaje, 99);
+          }
+        } catch (error) {
+          this.openSnackBar(AppSettings.SERVICE_NO_CONECT_SERVER, 99);
+        } finally {
+          this.applyFilter(this.textfilter);
+        }
+      }, error => {
+        this.openSnackBar(error.error, 99);
       });
   }
 
