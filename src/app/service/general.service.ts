@@ -155,4 +155,20 @@ export class GeneralService {
     });
     return this._http.post(this.url + 'general/saveestudianteforregister', request, { headers: reqHeader });
     }
+
+    saveTramite(request, token): Observable<any> {
+    var reqHeader = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + token
+    });
+    return this._http.post(this.url + 'general/savetramite', request, { headers: reqHeader });
+    }
+
+    saveDocumentoTramite(request, token): Observable<any> {
+    var reqHeader = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + token
+    });
+    return this._http.post(this.url + 'general/savedocumentotramite', request, { headers: reqHeader });
+    }
 }

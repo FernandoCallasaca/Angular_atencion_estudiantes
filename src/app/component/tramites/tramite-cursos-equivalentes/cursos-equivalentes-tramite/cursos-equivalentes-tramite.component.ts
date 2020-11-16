@@ -41,6 +41,8 @@ export class CursosEquivalentesTramiteComponent extends BaseComponent implements
     usuario: ''
   };
 
+  observacion = '';
+
   constructor(
     public snackBar: MatSnackBar,
     public router: Router,
@@ -49,9 +51,6 @@ export class CursosEquivalentesTramiteComponent extends BaseComponent implements
     public dialog: MatDialog
   ) {
     super(snackBar, router);
-  }
-
-  ngOnInit() {
     this.getNroTramite();
     this.fecha = new Date();
     this.fechaActualizada = this.fecha.getDate() + ' / ' + (this.fecha.getMonth() + 1) + ' / ' + this.fecha.getFullYear();
@@ -59,6 +58,9 @@ export class CursosEquivalentesTramiteComponent extends BaseComponent implements
     console.log(this.getToken().data);
     this.getInfoEstudianteUsuario();
     console.log(this.infoUsuario);
+  }
+
+  ngOnInit() {
   }
 
   // Creamos un método para recibir el evento de los archivos
@@ -85,7 +87,7 @@ export class CursosEquivalentesTramiteComponent extends BaseComponent implements
   getNroTramite() {
     this.generalService.getTipoTramite(this.getToken().token).subscribe(
       result => {
-        console.log(result)
+        console.log(result);
         let resultado = <ResultadoApi>result;
         if (resultado.estado) {
           this.idTipoTramite = resultado.data.filter(tip => tip.nombre === this.identificadorNombreTramiteBD)[0].id_tipotramite;
@@ -94,7 +96,7 @@ export class CursosEquivalentesTramiteComponent extends BaseComponent implements
           let request = {
             id_estudiante: 0,
             id_tipo: 0
-          }
+          };
           this.generalService.getVwTramites(request, this.getToken().token).subscribe(
             result => {
               if (result.estado) {
@@ -140,4 +142,48 @@ export class CursosEquivalentesTramiteComponent extends BaseComponent implements
       });
   }
 
+  limpiarFormulario() {
+    this.files = [];
+    this.observacion = '';
+  }
+
+  guardarTramite() {
+    if (this.files.length === 0) {
+      this.openSnackBar('Necesitas completar todos los campos', 99);
+    } else {
+      const req = {
+        id_estudiante: this.infoUsuario.id_estudiante,
+        id_tipo: this.idTipoTramite,
+        fecha: this.fechaActualizada,
+        observacion: this.observacion
+      };
+      console.log(req);
+      this.generalService.saveTramite(req, this.getToken().token).subscribe(
+        result => {
+          const req1 = {
+            id_estudiante: 0,
+            id_tipo: 0
+          };
+          console.log(req1);
+          this.generalService.getVwTramites(req1, this.getToken().token).subscribe(
+            result1 => {
+              const idNewTramite = result1.data[result1.data.length - 1].id_tramite;
+              this.files.forEach(file => {
+                const req2 = {
+                  id_tramite: idNewTramite,
+                  archivo: file.name
+                };
+                console.log(req2);
+                this.generalService.saveDocumentoTramite(req2, this.getToken().token).subscribe(
+                  result2 => {
+                    this.router.navigate(['/infotramite']);
+                  }
+                );
+              });
+            }
+          );
+        }
+      );
+    }
+  }
 }

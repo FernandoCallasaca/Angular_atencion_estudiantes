@@ -1,6 +1,6 @@
 <app-menu>
 
-  <form action="" style="margin: 0% 10%">
+  <form style="margin: 0% 10%">
 
     <div class="contenedorBody">
       <h2 class="h2">TRÁMITE CURSOS EQUIVALENTES</h2>
@@ -36,7 +36,7 @@
       <legend class="h2">DATOS DEL PETICIÓN</legend>
       <mat-form-field style="width:100%" class="example-full-width">
         <mat-label>Indique a dónde se remitirá su documento y aclare aquí brevemente su petición</mat-label>
-        <textarea rows="4" matInput placeholder="Mi petición se refiere a..."></textarea>
+        <textarea [(ngModel)]="observacion" name="observacion" rows="4" matInput placeholder="Mi petición se refiere a..."></textarea>
       </mat-form-field>
     </fieldset>
 
@@ -49,8 +49,8 @@
 
     <div class="contenedorBody" style="margin-bottom: 1%;">
       <div class="contenedor">
-        <button mat-raised-button color="warn">LIMPIAR</button>
-        <button mat-raised-button color="primary">ENVIAR</button>
+        <button mat-raised-button (click)="limpiarFormulario()" color="warn">LIMPIAR</button>
+        <button mat-raised-button (click)="guardarTramite()" color="primary">ENVIAR</button>
       </div>
     </div>
   </form>
