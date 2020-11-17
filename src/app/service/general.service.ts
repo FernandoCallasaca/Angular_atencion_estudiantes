@@ -171,4 +171,10 @@ export class GeneralService {
     });
     return this._http.post(this.url + 'general/savedocumentotramite', request, { headers: reqHeader });
     }
+
+    uploadfile(extension, proyecto, fileToUpload, token): Observable<any>{
+      const formData: FormData = new FormData();
+      formData.append('DA', fileToUpload, fileToUpload.name);
+      return this._http.post(this.url + 'general/uploadfile?extension=' + extension + '&proyecto=' + proyecto, formData);
+  }
 }

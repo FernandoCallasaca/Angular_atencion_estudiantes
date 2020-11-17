@@ -69,6 +69,8 @@ export class CursosEquivalentesTramiteComponent extends BaseComponent implements
     this.files = filesUpdate;
     console.log('Archivos Agregados');
     console.log(this.files);
+
+
   }
 
   openDialog(): void {
@@ -176,6 +178,19 @@ export class CursosEquivalentesTramiteComponent extends BaseComponent implements
                 console.log(req2);
                 this.generalService.saveDocumentoTramite(req2, this.getToken().token).subscribe(
                   result2 => {
+                    const extension = file.name;
+                    this.generalService.uploadfile(extension, 'Estudiante_' + this.infoUsuario.codigo, file, this.getToken().token)
+                    .subscribe(
+                      result => {
+                        if (result.estado) {
+                          console.log('Archivo guardado satisfactoriamente');
+                        } else {
+                          this.openSnackBar(result.mensaje, 99);
+                        }
+                      }, error => {
+                        this.openSnackBar(<any>error, 99);
+                        alert(error.error);
+                      });
                     this.router.navigate(['/infotramite']);
                   }
                 );
