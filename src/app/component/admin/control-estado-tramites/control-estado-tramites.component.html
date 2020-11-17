@@ -1,285 +1,418 @@
 <app-menu>
-    <h2>Control del Estado de los Tramites </h2>
-    <mat-horizontal-stepper  >
-        <mat-step >
-                <div class="contenedorBody">
-                    <ng-template matStepLabel>Cursos Equivalentes</ng-template>
-                        <mat-accordion>
-                            <mat-expansion-panel>
-                            <mat-expansion-panel-header class="back-expansion">
-                                <mat-panel-title>
-                                <mat-icon matSuffix>filter_list</mat-icon>&nbsp;&nbsp;Filtros
-                                </mat-panel-title>
-                                <mat-panel-description>
-                                Filtrado de datos en la lista
-                                </mat-panel-description>
-                            </mat-expansion-panel-header>
-                            <div class="contenedor">
-                    
-                                <mat-form-field>
-                                <mat-select placeholder="Estudiante">
-                                    <mat-option value="0" (click)='selectEstudiante(0,1)'>
-                                    -TODOS-
-                                    </mat-option>
-                                    <mat-option *ngFor="let estudiante of estudiantes" [value]="estudiante.id_estudiante"
-                                    (click)='selectEstudiante(estudiante.id_estudiante,1)'>
-                                    {{estudiante.codigo}}
-                                    </mat-option>
-                                </mat-select>
-                                </mat-form-field>
-                                <mat-form-field style="width: 300px">
-                                <mat-select placeholder="Estado Trámite">
-                                    <mat-option value="" (click)='selectEstadoTramite("",1)'>
-                                    -TODOS-
-                                    </mat-option>
-                                    <mat-option *ngFor="let estadotramite of estadosTramite" [value]="estadotramite.estado"
-                                    (click)='selectEstadoTramite(estadotramite.estado,1)'>
-                                    {{estadotramite.estado}}
-                                    </mat-option>
-                                </mat-select>
-                                </mat-form-field>
-                            </div>
-                    
-                            </mat-expansion-panel>
-                        </mat-accordion>
-
-                        <br>
-
-                        <mat-card>
-                            <mat-form-field>
-                                <input matInput placeholder="Buscar" [(ngModel)]="textfilter" (keyup)="applyFilter($event.target.value)">
-                                <mat-icon matSuffix>search</mat-icon>
-                            </mat-form-field>
-
-                            <table mat-table [dataSource]="tablaTramitesCursos" matSort class="mat-elevation-z12">
-
-                                <ng-container matColumnDef="nombres">
-                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombres Estudiante</th>
-                                <td mat-cell *matCellDef="let element"> {{element.nombres}} </td>
-                                </ng-container>
-
-                                <ng-container matColumnDef="apellidos">
-                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Apellidos Estudiante</th>
-                                <td mat-cell *matCellDef="let element"> {{element.apellidos}} </td>
-                                </ng-container>
-
-                                <ng-container matColumnDef="codigo">
-                                <th mat-header-cell *matHeaderCellDef mat-sort-header>Código Estudiante</th>
-                                <td mat-cell *matCellDef="let element"> {{element.codigo}} </td>
-                                </ng-container>
-
-                                <ng-container matColumnDef="fecha">
-                                <th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha Trámite</th>
-                                <td mat-cell *matCellDef="let element"> {{element.fecha}} </td>
-                                </ng-container>
-
-                                <ng-container matColumnDef="observacion">
-                                <th mat-header-cell *matHeaderCellDef mat-sort-header>Observación Trámite</th>
-                                <td mat-cell *matCellDef="let element"> {{element.observacion}} </td>
-                                </ng-container>
-
-                                <ng-container matColumnDef="estado">
-                                <th mat-header-cell *matHeaderCellDef mat-sort-header>Estado Trámite</th>
-                                <td mat-cell *matCellDef="let element"> {{element.estado}} </td>
-                                </ng-container>
-
-                                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                                <ng-template let-row matRowDef cdkVirtualFor [matRowDefColumns]="displayedColumns">
-                                    <tr mat-row> </tr>
-                                </ng-template>
-                            </table>
-
-                            <mat-paginator [pageSizeOptions]="pagin" showFirstLastButtons></mat-paginator>
-                        </mat-card>
-                </div>
-        </mat-step>
-
-        <mat-step>
-            <div class="contenedorBody">
-                <ng-template matStepLabel>Matriculas</ng-template>
-                    <mat-accordion>
-                        <mat-expansion-panel>
-                        <mat-expansion-panel-header class="back-expansion">
-                            <mat-panel-title>
-                            <mat-icon matSuffix>filter_list</mat-icon>&nbsp;&nbsp;Filtros
-                            </mat-panel-title>
-                            <mat-panel-description>
-                            Filtrado de datos en la lista
-                            </mat-panel-description>
-                        </mat-expansion-panel-header>
-                        <div class="contenedor">
-                
-                            <mat-form-field>
-                            <mat-select placeholder="Estudiante">
-                                <mat-option value="0" (click)='selectEstudiante(0,2)'>
-                                -TODOS-
-                                </mat-option>
-                                <mat-option *ngFor="let estudiante of estudiantes" [value]="estudiante.id_estudiante"
-                                (click)='selectEstudiante(estudiante.id_estudiante,2)'>
-                                {{estudiante.codigo}}
-                                </mat-option>
-                            </mat-select>
-                            </mat-form-field>
-                            <mat-form-field style="width: 300px">
-                            <mat-select placeholder="Estado Trámite">
-                                <mat-option value="" (click)='selectEstadoTramite("",2)'>
-                                -TODOS-
-                                </mat-option>
-                                <mat-option *ngFor="let estadotramite of estadosTramite" [value]="estadotramite.estado"
-                                (click)='selectEstadoTramite(estadotramite.estado,2)'>
-                                {{estadotramite.estado}}
-                                </mat-option>
-                            </mat-select>
-                            </mat-form-field>
-                        </div>
-                
-                        </mat-expansion-panel>
-                    </mat-accordion>
-
-                    <br>
-
-                    <mat-card>
-                        <mat-form-field>
-                            <input matInput placeholder="Buscar" [(ngModel)]="textfilter" (keyup)="applyFilter($event.target.value)">
-                            <mat-icon matSuffix>search</mat-icon>
-                        </mat-form-field>
-
-                        <table mat-table [dataSource]="tablaTramitesMatriculas" matSort class="mat-elevation-z12">
-
-                            <ng-container matColumnDef="nombres">
-                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombres Estudiante</th>
-                            <td mat-cell *matCellDef="let element"> {{element.nombres}} </td>
-                            </ng-container>
-
-                            <ng-container matColumnDef="apellidos">
-                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Apellidos Estudiante</th>
-                            <td mat-cell *matCellDef="let element"> {{element.apellidos}} </td>
-                            </ng-container>
-
-                            <ng-container matColumnDef="codigo">
-                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Código Estudiante</th>
-                            <td mat-cell *matCellDef="let element"> {{element.codigo}} </td>
-                            </ng-container>
-
-                            <ng-container matColumnDef="fecha">
-                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha Trámite</th>
-                            <td mat-cell *matCellDef="let element"> {{element.fecha}} </td>
-                            </ng-container>
-
-                            <ng-container matColumnDef="observacion">
-                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Observación Trámite</th>
-                            <td mat-cell *matCellDef="let element"> {{element.observacion}} </td>
-                            </ng-container>
-
-                            <ng-container matColumnDef="estado">
-                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Estado Trámite</th>
-                            <td mat-cell *matCellDef="let element"> {{element.estado}} </td>
-                            </ng-container>
-
-                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                            <ng-template let-row matRowDef cdkVirtualFor [matRowDefColumns]="displayedColumns">
-                                <tr mat-row> </tr>
-                            </ng-template>
-                        </table>
-
-                        <mat-paginator [pageSizeOptions]="pagin" showFirstLastButtons></mat-paginator>
-                    </mat-card>
+  <h2>Control del Estado de los Tramites</h2>
+  <mat-horizontal-stepper>
+    <mat-step>
+      <div class="contenedorBody">
+        <ng-template matStepLabel>Cursos Equivalentes</ng-template>
+        <mat-accordion>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header class="back-expansion">
+              <mat-panel-title>
+                <mat-icon matSuffix>filter_list</mat-icon>&nbsp;&nbsp;Filtros
+              </mat-panel-title>
+              <mat-panel-description>
+                Filtrado de datos en la lista
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div class="contenedor">
+              <mat-form-field>
+                <mat-select placeholder="Estudiante">
+                  <mat-option value="0" (click)="selectEstudiante(0, 1)">
+                    -TODOS-
+                  </mat-option>
+                  <mat-option
+                    *ngFor="let estudiante of estudiantes"
+                    [value]="estudiante.id_estudiante"
+                    (click)="selectEstudiante(estudiante.id_estudiante, 1)"
+                  >
+                    {{ estudiante.codigo }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field style="width: 300px">
+                <mat-select placeholder="Estado Trámite">
+                  <mat-option value="" (click)="selectEstadoTramite('', 1)">
+                    -TODOS-
+                  </mat-option>
+                  <mat-option
+                    *ngFor="let estadotramite of estadosTramite"
+                    [value]="estadotramite.estado"
+                    (click)="selectEstadoTramite(estadotramite.estado, 1)"
+                  >
+                    {{ estadotramite.estado }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
             </div>
-        </mat-step>
+          </mat-expansion-panel>
+        </mat-accordion>
 
-        <mat-step>
-            <div class="contenedorBody">
-                <ng-template matStepLabel>Reinicio de estudios</ng-template>
-                    <mat-accordion>
-                        <mat-expansion-panel>
-                        <mat-expansion-panel-header class="back-expansion">
-                            <mat-panel-title>
-                            <mat-icon matSuffix>filter_list</mat-icon>&nbsp;&nbsp;Filtros
-                            </mat-panel-title>
-                            <mat-panel-description>
-                            Filtrado de datos en la lista
-                            </mat-panel-description>
-                        </mat-expansion-panel-header>
-                        <div class="contenedor">
-                
-                            <mat-form-field>
-                            <mat-select placeholder="Estudiante">
-                                <mat-option value="0" (click)='selectEstudiante(0,3)'>
-                                -TODOS-
-                                </mat-option>
-                                <mat-option *ngFor="let estudiante of estudiantes" [value]="estudiante.id_estudiante"
-                                (click)='selectEstudiante(estudiante.id_estudiante,3)'>
-                                {{estudiante.codigo}}
-                                </mat-option>
-                            </mat-select>
-                            </mat-form-field>
-                            <mat-form-field style="width: 300px">
-                            <mat-select placeholder="Estado Trámite">
-                                <mat-option value="" (click)='selectEstadoTramite("",3)'>
-                                -TODOS-
-                                </mat-option>
-                                <mat-option *ngFor="let estadotramite of estadosTramite" [value]="estadotramite.estado"
-                                (click)='selectEstadoTramite(estadotramite.estado,3)'>
-                                {{estadotramite.estado}}
-                                </mat-option>
-                            </mat-select>
-                            </mat-form-field>
-                        </div>
-                
-                        </mat-expansion-panel>
-                    </mat-accordion>
+        <br />
 
-                    <br>
+        <mat-card>
+          <mat-form-field>
+            <input
+              matInput
+              placeholder="Buscar"
+              [(ngModel)]="textfilter"
+              (keyup)="applyFilter($event.target.value)"
+            />
+            <mat-icon matSuffix>search</mat-icon>
+          </mat-form-field>
 
-                    <mat-card>
-                        <mat-form-field>
-                            <input matInput placeholder="Buscar" [(ngModel)]="textfilter" (keyup)="applyFilter($event.target.value)">
-                            <mat-icon matSuffix>search</mat-icon>
-                        </mat-form-field>
+          <table
+            mat-table
+            [dataSource]="tablaTramitesCursos"
+            matSort
+            class="mat-elevation-z12"
+          >
+            <ng-container matColumnDef="nombres">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Nombres Estudiante
+              </th>
+              <td mat-cell *matCellDef="let element">{{ element.nombres }}</td>
+            </ng-container>
 
-                        <table mat-table [dataSource]="tablaTramitesReinicio" matSort class="mat-elevation-z12">
+            <ng-container matColumnDef="apellidos">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Apellidos Estudiante
+              </th>
+              <td mat-cell *matCellDef="let element">
+                {{ element.apellidos }}
+              </td>
+            </ng-container>
 
-                            <ng-container matColumnDef="nombres">
-                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombres Estudiante</th>
-                            <td mat-cell *matCellDef="let element"> {{element.nombres}} </td>
-                            </ng-container>
+            <ng-container matColumnDef="codigo">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Código Estudiante
+              </th>
+              <td mat-cell *matCellDef="let element">{{ element.codigo }}</td>
+            </ng-container>
 
-                            <ng-container matColumnDef="apellidos">
-                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Apellidos Estudiante</th>
-                            <td mat-cell *matCellDef="let element"> {{element.apellidos}} </td>
-                            </ng-container>
+            <ng-container matColumnDef="fecha">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Fecha Trámite
+              </th>
+              <td mat-cell *matCellDef="let element">{{ element.fecha }}</td>
+            </ng-container>
 
-                            <ng-container matColumnDef="codigo">
-                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Código Estudiante</th>
-                            <td mat-cell *matCellDef="let element"> {{element.codigo}} </td>
-                            </ng-container>
+            <ng-container matColumnDef="observacion">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Observación Trámite
+              </th>
+              <td mat-cell *matCellDef="let element">
+                {{ element.observacion }}
+              </td>
+            </ng-container>
 
-                            <ng-container matColumnDef="fecha">
-                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha Trámite</th>
-                            <td mat-cell *matCellDef="let element"> {{element.fecha}} </td>
-                            </ng-container>
+            <ng-container matColumnDef="resumen">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Resumen Trámite
+              </th>
+              <td mat-cell *matCellDef="let element">
+                <button
+                  (click)="dialogResumenTramite(element)"
+                  mat-stroked-button
+                  color="primary"
+                >
+                  Resumen
+                </button>
+              </td>
+            </ng-container>
 
-                            <ng-container matColumnDef="observacion">
-                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Observación Trámite</th>
-                            <td mat-cell *matCellDef="let element"> {{element.observacion}} </td>
-                            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <ng-template
+              let-row
+              matRowDef
+              cdkVirtualFor
+              [matRowDefColumns]="displayedColumns"
+            >
+              <tr mat-row></tr>
+            </ng-template>
+          </table>
 
-                            <ng-container matColumnDef="estado">
-                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Estado Trámite</th>
-                            <td mat-cell *matCellDef="let element"> {{element.estado}} </td>
-                            </ng-container>
+          <mat-paginator
+            [pageSizeOptions]="pagin"
+            showFirstLastButtons
+          ></mat-paginator>
+        </mat-card>
+      </div>
+    </mat-step>
 
-                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                            <ng-template let-row matRowDef cdkVirtualFor [matRowDefColumns]="displayedColumns">
-                                <tr mat-row> </tr>
-                            </ng-template>
-                        </table>
-
-                        <mat-paginator [pageSizeOptions]="pagin" showFirstLastButtons></mat-paginator>
-                    </mat-card>
+    <mat-step>
+      <div class="contenedorBody">
+        <ng-template matStepLabel>Matriculas</ng-template>
+        <mat-accordion>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header class="back-expansion">
+              <mat-panel-title>
+                <mat-icon matSuffix>filter_list</mat-icon>&nbsp;&nbsp;Filtros
+              </mat-panel-title>
+              <mat-panel-description>
+                Filtrado de datos en la lista
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div class="contenedor">
+              <mat-form-field>
+                <mat-select placeholder="Estudiante">
+                  <mat-option value="0" (click)="selectEstudiante(0, 2)">
+                    -TODOS-
+                  </mat-option>
+                  <mat-option
+                    *ngFor="let estudiante of estudiantes"
+                    [value]="estudiante.id_estudiante"
+                    (click)="selectEstudiante(estudiante.id_estudiante, 2)"
+                  >
+                    {{ estudiante.codigo }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field style="width: 300px">
+                <mat-select placeholder="Estado Trámite">
+                  <mat-option value="" (click)="selectEstadoTramite('', 2)">
+                    -TODOS-
+                  </mat-option>
+                  <mat-option
+                    *ngFor="let estadotramite of estadosTramite"
+                    [value]="estadotramite.estado"
+                    (click)="selectEstadoTramite(estadotramite.estado, 2)"
+                  >
+                    {{ estadotramite.estado }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
             </div>
-        </mat-step>
+          </mat-expansion-panel>
+        </mat-accordion>
 
-      </mat-horizontal-stepper>
+        <br />
+
+        <mat-card>
+          <mat-form-field>
+            <input
+              matInput
+              placeholder="Buscar"
+              [(ngModel)]="textfilter"
+              (keyup)="applyFilter($event.target.value)"
+            />
+            <mat-icon matSuffix>search</mat-icon>
+          </mat-form-field>
+
+          <table
+            mat-table
+            [dataSource]="tablaTramitesMatriculas"
+            matSort
+            class="mat-elevation-z12"
+          >
+            <ng-container matColumnDef="nombres">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Nombres Estudiante
+              </th>
+              <td mat-cell *matCellDef="let element">{{ element.nombres }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="apellidos">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Apellidos Estudiante
+              </th>
+              <td mat-cell *matCellDef="let element">
+                {{ element.apellidos }}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="codigo">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Código Estudiante
+              </th>
+              <td mat-cell *matCellDef="let element">{{ element.codigo }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="fecha">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Fecha Trámite
+              </th>
+              <td mat-cell *matCellDef="let element">{{ element.fecha }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="observacion">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Observación Trámite
+              </th>
+              <td mat-cell *matCellDef="let element">
+                {{ element.observacion }}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="resumen">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Resumen Trámite
+              </th>
+              <td mat-cell *matCellDef="let element">
+                <button
+                  (click)="dialogResumenTramite(element)"
+                  mat-stroked-button
+                  color="primary"
+                >
+                  Resumen
+                </button>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <ng-template
+              let-row
+              matRowDef
+              cdkVirtualFor
+              [matRowDefColumns]="displayedColumns"
+            >
+              <tr mat-row></tr>
+            </ng-template>
+          </table>
+
+          <mat-paginator
+            [pageSizeOptions]="pagin"
+            showFirstLastButtons
+          ></mat-paginator>
+        </mat-card>
+      </div>
+    </mat-step>
+
+    <mat-step>
+      <div class="contenedorBody">
+        <ng-template matStepLabel>Reinicio de estudios</ng-template>
+        <mat-accordion>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header class="back-expansion">
+              <mat-panel-title>
+                <mat-icon matSuffix>filter_list</mat-icon>&nbsp;&nbsp;Filtros
+              </mat-panel-title>
+              <mat-panel-description>
+                Filtrado de datos en la lista
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div class="contenedor">
+              <mat-form-field>
+                <mat-select placeholder="Estudiante">
+                  <mat-option value="0" (click)="selectEstudiante(0, 3)">
+                    -TODOS-
+                  </mat-option>
+                  <mat-option
+                    *ngFor="let estudiante of estudiantes"
+                    [value]="estudiante.id_estudiante"
+                    (click)="selectEstudiante(estudiante.id_estudiante, 3)"
+                  >
+                    {{ estudiante.codigo }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field style="width: 300px">
+                <mat-select placeholder="Estado Trámite">
+                  <mat-option value="" (click)="selectEstadoTramite('', 3)">
+                    -TODOS-
+                  </mat-option>
+                  <mat-option
+                    *ngFor="let estadotramite of estadosTramite"
+                    [value]="estadotramite.estado"
+                    (click)="selectEstadoTramite(estadotramite.estado, 3)"
+                  >
+                    {{ estadotramite.estado }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+
+        <br />
+
+        <mat-card>
+          <mat-form-field>
+            <input
+              matInput
+              placeholder="Buscar"
+              [(ngModel)]="textfilter"
+              (keyup)="applyFilter($event.target.value)"
+            />
+            <mat-icon matSuffix>search</mat-icon>
+          </mat-form-field>
+
+          <table
+            mat-table
+            [dataSource]="tablaTramitesReinicio"
+            matSort
+            class="mat-elevation-z12"
+          >
+            <ng-container matColumnDef="nombres">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Nombres Estudiante
+              </th>
+              <td mat-cell *matCellDef="let element">{{ element.nombres }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="apellidos">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Apellidos Estudiante
+              </th>
+              <td mat-cell *matCellDef="let element">
+                {{ element.apellidos }}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="codigo">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Código Estudiante
+              </th>
+              <td mat-cell *matCellDef="let element">{{ element.codigo }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="fecha">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Fecha Trámite
+              </th>
+              <td mat-cell *matCellDef="let element">{{ element.fecha }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="observacion">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Observación Trámite
+              </th>
+              <td mat-cell *matCellDef="let element">
+                {{ element.observacion }}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="resumen">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Resumen Trámite
+              </th>
+              <td mat-cell *matCellDef="let element">
+                <button
+                  (click)="dialogResumenTramite(element)"
+                  mat-stroked-button
+                  color="primary"
+                >
+                  Resumen
+                </button>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <ng-template
+              let-row
+              matRowDef
+              cdkVirtualFor
+              [matRowDefColumns]="displayedColumns"
+            >
+              <tr mat-row></tr>
+            </ng-template>
+          </table>
+
+          <mat-paginator
+            [pageSizeOptions]="pagin"
+            showFirstLastButtons
+          ></mat-paginator>
+        </mat-card>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
 </app-menu>
-

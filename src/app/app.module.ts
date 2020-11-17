@@ -77,6 +77,7 @@ import { ReinicioEstudiosTramiteComponent } from './component/tramites/tramite-r
 import { ReinicioEstudiosInfoComponent } from './component/tramites/tramite-reinicio-de-estudios/reinicio-estudios-info/reinicio-estudios-info.component';
 import { RegistroEstudianteComponent } from './component/seguridad/registro-estudiante/registro-estudiante.component';
 import { ControlEstadoTramitesComponent } from './component/admin/control-estado-tramites/control-estado-tramites.component';
+import { ResumenTramiteComponent } from './component/admin/resumen-tramite/resumen-tramite.component';
 
 
 @NgModule({
@@ -122,6 +123,7 @@ import { ControlEstadoTramitesComponent } from './component/admin/control-estado
     ReinicioEstudiosInfoComponent,
     RegistroEstudianteComponent,
     ControlEstadoTramitesComponent,
+    ResumenTramiteComponent,
   ],
   imports: [
     FormsModule,
@@ -174,7 +176,8 @@ import { ControlEstadoTramitesComponent } from './component/admin/control-estado
     CursosEquivalentesInfoComponent,
     OtrosTramitesInfoComponent,
     ReinicioEstudiosInfoComponent,
-    RegistroEstudianteComponent
+    RegistroEstudianteComponent,
+    ResumenTramiteComponent
   ],
   providers: [appRoutingProviders, { provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]

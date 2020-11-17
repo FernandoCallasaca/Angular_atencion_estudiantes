@@ -10,6 +10,8 @@ import { Confirmar } from '../../../interface/confirmar.interface';
 import { SeguridadService } from '../../../service/seguridad.service';
 import { GeneralService } from '../../../service/general.service';
 
+import { ResumenTramiteComponent } from './../resumen-tramite/resumen-tramite.component';
+
 @Component({
   selector: 'app-control-estado-tramites',
   templateUrl: './control-estado-tramites.component.html',
@@ -26,7 +28,7 @@ export class ControlEstadoTramitesComponent extends BaseComponent implements OnI
 
   tipoTramites = [];
   idTipoTramite = 0;
-  
+
   estadosTramite = [];
   estadoTramite = '';
 
@@ -36,7 +38,7 @@ export class ControlEstadoTramitesComponent extends BaseComponent implements OnI
   public tablaTramitesMatriculas: MatTableDataSource<any>;
   public tablaTramitesReinicio: MatTableDataSource<any>;
 
-  displayedColumns: string[] = ['nombres', 'apellidos', 'codigo', 'fecha', 'observacion', 'estado'];
+  displayedColumns: string[] = ['nombres', 'apellidos', 'codigo', 'fecha', 'observacion', 'resumen'];
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: false }) sort: MatSort;
 
@@ -55,7 +57,7 @@ export class ControlEstadoTramitesComponent extends BaseComponent implements OnI
     this.getTipoTramite();
     this.getTablaTramitesCursos();
     this.getTablaTramitesMatriculas();
-    this.getTablaTramitesReinicio() 
+    this.getTablaTramitesReinicio()
     this.getEstadoTramite();
   }
 
@@ -104,7 +106,6 @@ export class ControlEstadoTramitesComponent extends BaseComponent implements OnI
   getTipoTramite() {
     this._general_service.getTipoTramite(this.getToken().token).subscribe(
       result => {
-        console.log(result)
         let resultado = <ResultadoApi>result;
         if (resultado.estado) {
           this.tipoTramites = resultado.data;
@@ -126,16 +127,11 @@ export class ControlEstadoTramitesComponent extends BaseComponent implements OnI
       id_estudiante: this.idEstudiante,
       estado: this.estadoTramite,
       id_tipo: this.idTipoTramite
-
-    } 
-    console.log(request);
-    
+    };
     this._general_service.getVwEstadoTramites(request, this.getToken().token).subscribe(
       result => {
-
         try {
           if (result.estado) {
-            console.log(result);
             this.tablaTramitesCursos = new MatTableDataSource<any>(result.data);
             this.tablaTramitesCursos.sort = this.sort;
             this.tablaTramitesCursos.paginator = this.paginator;
@@ -155,7 +151,6 @@ export class ControlEstadoTramitesComponent extends BaseComponent implements OnI
   getEstadoTramite(){
     this._general_service.getEstadoTramite(this.getToken().token).subscribe(
       result => {
-        console.log(result)
         let resultado = <ResultadoApi>result;
         if (resultado.estado) {
           this.estadosTramite = resultado.data;
@@ -177,16 +172,11 @@ export class ControlEstadoTramitesComponent extends BaseComponent implements OnI
       id_estudiante: this.idEstudiante,
       estado: this.estadoTramite,
       id_tipo: this.idTipoTramite
-
-    } 
-    console.log(request);
-    
+    };
     this._general_service.getVwEstadoTramites(request, this.getToken().token).subscribe(
       result => {
-
         try {
           if (result.estado) {
-            console.log(result);
             this.tablaTramitesMatriculas = new MatTableDataSource<any>(result.data);
             this.tablaTramitesMatriculas.sort = this.sort;
             this.tablaTramitesMatriculas.paginator = this.paginator;
@@ -210,16 +200,11 @@ export class ControlEstadoTramitesComponent extends BaseComponent implements OnI
       id_estudiante: this.idEstudiante,
       estado: this.estadoTramite,
       id_tipo: this.idTipoTramite
-
-    } 
-    console.log(request);
-    
+    };
     this._general_service.getVwEstadoTramites(request, this.getToken().token).subscribe(
       result => {
-
         try {
           if (result.estado) {
-            console.log(result);
             this.tablaTramitesReinicio = new MatTableDataSource<any>(result.data);
             this.tablaTramitesReinicio.sort = this.sort;
             this.tablaTramitesReinicio.paginator = this.paginator;
@@ -235,5 +220,12 @@ export class ControlEstadoTramitesComponent extends BaseComponent implements OnI
         this.openSnackBar(error.error, 99);
       });
   }
-
+  dialogResumenTramite(tramite) {
+    this.dialog.open(ResumenTramiteComponent, {
+      data: {
+        tramite: tramite
+      }
+    });
+    console.log(tramite);
+  }
 }

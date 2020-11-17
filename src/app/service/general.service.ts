@@ -176,5 +176,17 @@ export class GeneralService {
       const formData: FormData = new FormData();
       formData.append('DA', fileToUpload, fileToUpload.name);
       return this._http.post(this.url + 'general/uploadfile?extension=' + extension + '&documento=' + documento, formData);
-  }
+    }
+
+    getDocumentos(token): Observable<any> {
+      var reqHeader = new HttpHeaders({
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + token
+      });
+      return this._http.post(this.url + 'general/getdocumentos', {}, { headers: reqHeader });
+    }
+
+    download(nombre): Observable<any> {
+      return this._http.get(this.url + 'general/download?nombre=' + nombre, { responseType: 'blob' });
+    }
 }

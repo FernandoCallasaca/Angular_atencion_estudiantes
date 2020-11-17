@@ -1,0 +1,20 @@
+<h2 mat-dialog-title>Resumen Trámite {{ tramite.tipotramite }}</h2>
+
+<mat-dialog-content class="mat-typography">
+  Fecha: {{ tramite.fecha }} <br>
+  Código: {{ tramite.codigo }} <br>
+  Nombres: {{ tramite.nombres }} <br>
+  Apellidos: {{ tramite.apellidos }} <br>
+  Observación: {{ tramite.observacion }} <br>
+  <div>
+    <ul>
+      <li *ngFor="let documento of documentosTramite">
+        {{ documento.archivo }} <button (click)="download(documento.archivo)">Descargar</button>
+      </li>
+    </ul>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+</mat-dialog-actions>
