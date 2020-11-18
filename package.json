@@ -37,6 +37,7 @@
     "ng2-pdf-viewer": "^6.3.2",
     "rxjs": "~6.4.0",
     "rxjs-compat": "^6.5.5",
+    "sweetalert": "^2.1.2",
     "tslib": "^1.10.0",
     "xlsx": "^0.15.5",
     "zone.js": "~0.9.1"

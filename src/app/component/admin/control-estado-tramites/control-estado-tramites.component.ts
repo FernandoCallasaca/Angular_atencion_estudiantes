@@ -73,7 +73,7 @@ export class ControlEstadoTramitesComponent extends BaseComponent implements OnI
 
   selectEstadoTramite(estadoTra,Tramite) {
     this.estadoTramite = estadoTra;
-    if (Tramite == 1)
+    if (Tramite === 1)
       this.getTablaTramitesCursos();
     if (Tramite == 2)
       this.getTablaTramitesMatriculas();

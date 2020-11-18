@@ -32,6 +32,7 @@ export class MenuComponent extends BaseComponent implements OnInit {
   public tramitedocumentario: boolean = false;
   public estadotramites: boolean = false;
   public controlestadotramites: boolean = false;
+  public mistramites: boolean = false;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -58,16 +59,17 @@ export class MenuComponent extends BaseComponent implements OnInit {
 
       switch (this.usuario.id_role) {
         case 1: // estudiante
-          this.setearMenu(false, false, false, false, true, true,false);
+          this.setearMenu(false, false, false, false, true, true, false, true);
           break;
-        case 2:
-          this.setearMenu(true, true, true, true, false, false,true);
+        case 2: // secretaria
+          this.setearMenu(true, true, true, true, false, false,true, false);
           break;
       }
     }
   }
 
-  setearMenu(b_usuario, b_administrador, b_estudiantes, b_reportetramites, b_tramitedocumentario, b_estadotramites, b_controlestadotramites) {
+  setearMenu(b_usuario, b_administrador, b_estudiantes, b_reportetramites,
+    b_tramitedocumentario, b_estadotramites, b_controlestadotramites, b_mistramites) {
     this.user = b_usuario;
     this.administrador = b_administrador;
     this.estudiantes = b_estudiantes;
@@ -75,13 +77,13 @@ export class MenuComponent extends BaseComponent implements OnInit {
     this.tramitedocumentario = b_tramitedocumentario;
     this.estadotramites = b_estadotramites;
     this.controlestadotramites = b_controlestadotramites;
+    this.mistramites = b_mistramites;
   }
 
   logoff() {
     localStorage.clear();
     this.isLogin();
     this.router.navigate(['/login']);
-
   }
 
   openDialogClave(): void {

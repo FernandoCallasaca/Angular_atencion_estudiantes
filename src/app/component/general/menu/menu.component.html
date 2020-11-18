@@ -23,18 +23,19 @@
               <mat-icon>recent_actors</mat-icon>
               <span>Filtro Estudiante - Trámites</span>
           </a>
+          <a mat-list-item [routerLink]="['/controlestadotramites']" *ngIf="controlestadotramites">
+            <mat-icon>fact_check</mat-icon>
+            <span>Control General de Trámites</span>
+          </a>
+          <!-- Estudiante -->
           <a mat-list-item [routerLink]="['/infotramite']" *ngIf="tramitedocumentario">
               <mat-icon>recent_actors</mat-icon>
               <span>Trámites Documentarios</span>
           </a>
-          <a mat-list-item [routerLink]="['/estadotramites']" *ngIf="estadotramites">
-              <mat-icon>fact_check</mat-icon>
-              <span>Estado Trámites</span>
+          <a mat-list-item [routerLink]="['/mistramites']" *ngIf="mistramites">
+              <mat-icon>folder_shared</mat-icon>
+              <span>Mis Trámites</span>
           </a>
-          <a mat-list-item [routerLink]="['/controlestadotramites']" *ngIf="controlestadotramites">
-            <mat-icon>fact_check</mat-icon>
-            <span>Control General de Trámites</span>
-        </a>
         </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>

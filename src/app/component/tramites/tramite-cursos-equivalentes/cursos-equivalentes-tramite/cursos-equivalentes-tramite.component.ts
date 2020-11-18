@@ -12,7 +12,7 @@ import { AppSettings } from 'src/app/common/appsettings';
 import { ResultadoApi } from './../../../../interface/common.interface';
 
 import { CursosEquivalentesInfoComponent } from './../cursos-equivalentes-info/cursos-equivalentes-info.component';
-
+import swal from 'sweetalert';
 @Component({
   selector: 'app-cursos-equivalentes-tramite',
   templateUrl: './cursos-equivalentes-tramite.component.html',
@@ -145,41 +145,71 @@ export class CursosEquivalentesTramiteComponent extends BaseComponent implements
   }
 
   limpiarFormulario() {
-    this.files = [];
-    this.observacion = '';
+    swal({
+      title: '¿Deseas limpiar tu Trámite?',
+      icon: 'info',
+      buttons: ['Cancelar', true],
+      dangerMode: true,
+    })
+      .then((value) => {
+        if (value) {
+          this.files = [];
+          this.observacion = '';
+        }
+      });
   }
 
-  guardarTramite() {
+  alertaGuardarTramite() {
     if (this.files.length === 0) {
-      this.openSnackBar('Necesitas completar todos los campos', 99);
+      swal('Error!', 'Completa todos los campos!', 'error');
     } else {
-      const req = {
-        id_estudiante: this.infoUsuario.id_estudiante,
-        id_tipo: this.idTipoTramite,
-        fecha: this.fechaActualizada,
-        observacion: this.observacion
-      };
-      console.log(req);
-      this.generalService.saveTramite(req, this.getToken().token).subscribe(
-        result => {
-          const req1 = {
-            id_estudiante: 0,
-            id_tipo: 0
-          };
-          console.log(req1);
-          this.generalService.getVwTramites(req1, this.getToken().token).subscribe(
-            result1 => {
-              const idNewTramite = result1.data[result1.data.length - 1].id_tramite;
-              this.files.forEach(file => {
-                const req2 = {
-                  id_tramite: idNewTramite,
-                  archivo: file.name
-                };
-                console.log(req2);
-                this.generalService.saveDocumentoTramite(req2, this.getToken().token).subscribe(
-                  result2 => {
-                    const extension = file.name;
-                    this.generalService.uploadfile(extension, 'Estudiante_' + this.infoUsuario.codigo, file, this.getToken().token)
+      swal({
+        title: '¿Deseas Enviar tu Trámite?',
+        text: 'Una vez enviado no podrás editar!',
+        icon: 'warning',
+        buttons: ['Cancelar', true],
+        dangerMode: true,
+      })
+        .then((respuesta) => {
+          if (respuesta) {
+            swal('Trámite enviado!', {
+              icon: 'success',
+            });
+            this.guardarTramite();
+          } else {
+            swal('Aún puedes editar!');
+          }
+        });
+    }
+  }
+  guardarTramite() {
+    const req = {
+      id_estudiante: this.infoUsuario.id_estudiante,
+      id_tipo: this.idTipoTramite,
+      fecha: this.fechaActualizada,
+      observacion: this.observacion
+    };
+    console.log(req);
+    this.generalService.saveTramite(req, this.getToken().token).subscribe(
+      result => {
+        const req1 = {
+          id_estudiante: 0,
+          id_tipo: 0
+        };
+        console.log(req1);
+        this.generalService.getVwTramites(req1, this.getToken().token).subscribe(
+          result1 => {
+            const idNewTramite = result1.data[result1.data.length - 1].id_tramite;
+            this.files.forEach(file => {
+              const req2 = {
+                id_tramite: idNewTramite,
+                archivo: file.name
+              };
+              console.log(req2);
+              this.generalService.saveDocumentoTramite(req2, this.getToken().token).subscribe(
+                result2 => {
+                  const extension = file.name;
+                  this.generalService.uploadfile(extension, 'Estudiante_' + this.infoUsuario.codigo, file, this.getToken().token)
                     .subscribe(
                       result => {
                         if (result.estado) {
@@ -191,14 +221,13 @@ export class CursosEquivalentesTramiteComponent extends BaseComponent implements
                         this.openSnackBar(<any>error, 99);
                         alert(error.error);
                       });
-                    this.router.navigate(['/infotramite']);
-                  }
-                );
-              });
-            }
-          );
-        }
-      );
-    }
+                  this.router.navigate(['/infotramite']);
+                }
+              );
+            });
+          }
+        );
+      }
+    );
   }
 }

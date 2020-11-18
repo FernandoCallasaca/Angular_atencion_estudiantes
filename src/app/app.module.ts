@@ -78,7 +78,7 @@ import { RegistroEstudianteComponent } from './component/seguridad/registro-estu
 import { ControlEstadoTramitesComponent } from './component/admin/control-estado-tramites/control-estado-tramites.component';
 import { ResumenTramiteComponent } from './component/admin/resumen-tramite/resumen-tramite.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
-
+import { MisTramitesComponent } from './component/tramites/mis-tramites/mis-tramites.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -122,6 +122,7 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
     RegistroEstudianteComponent,
     ControlEstadoTramitesComponent,
     ResumenTramiteComponent,
+    MisTramitesComponent,
   ],
   imports: [
     FormsModule,
@@ -157,7 +158,7 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
     PdfViewerModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDpcWweoH2IqPSGvBX91N46EsIdY-IfNiY'
-    })
+    }),
   ],
   // Aquí manualmente copias el componente que termina en info ya que es un diálogo
   entryComponents:[

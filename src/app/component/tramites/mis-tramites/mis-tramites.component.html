@@ -1,0 +1,46 @@
+<app-menu>
+  <h2>Estado de mis trámites</h2>
+  <mat-horizontal-stepper #stepper>
+    <!-- Trámites Pendientes -->
+    <mat-step>
+      <ng-template matStepLabel>Pendientes</ng-template>
+      <div class="contenedorBody">
+        <p>Aquí entrarán los pendientes</p>
+        <div>
+          <button mat-button matStepperNext>Siguiente</button>
+        </div>
+      </div>
+    </mat-step>
+    <!-- Trámites Observados -->
+    <mat-step>
+      <ng-template matStepLabel>Observados</ng-template>
+      <div class="contenedorBody">
+        <p>Aquí entrarán los observados</p>
+        <div>
+          <button mat-button matStepperPrevious>Atras</button>
+          <button mat-button matStepperNext>Siguiente</button>
+        </div>
+      </div>
+    </mat-step>
+    <!-- Trámites Rechazados -->
+    <mat-step>
+      <ng-template matStepLabel>Rechazados</ng-template>
+      <div class="contenedorBody">
+        <p>Aquí entrarán los rechazados</p>
+        <div>
+          <button mat-button matStepperPrevious>Atras</button>
+          <button mat-button matStepperNext>Siguiente</button>
+        </div>
+      </div>
+    </mat-step>
+    <!-- Trámites Resueltos -->
+    <mat-step>
+      <ng-template matStepLabel>Resueltos</ng-template>
+      <p>Aquí entrarán los resueltos.</p>
+      <div>
+        <button mat-button matStepperPrevious>Atras</button>
+        <button mat-button (click)="stepper.reset()">Resetear</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+</app-menu>
