@@ -6,6 +6,7 @@ import { SeguridadService } from '../../../service/seguridad.service';
 
 import { MatDialog } from '@angular/material';
 import { RegistroEstudianteComponent } from './../registro-estudiante/registro-estudiante.component';
+import swal from 'sweetalert';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -52,8 +53,10 @@ export class LoginComponent extends BaseComponent implements OnInit {
         if (result.estado) {
           this.setToken(result);
           if (this.getToken().data.id_role === 1) {
+            swal('Bienvenid@ ' + this.getToken().data.nombres + ' !', 'Realiza tus trámites desde cualquier lugar!', 'success');
             this.router.navigate(['/infotramite']);
           } else {
+            swal('Bienvenid@ ' + this.getToken().data.nombresad + ' !', 'Los trámites te esperan!', 'success');
             this.router.navigate(['/reportestramites']);
           }
           this.isLogin();
@@ -83,17 +86,18 @@ export class LoginComponent extends BaseComponent implements OnInit {
     const dialogRef = this.dialog.open(RegistroEstudianteComponent , {
       width: '500px',
     });
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe(result1 => {
       try {
         const req = {
-          c_username: result.email,
-          c_password: result.contrasenia
+          c_username: result1.email,
+          c_password: result1.contrasenia
         };
         this._login_service.login(req).subscribe(
           result => {
             if (result.estado) {
               this.setToken(result);
               if (this.getToken().data.id_role === 1) {
+                swal('Bienvenid@ ' + result1.data.nombres + ' !', 'Realiza tus trámites desde cualquier lugar!', 'success');
                 this.router.navigate(['/infotramite']);
               } else {
                 this.router.navigate(['/reportestramites']);

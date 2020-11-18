@@ -48,21 +48,22 @@ export class MenuComponent extends BaseComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.username = this.getToken().data;
-    console.log(this.username);
     if (this.bLogin) {
-      this.username = this.getToken().data.nombre;
       this.usuario = this.getToken().data;
       console.log('Usuario Menu');
       console.log(this.usuario);
       this.rol = this.usuario.id_role;
-
+      if (this.usuario.id_role === 1) {
+        this.username = this.getToken().data.nombres;
+      } else {
+        this.username = this.getToken().data.nombresad;
+      }
       switch (this.usuario.id_role) {
         case 1: // estudiante
           this.setearMenu(false, false, false, false, true, true, false, true);
           break;
         case 2: // secretaria
-          this.setearMenu(true, true, true, true, false, false,true, false);
+          this.setearMenu(true, true, true, true, false, false, true, false);
           break;
       }
     }
@@ -93,7 +94,6 @@ export class MenuComponent extends BaseComponent implements OnInit {
       titulo: "Cambiar Contraseña",
       esresetpassword: false
     };
-
     const dialogRefClave = this.dialog.open(ResetearclaveComponent, {
       width: '750px',
       data: data

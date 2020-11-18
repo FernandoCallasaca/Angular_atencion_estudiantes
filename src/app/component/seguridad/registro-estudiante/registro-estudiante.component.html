@@ -26,7 +26,10 @@
     </mat-form-field></td>
     <td><mat-form-field class="example-full-width">
       <mat-label>Contraseña</mat-label>
-      <input matInput formControlName="contrasenia" placeholder="Ingrese su contraseña">
+      <input matInput formControlName="contrasenia" placeholder="Ingrese su contraseña" [type]="hide ? 'password' : 'text'">
+      <a mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </a>
     </mat-form-field></td>
 
   </tr></table>

@@ -21,6 +21,7 @@ export class RegistroEstudianteComponent
   implements OnInit {
 
   form: FormGroup;
+  hide = true;
 
   constructor(
     public snackBar: MatSnackBar,
@@ -45,6 +46,7 @@ export class RegistroEstudianteComponent
       contrasenia: ['', [Validators.required]],
     });
   }
+
   saveUserAndStudent(event: Event) {
     event.preventDefault();
     // Aquí agregamos al usuario luego conseguimos su id, posterior a ello guardamos el estudiante
