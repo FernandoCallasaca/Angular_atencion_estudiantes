@@ -34,6 +34,7 @@
     "html2canvas": "^1.0.0-rc.5",
     "js-marker-clusterer": "^1.0.0",
     "jspdf": "^1.5.3",
+    "ng2-pdf-viewer": "^6.3.2",
     "rxjs": "~6.4.0",
     "rxjs-compat": "^6.5.5",
     "tslib": "^1.10.0",

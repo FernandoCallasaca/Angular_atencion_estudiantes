@@ -9,7 +9,13 @@
   <div>
     <ul>
       <li *ngFor="let documento of documentosTramite">
-        {{ documento.archivo }} <button (click)="download(documento.archivo)">Descargar</button>
+        {{ documento.archivo }}
+        <!-- <a href="D:\Proyectos Angular\Atencion_Estudiantes\Node_atencion_estudiantes\archivos\documentos\Estudiante_123456\SistSolicitudEPIS.pdf"
+            target="_blank">
+          Previsualizar
+        </a> -->
+
+        <button (click)="download(documento.archivo)">Descargar</button>
       </li>
     </ul>
   </div>

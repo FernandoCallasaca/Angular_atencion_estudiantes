@@ -10,6 +10,7 @@ import { AppSettings } from 'src/app/common/appsettings';
 import { ResultadoApi } from './../../../interface/common.interface';
 import { saveAs } from 'file-saver';
 
+
 @Component({
   selector: 'app-resumen-tramite',
   templateUrl: './resumen-tramite.component.html',

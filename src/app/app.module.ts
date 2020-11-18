@@ -64,7 +64,6 @@ import { DragGropFilesComponent } from './component/tramites/upload-files/drag-g
 import { ProgressComponent } from './component/tramites/upload-files/progress/progress.component';
 import { DndDirective } from './directivas/dnd.directive';
 import { ControlReportesTramitesComponent } from './component/admin/control-reportes-tramites/control-reportes-tramites.component';
-import { EstadoTramitesComponent } from './component/admin/estado-tramites/estado-tramites.component';
 import { OtrosTramitesTramiteComponent } from './component/tramites/otros-tramites/otros-tramites-tramite/otros-tramites-tramite.component';
 import { OtrosTramitesInfoComponent } from './component/tramites/otros-tramites/otros-tramites-info/otros-tramites-info.component';
 import { CambioHorarioInfoComponent } from './component/tramites/tramite-cambio-de-horario/cambio-horario-info/cambio-horario-info.component';
@@ -78,7 +77,7 @@ import { ReinicioEstudiosInfoComponent } from './component/tramites/tramite-rein
 import { RegistroEstudianteComponent } from './component/seguridad/registro-estudiante/registro-estudiante.component';
 import { ControlEstadoTramitesComponent } from './component/admin/control-estado-tramites/control-estado-tramites.component';
 import { ResumenTramiteComponent } from './component/admin/resumen-tramite/resumen-tramite.component';
-
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 @NgModule({
   declarations: [
@@ -110,7 +109,6 @@ import { ResumenTramiteComponent } from './component/admin/resumen-tramite/resum
     ProgressComponent,
     DndDirective,
     ControlReportesTramitesComponent,
-    EstadoTramitesComponent,
     OtrosTramitesTramiteComponent,
     OtrosTramitesInfoComponent,
     CambioHorarioInfoComponent,
@@ -156,6 +154,7 @@ import { ResumenTramiteComponent } from './component/admin/resumen-tramite/resum
     AgmJsMarkerClustererModule,
     MatStepperModule,
     MatAutocompleteModule,
+    PdfViewerModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDpcWweoH2IqPSGvBX91N46EsIdY-IfNiY'
     })
