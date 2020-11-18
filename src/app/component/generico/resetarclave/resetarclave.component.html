@@ -1,49 +1,25 @@
-<h1 mat-dialog-title>{{ titulo }} {{ usuario.username }}</h1>
-<div mat-dialog-content>
-  <div class="contenedor">
-    <mat-form-field *ngIf="!data.esresetpassword">
-      <input
-        matInput
-        type="password"
-        placeholder="Clave"
-        [(ngModel)]="usuario.oldpassword"
-      />
-      <mat-icon matSuffix>vpn_key</mat-icon>
-    </mat-form-field>
-    <mat-form-field>
-      <input
-        matInput
-        type="password"
-        placeholder="Nueva Clave"
-        [(ngModel)]="usuario.password"
-      />
-      <mat-icon matSuffix>vpn_key</mat-icon>
-    </mat-form-field>
-    <mat-form-field>
-      <input
-        matInput
-        type="password"
-        placeholder="Repite Nueva Clave"
-        [(ngModel)]="usuario.confirmpassword"
-      />
-      <mat-icon matSuffix>vpn_key</mat-icon>
-    </mat-form-field>
-  </div>
-</div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">
-    <mat-icon>close</mat-icon>
-    <span>Salir</span>
-  </button>
-  <button
-    mat-button
-    (click)="onOkClick(data.data)"
-    cdkFocusInitial
-    [disabled]="
-      usuario.password.length < 5 || usuario.password != usuario.confirmpassword
-    "
-  >
-    <mat-icon>save</mat-icon>
-    <span>Guardar</span>
-  </button>
-</div>
+<form class="example-form" [formGroup]="form" (ngSubmit)="alertaActualizarContrasenia($event)">
+  <h2>Cambio de Contraseña Usuario: {{ usuario }}</h2>
+  <mat-form-field class="example-full-width">
+    <mat-label>Contraseña Actual</mat-label>
+    <input matInput formControlName="oldpassword" placeholder="Ingrese su contraseña actual" [type]="hide ? 'password' : 'text'">
+    <a mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </a>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Contraseña Nueva</mat-label>
+    <input matInput formControlName="password" placeholder="Ingrese su contraseña nueva" [type]="hide2 ? 'password' : 'text'">
+    <a mat-icon-button matSuffix (click)="hide2 = !hide2" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide2">
+      <mat-icon>{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </a>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Confirme Contraseña Nueva</mat-label>
+    <input matInput formControlName="confirmpassword" placeholder="Confirme su contraseña nueva" [type]="hide3 ? 'password' : 'text'">
+    <a mat-icon-button matSuffix (click)="hide3 = !hide3" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide3">
+      <mat-icon>{{hide3 ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </a>
+  </mat-form-field>
+  <button type="submit" [disabled]="form.invalid" mat-raised-button color="warn">Cambiar Contraseña</button>
+</form>

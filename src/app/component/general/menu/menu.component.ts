@@ -52,7 +52,6 @@ export class MenuComponent extends BaseComponent implements OnInit {
       this.usuario = this.getToken().data;
       console.log('Usuario Menu');
       console.log(this.usuario);
-      this.rol = this.usuario.id_role;
       if (this.usuario.id_role === 1) {
         this.username = this.getToken().data.nombres;
       } else {
@@ -91,8 +90,7 @@ export class MenuComponent extends BaseComponent implements OnInit {
     console.log(this.usuario);
     let data = {
       data: this.usuario,
-      titulo: "Cambiar Contraseña",
-      esresetpassword: false
+      titulo: 'Cambiar Contraseña'
     };
     const dialogRefClave = this.dialog.open(ResetearclaveComponent, {
       width: '750px',

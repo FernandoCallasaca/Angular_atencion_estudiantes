@@ -6,6 +6,8 @@ import { MatSnackBar } from '@angular/material';
 import { AppSettings } from '../../../common/appsettings';
 import { Router } from '@angular/router';
 import { Usuario, ResetarClave } from '../../../interface/seguridad.interface';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import swal from 'sweetalert';
 @Component({
   selector: 'app-resetearclave',
   templateUrl: './resetarclave.component.html',
@@ -14,44 +16,67 @@ import { Usuario, ResetarClave } from '../../../interface/seguridad.interface';
 })
 export class ResetearclaveComponent extends BaseComponent {
   public titulo: String;
-  public usuario: any;
+  public usuario: any = '';
+  private contrasenia: any = '';
+
+  idUsuario = 0;
+
+  form: FormGroup;
+  hide = true;
+  hide2 = true;
+  hide3 = true;
 
   constructor(
     public dialogRef: MatDialogRef<ResetearclaveComponent>,
     @Inject(MAT_DIALOG_DATA) public data: ResetarClave,
     public seguridadService: SeguridadService,
-
-    public snackBar: MatSnackBar, public router: Router) {
+    private formBuilder: FormBuilder,
+    public snackBar: MatSnackBar,
+    public router: Router) {
     super(snackBar, router);
     this.titulo = data.titulo;
-    this.usuario = {
-      username: '',
-      oldpassword: '',
-      password: '',
-      confirmpassword: '',
-      esreset: true
-    };
-    console.log(this.data);
-    this.usuario.username = data.data.c_username;
-    this.usuario.esreset = this.data.esresetpassword;
-
-    console.log(this.data);
-
+    if (this.data.data['id_role'] === 1) {
+      this.usuario = this.data.data['nombres'];
+    } else {
+      this.usuario = this.data.data['nombresad'];
+    }
+    this.idUsuario = this.data.data['id_usuario'];
+    this.contrasenia = this.data.data['contrasenia'];
+    this.buildForm();
   }
 
-  public onOkClick(usuario): void {
+  private buildForm() {
+    this.form = this.formBuilder.group({
+      oldpassword: ['', [Validators.required]],
+      password: ['', [Validators.required]],
+      confirmpassword: ['', [Validators.required]],
+    });
+  }
 
-    this.seguridadService.resetarclave(this.usuario, this.getToken().token).subscribe(
+  alertaActualizarContrasenia(event: Event) {
+    event.preventDefault();
+    if (this.contrasenia === this.form.value.oldpassword) {
+      if (this.form.value.password === this.form.value.confirmpassword) {
+        swal('Cambio de Contraseña Satisfactorio!', 'Ahora puedes iniciar sesión con tu nueva contraseña!', 'success');
+        this.actualizarContrasenia();
+      } else {
+        swal('No Coinciden las Contraseñas', ' ', 'error');
+      }
+    } else {
+      swal('Contraseña Incorrecta', ' ', 'error');
+    }
+  }
+  public actualizarContrasenia(): void {
+    const req = {
+      id_usuario: this.idUsuario,
+      contrasenia: this.form.value.password
+    };
+    this.seguridadService.actualizarUsuario(req, this.getToken().token).subscribe(
       result => {
-        console.log(result);
-
-        console.log(this.data);
         try {
           if (result.estado) {
             this.dialogRef.close();
-            if (!this.data.esresetpassword) {
-              this.router.navigate(['/login']);
-            }
+            this.router.navigate(['/login']);
           } else {
             this.openSnackBar(result.mensaje, 999);
           }
@@ -65,10 +90,9 @@ export class ResetearclaveComponent extends BaseComponent {
         } catch (error) {
           this.openSnackBar(AppSettings.SERVICE_NO_CONECT_SERVER, 999);
         }
-      });
-
+      }
+    );
   }
-
 
   onNoClick(): void {
     this.dialogRef.close();

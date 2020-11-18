@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ResetarclaveComponent } from './resetarclave.component';
+import { ResetearclaveComponent } from './resetarclave.component';
 
 describe('ResetarclaveComponent', () => {
-  let component: ResetarclaveComponent;
-  let fixture: ComponentFixture<ResetarclaveComponent>;
+  let component: ResetearclaveComponent;
+  let fixture: ComponentFixture<ResetearclaveComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ResetarclaveComponent ]
+      declarations: [ ResetearclaveComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ResetarclaveComponent);
+    fixture = TestBed.createComponent(ResetearclaveComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

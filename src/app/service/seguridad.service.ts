@@ -27,6 +27,15 @@ export class SeguridadService {
         return this._http.post(this.url + 'seguridad/login', dataLogin, { headers: reqHeader });
     }
 
+    actualizarUsuario(request,token): Observable<any> {
+        var reqHeader = new HttpHeaders({
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
+        });
+        console.log(request)
+        return this._http.post(this.url + 'seguridad/actualizarUsuario', request, { headers: reqHeader });
+    }
+
     get(request,token): Observable<any> {
         var reqHeader = new HttpHeaders({
             'Content-Type': 'application/json',
