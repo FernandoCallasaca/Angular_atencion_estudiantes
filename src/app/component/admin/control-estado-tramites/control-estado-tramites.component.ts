@@ -9,6 +9,7 @@ import { ResultadoApi } from '../../../interface/common.interface';
 import { Confirmar } from '../../../interface/confirmar.interface';
 import { SeguridadService } from '../../../service/seguridad.service';
 import { GeneralService } from '../../../service/general.service';
+import { MatTabChangeEvent } from '@angular/material/tabs';
 
 import { ResumenTramiteComponent } from './../resumen-tramite/resumen-tramite.component';
 
