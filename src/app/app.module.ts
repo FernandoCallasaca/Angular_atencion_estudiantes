@@ -18,6 +18,7 @@ import { LoginComponent } from './component/seguridad/login/login.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatStepperModule} from '@angular/material/stepper';
+import {MatTabsModule} from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -154,6 +155,7 @@ import { MisTramitesComponent } from './component/tramites/mis-tramites/mis-tram
     MatDatepickerModule,
     AgmJsMarkerClustererModule,
     MatStepperModule,
+    MatTabsModule,
     MatAutocompleteModule,
     PdfViewerModule,
     AgmCoreModule.forRoot({
