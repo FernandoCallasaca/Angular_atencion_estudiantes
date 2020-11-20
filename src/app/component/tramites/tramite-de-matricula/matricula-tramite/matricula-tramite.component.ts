@@ -56,10 +56,10 @@ export class MatriculaTramiteComponent extends BaseComponent implements OnInit {
     this.getNroTramite();
     this.fecha = new Date();
     this.fechaActualizada = this.fecha.getDate() + ' / ' + (this.fecha.getMonth() + 1) + ' / ' + this.fecha.getFullYear();
-    console.log('Usuario Logeado en le Sistema');
-    console.log(this.getToken().data);
+    // console.log('Usuario Logeado en le Sistema');
+    // console.log(this.getToken().data);
     this.getInfoEstudianteUsuario();
-    console.log(this.infoUsuario);
+    // console.log(this.infoUsuario);
   }
 
   ngOnInit() {
@@ -69,10 +69,8 @@ export class MatriculaTramiteComponent extends BaseComponent implements OnInit {
   // Posteriormente a ello actualizamos nuestro arreglo files
   eventoArchivosRecibidos(filesUpdate: any) {
     this.files = filesUpdate;
-    console.log('Archivos Agregados');
-    console.log(this.files);
-
-
+    // console.log('Archivos Agregados');
+    // console.log(this.files);
   }
 
   openDialog(): void {
@@ -91,12 +89,12 @@ export class MatriculaTramiteComponent extends BaseComponent implements OnInit {
   getNroTramite() {
     this.generalService.getTipoTramite(this.getToken().token).subscribe(
       result => {
-        console.log(result);
+        // console.log(result);
         let resultado = <ResultadoApi>result;
         if (resultado.estado) {
           this.idTipoTramite = resultado.data.filter(tip => tip.nombre === this.identificadorNombreTramiteBD)[0].id_tipotramite;
-          console.log('Tipo Tramite');
-          console.log(this.idTipoTramite);
+          // console.log('Tipo Tramite');
+          // console.log(this.idTipoTramite);
           let request = {
             id_estudiante: 0,
             id_tipo: 0
@@ -104,10 +102,11 @@ export class MatriculaTramiteComponent extends BaseComponent implements OnInit {
           this.generalService.getVwTramites(request, this.getToken().token).subscribe(
             result => {
               if (result.estado) {
-                console.log(result.data);
+                // console.log(result.data);
                 this.nroTramite = result.data.filter(tr => tr.id_tipo === this.idTipoTramite).length;
-                console.log('nro tramite:');
-                console.log(this.nroTramite);
+                this.nroTramite = this.nroTramite + 1;
+                // console.log('nro tramite:');
+                // console.log(this.nroTramite);
               } else {
                 this.openSnackBar(result.mensaje, 99);
               }
@@ -131,10 +130,10 @@ export class MatriculaTramiteComponent extends BaseComponent implements OnInit {
 
         try {
           if (result.estado) {
-            console.log(result);
+            // console.log(result);
             this.infoUsuario = result.data.filter(user => user.usuario === this.getToken().data.nombre)[0];
-            console.log('Info Usuario');
-            console.log(this.infoUsuario);
+            // console.log('Info Usuario');
+            // console.log(this.infoUsuario);
           } else {
             this.openSnackBar(result.mensaje, 99);
           }
@@ -215,7 +214,7 @@ export class MatriculaTramiteComponent extends BaseComponent implements OnInit {
                     .subscribe(
                       result => {
                         if (result.estado) {
-                          console.log('Archivo guardado satisfactoriamente');
+                          // console.log('Archivo guardado satisfactoriamente');
                         } else {
                           this.openSnackBar(result.mensaje, 99);
                         }
@@ -232,5 +231,4 @@ export class MatriculaTramiteComponent extends BaseComponent implements OnInit {
       }
     );
   }
-
 }

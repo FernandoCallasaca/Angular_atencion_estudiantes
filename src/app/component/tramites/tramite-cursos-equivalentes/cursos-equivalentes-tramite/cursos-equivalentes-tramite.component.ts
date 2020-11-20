@@ -54,10 +54,10 @@ export class CursosEquivalentesTramiteComponent extends BaseComponent implements
     this.getNroTramite();
     this.fecha = new Date();
     this.fechaActualizada = this.fecha.getDate() + ' / ' + (this.fecha.getMonth() + 1) + ' / ' + this.fecha.getFullYear();
-    console.log('Usuario Logeado en le Sistema');
-    console.log(this.getToken().data);
+    //console.log('Usuario Logeado en le Sistema');
+    //console.log(this.getToken().data);
     this.getInfoEstudianteUsuario();
-    console.log(this.infoUsuario);
+    //console.log(this.infoUsuario);
   }
 
   ngOnInit() {

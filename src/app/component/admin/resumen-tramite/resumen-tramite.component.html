@@ -1,20 +1,20 @@
 <h2 mat-dialog-title>Resumen Trámite {{ tramite.tipotramite }}</h2>
 
 <mat-dialog-content class="mat-typography">
+  <!-- Arreglas con angular material o con css puro -->
   Fecha: {{ tramite.fecha }} <br>
   Código: {{ tramite.codigo }} <br>
   Nombres: {{ tramite.nombres }} <br>
   Apellidos: {{ tramite.apellidos }} <br>
   Observación: {{ tramite.observacion }} <br>
   <div>
+    <!-- Lista desordenada -->
     <ul>
+      <!-- lista -->
       <li *ngFor="let documento of documentosTramite">
+        <!-- Aqui esta el nombre -->
         {{ documento.archivo }}
-        <!-- <a href="D:\Proyectos Angular\Atencion_Estudiantes\Node_atencion_estudiantes\archivos\documentos\Estudiante_123456\SistSolicitudEPIS.pdf"
-            target="_blank">
-          Previsualizar
-        </a> -->
-
+        <!-- Boton de descarga -->
         <button (click)="download(documento.archivo)">Descargar</button>
       </li>
     </ul>
@@ -22,5 +22,6 @@
 </mat-dialog-content>
 
 <mat-dialog-actions align="end">
+  <!-- Aquí agregas los 3 botones -->
   <button mat-button mat-dialog-close>Cancel</button>
 </mat-dialog-actions>
