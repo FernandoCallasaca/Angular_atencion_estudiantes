@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 import { AppSettings } from 'src/app/common/appsettings';
 import { ResultadoApi } from './../../../interface/common.interface';
 import { saveAs } from 'file-saver';
+import swal from 'sweetalert';
+import { Content } from '@angular/compiler/src/render3/r3_ast';
 
 
 @Component({
@@ -21,6 +23,7 @@ export class ResumenTramiteComponent extends BaseComponent implements OnInit {
 
   tramite: Tramite;
   documentosTramite = [];
+
 
   constructor(
     public dialogRef: MatDialogRef < ResumenTramiteComponent >,
@@ -63,5 +66,16 @@ export class ResumenTramiteComponent extends BaseComponent implements OnInit {
       }, error => {
         this.openSnackBar(<any>error, 99);
       });
+  }
+
+  dialogObservacion(cambio){
+    swal(`Escribe una observacion para este tramite que será ${cambio}:`, {
+      content: "input",
+    } as any)
+    .then((value) => {
+      swal(`El tramite de ${this.tramite.nombres} de tipo ${this.tramite.tipotramite} fue  ${cambio}`,`Observacion: ${value}`,'success');
+
+    })
+
   }
 }

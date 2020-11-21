@@ -49,8 +49,8 @@
 </div>
 <mat-dialog-actions align="end">
   <!-- Aquí agregas los 3 botones -->
-  <button mat-flat-button color="primary">Observar</button>
-  <button mat-flat-button color="accent">Rechazar</button>
-  <button mat-flat-button color="warn">Resolver</button>
+  <button mat-flat-button (click)="dialogObservacion('observado')" [value]='observado' color="accent">Observar</button>
+  <button mat-flat-button (click)="dialogObservacion('rechazado')" [value]='rechazado' color="warn">Rechazar</button>
+  <button mat-flat-button (click)="dialogObservacion('resuelto')" [value]='resuelto' color="primary">Resolver</button>
   <button mat-stroked-button color="primary" mat-dialog-close>Cancel</button>
 </mat-dialog-actions>
