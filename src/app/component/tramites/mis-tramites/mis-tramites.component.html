@@ -1,46 +1,79 @@
 <app-menu>
   <h2>Estado de mis trámites</h2>
-  <mat-horizontal-stepper #stepper>
-    <!-- Trámites Pendientes -->
-    <mat-step>
-      <ng-template matStepLabel>Pendientes</ng-template>
-      <div class="contenedorBody">
-        <p>Aquí entrarán los pendientes</p>
-        <div>
-          <button mat-button matStepperNext>Siguiente</button>
+  <mat-tab-group mat-stretch-tabs class="example-stretched-tabs mat-elevation-z4">
+    <mat-tab *ngFor="let tab of tipos; let index = index;">
+      <ng-template matTabLabel>
+        <div class="mat-step-custom-click" (click)="changetab(tab.estadostramites)">
+          {{tab.nombretipotramite}}
         </div>
-      </div>
-    </mat-step>
-    <!-- Trámites Observados -->
-    <mat-step>
-      <ng-template matStepLabel>Observados</ng-template>
-      <div class="contenedorBody">
-        <p>Aquí entrarán los observados</p>
-        <div>
-          <button mat-button matStepperPrevious>Atras</button>
-          <button mat-button matStepperNext>Siguiente</button>
-        </div>
-      </div>
-    </mat-step>
-    <!-- Trámites Rechazados -->
-    <mat-step>
-      <ng-template matStepLabel>Rechazados</ng-template>
-      <div class="contenedorBody">
-        <p>Aquí entrarán los rechazados</p>
-        <div>
-          <button mat-button matStepperPrevious>Atras</button>
-          <button mat-button matStepperNext>Siguiente</button>
-        </div>
-      </div>
-    </mat-step>
-    <!-- Trámites Resueltos -->
-    <mat-step>
-      <ng-template matStepLabel>Resueltos</ng-template>
-      <p>Aquí entrarán los resueltos.</p>
-      <div>
-        <button mat-button matStepperPrevious>Atras</button>
-        <button mat-button (click)="stepper.reset()">Resetear</button>
-      </div>
-    </mat-step>
-  </mat-horizontal-stepper>
+      </ng-template>
+      <mat-horizontal-stepper [linear]="false" #stepper>
+        <mat-step *ngFor="let step of tab.estadostramites; let index = index;">
+          <ng-template matStepLabel><span (click)="changestep(step.tramites)">{{step.nombre}}</span></ng-template>
+          <h4>{{step.nombre}}</h4>
+          <table mat-table [dataSource]="tramites" matSort class="mat-elevation-z8">
+            <ng-container matColumnDef="nombres">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Nombres Estudiante
+              </th>
+              <td mat-cell *matCellDef="let element">{{ element.nombres }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="apellidos">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Apellidos Estudiante
+              </th>
+              <td mat-cell *matCellDef="let element">
+                {{ element.apellidos }}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="codigo">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Código Estudiante
+              </th>
+              <td mat-cell *matCellDef="let element">{{ element.codigo }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="fecha">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Fecha Trámite
+              </th>
+              <td mat-cell *matCellDef="let element">{{ element.fecha }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="observacion">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Observación Trámite
+              </th>
+              <td mat-cell *matCellDef="let element">
+                {{ element.observacion }}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="resumen">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Resumen Trámite
+              </th>
+              <td mat-cell *matCellDef="let element">
+                <button (click)="dialogResumenTramite(element)" mat-stroked-button color="primary">
+                  Resumen
+                </button>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <ng-template let-row matRowDef cdkVirtualFor [matRowDefColumns]="displayedColumns">
+              <tr mat-row></tr>
+            </ng-template>
+          </table>
+          <mat-paginator [pageSizeOptions]="pagin" showFirstLastButtons></mat-paginator>
+          <div>
+            <button mat-button matStepperPrevious>Atras</button>
+            <button mat-button (click)="stepper.reset()">Resetear</button>
+          </div>
+        </mat-step>
+      </mat-horizontal-stepper>
+    </mat-tab>
+  </mat-tab-group>
 </app-menu>
