@@ -1,7 +1,12 @@
 <app-menu>
   <h2>Estado de mis trámites</h2>
-  <mat-tab-group>
-    <mat-tab *ngFor="let tab of tipos; let index = index;" [label]="tab.nombretipotramite">
+  <mat-tab-group mat-stretch-tabs class="example-stretched-tabs mat-elevation-z4">
+    <mat-tab *ngFor="let tab of tipos; let index = index;">
+      <ng-template matTabLabel>
+        <div class="mat-step-custom-click" (click)="changetab(tab.estadostramites)">
+          {{tab.nombretipotramite}}
+        </div>
+      </ng-template>
       <mat-horizontal-stepper [linear]="false" #stepper>
         <mat-step *ngFor="let step of tab.estadostramites; let index = index;">
           <ng-template matStepLabel><span (click)="changestep(step.tramites)">{{step.nombre}}</span></ng-template>
@@ -62,6 +67,7 @@
               <tr mat-row></tr>
             </ng-template>
           </table>
+          <mat-paginator [pageSizeOptions]="pagin" showFirstLastButtons></mat-paginator>
           <div>
             <button mat-button matStepperPrevious>Atras</button>
             <button mat-button (click)="stepper.reset()">Resetear</button>

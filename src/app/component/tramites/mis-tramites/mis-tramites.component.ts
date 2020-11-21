@@ -87,8 +87,12 @@ export class MisTramitesComponent extends BaseComponent implements OnInit {
     this.tramites.paginator = this.paginator;
   }
 
-  changetab() {
-    swal('Click Tab');
+  changetab(info) {
+    this.tramites = new MatTableDataSource<any>([]);
+    let datagrilla = info[0].tramites;
+    this.tramites = new MatTableDataSource<any>(datagrilla);
+    this.tramites.sort = this.sort;
+    this.tramites.paginator = this.paginator;
   }
 
   dialogResumenTramite(tr) {
