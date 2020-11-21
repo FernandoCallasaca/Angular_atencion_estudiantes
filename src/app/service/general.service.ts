@@ -189,4 +189,12 @@ export class GeneralService {
     download(nombre): Observable<any> {
       return this._http.get(this.url + 'general/download?nombre=' + nombre, { responseType: 'blob' });
     }
+
+    get_tipo_tramite_estado(request, token): Observable<any> {
+      var reqHeader = new HttpHeaders({
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + token
+      });
+      return this._http.post(this.url + 'general/getipotramiteestado', request, { headers: reqHeader });
+      }
 }
