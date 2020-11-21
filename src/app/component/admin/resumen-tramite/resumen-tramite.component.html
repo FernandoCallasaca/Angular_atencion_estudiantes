@@ -1,27 +1,56 @@
-<h2 mat-dialog-title>Resumen Trámite {{ tramite.tipotramite }}</h2>
+<div class="dialog-completo">
+  <img class="imagen-cabecera" src="https://www.sanandres.gov.co/images/Iconos/contract.png" alt="">
+  <h1 mat-dialog-title>Resumen Trámite {{ tramite.tipotramite }}</h1>
 
-<mat-dialog-content class="mat-typography">
-  <!-- Arreglas con angular material o con css puro -->
-  Fecha: {{ tramite.fecha }} <br>
-  Código: {{ tramite.codigo }} <br>
-  Nombres: {{ tramite.nombres }} <br>
-  Apellidos: {{ tramite.apellidos }} <br>
-  Observación: {{ tramite.observacion }} <br>
-  <div>
-    <!-- Lista desordenada -->
-    <ul>
-      <!-- lista -->
-      <li *ngFor="let documento of documentosTramite">
-        <!-- Aqui esta el nombre -->
-        {{ documento.archivo }}
-        <!-- Boton de descarga -->
-        <button (click)="download(documento.archivo)">Descargar</button>
-      </li>
-    </ul>
-  </div>
-</mat-dialog-content>
+  <mat-dialog-content class="mat-typography">
+    <!-- Arreglas con angular material o con css puro -->
+    <div class="tabla1">
+      <table class="datos">
+        <tr>
+          <th>Fecha</th>
+          <td>: {{ tramite.fecha }}</td>
+        </tr>
+        <tr>
+          <th>Código</th>
+          <td>: {{ tramite.codigo }}</td>
+        </tr>
+        <tr>
+          <th>Nombres</th>
+          <td>: {{ tramite.nombres }}</td>
+        </tr>
+        <tr>
+          <th>Apellidos</th>
+          <td>: {{ tramite.apellidos }} </td>
+        </tr>
+        <tr>
+          <th>Observación</th>
+          <td>: {{ tramite.observacion }} </td>
+        </tr>
+      </table>
+    </div>
 
+    <br>
+    <div class="tabla2">
+      <!-- Lista desordenada -->
+      <table class="descargas">
+        <!-- lista -->
+        <tr *ngFor="let documento of documentosTramite">
+          <!-- Aqui esta el nombre -->
+          <td class="descargas-celda">{{ documento.archivo }}
+            <!-- Boton de descarga -->
+            <button mat-icon-button (click)="download(documento.archivo)">
+              <mat-icon>cloud_download</mat-icon>
+            </button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </mat-dialog-content>
+</div>
 <mat-dialog-actions align="end">
   <!-- Aquí agregas los 3 botones -->
-  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-flat-button color="primary">Observar</button>
+  <button mat-flat-button color="accent">Rechazar</button>
+  <button mat-flat-button color="warn">Resolver</button>
+  <button mat-stroked-button color="primary" mat-dialog-close>Cancel</button>
 </mat-dialog-actions>

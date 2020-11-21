@@ -9,8 +9,8 @@
   padding: 0%;
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  background-image: url('../../../../assets/img/fondo.jpeg');
-  opacity: 0.9;
+  background-image: url('https://www.viewsonic.com/library/wp-content/uploads/2020/02/How-to-Choose-a-Monitor-for-Business-e1602142728169.jpg');
+  opacity: 63%;
 }
 .example-fill-remaining-space {
     flex: 1 1 auto;
@@ -22,8 +22,8 @@
 }
 
 .example-card {
-  max-width: 450px;
-  widows:450px;
+  max-width: 550px;
+  widows: 450px;
   min-width: 300px;
 }
 .login-contenedor{
@@ -51,7 +51,7 @@
   font-size: 32dp;
   font-weight: 900;
   line-height: 35px;
-  text-shadow: 0 4px 4px rgba(0,0,0,.22);
+  text-shadow: black 0.1em 0.1em 0.2em;
   color: white;
   display: flex;
   align-items: center;

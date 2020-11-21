@@ -1,0 +1,40 @@
+.dialog-completo{
+    min-width: 400px;
+    min-height: 400px;
+    max-width: 410px;
+    text-align: center;
+}
+.imagen-cabecera{
+    width: 120px;
+    height: 120px;
+    text-align: center;
+}
+
+h1{
+    text-shadow: 0 0 0.2em rgb(215, 210, 248), 0 0 0.2em rgb(220, 214, 255),0 0 0.2em rgb(206, 200, 250);
+    text-align: center;
+}
+.datos{
+    width: 100%;
+    text-align: left;
+}
+th{
+    text-align: left;
+}
+td{
+    border: rgb(255, 255, 255) 4px solid;
+}
+.descargas{
+    text-align: center;
+    background: rgb(218, 230, 252);
+    min-width: 400px;
+    border-collapse: separate;
+    
+}
+.tabla1{
+    margin-left: 47px;
+    text-align: center;
+}
+.tabla2{
+    margin-left: 7px;
+}
