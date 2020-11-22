@@ -47,10 +47,10 @@
     </div>
   </mat-dialog-content>
 </div>
-<mat-dialog-actions align="end">
+<mat-dialog-actions align="end" *ngIf="this.idEstadoTramite === 1">
   <!-- Aquí agregas los 3 botones -->
-  <button mat-flat-button (click)="dialogObservacion('observado')" [value]='observado' color="accent">Observar</button>
-  <button mat-flat-button (click)="dialogObservacion('rechazado')" [value]='rechazado' color="warn">Rechazar</button>
-  <button mat-flat-button (click)="dialogObservacion('resuelto')" [value]='resuelto' color="primary">Resolver</button>
+  <button mat-flat-button (click)="dialogObservacion('Observado')" color="accent">Observar</button>
+  <button mat-flat-button (click)="dialogObservacion('Rechazado')" color="warn">Rechazar</button>
+  <button mat-flat-button (click)="dialogObservacion('Resuelto')" color="primary">Resolver</button>
   <button mat-stroked-button color="primary" mat-dialog-close>Cancel</button>
 </mat-dialog-actions>

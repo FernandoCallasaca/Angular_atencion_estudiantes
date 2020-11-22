@@ -23,6 +23,8 @@ export class ResumenTramiteComponent extends BaseComponent implements OnInit {
 
   tramite: Tramite;
   documentosTramite = [];
+  idEstadoTramite = 0;
+  idTramite = -1;
 
 
   constructor(
@@ -34,6 +36,8 @@ export class ResumenTramiteComponent extends BaseComponent implements OnInit {
   ) {
     super(snackBar, router);
     this.tramite = this.data.tramite;
+    this.idEstadoTramite = this.tramite['id_estado_tramite'];
+    this.idTramite = this.tramite['id_tramite'];
   }
 
   ngOnInit() {
@@ -68,14 +72,32 @@ export class ResumenTramiteComponent extends BaseComponent implements OnInit {
       });
   }
 
-  dialogObservacion(cambio){
+  cambioDeEstado(estado, observacion) {
+    this.generalService.getEstadoTramiteValue(this.getToken().token).subscribe(
+      result => {
+        const idEstado = result.data.filter(e => e.nombre === estado).map(e => e.id_estado_tramite);
+        const req = {
+          id_tramite: this.idTramite,
+          id_estado_tramite: idEstado,
+          observacionadmin: observacion
+        };
+        this.generalService.setEstadoObservacionAdminTramite(req, this.getToken().token).subscribe(
+          result => {
+            console.log('Success');
+          }
+        );
+      }
+
+    );
+  }
+  dialogObservacion(cambio) {
     swal(`Escribe una observacion para este tramite que será ${cambio}:`, {
-      content: "input",
+      content: 'input',
     } as any)
     .then((value) => {
-      swal(`El tramite de ${this.tramite.nombres} de tipo ${this.tramite.tipotramite} fue  ${cambio}`,`Observacion: ${value}`,'success');
-
-    })
-
+      // Value es el input
+      swal(`El tramite de ${this.tramite.nombres} de tipo ${this.tramite.tipotramite} fue  ${cambio}`, `Observacion: ${value}`, 'success');
+      // this.cambioDeEstado(cambio, value);
+    });
   }
 }
