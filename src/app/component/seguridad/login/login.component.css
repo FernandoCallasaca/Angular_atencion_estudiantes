@@ -3,14 +3,14 @@
 
 }
  .fondologin{
-  height: 100%;
+  height: 92.5%;
   width: auto;
   margin-top: -1px;
   padding: 0%;
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  background-image: url('./../../../../assets/img/andina/uac2.jpg');
-  opacity: 90%;
+  background-image: url('./../../../../assets/img/andina/uac6.jpg');
+  opacity: 80%;
 }
 .example-fill-remaining-space {
     flex: 1 1 auto;
