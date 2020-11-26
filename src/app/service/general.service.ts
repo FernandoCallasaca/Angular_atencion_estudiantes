@@ -213,12 +213,18 @@ export class GeneralService {
     });
     return this._http.post(this.url + 'general/setestadoobservacionadmintramite', request, { headers: reqHeader });
   }
-
   saveConsulta(request,token): Observable<any> {
     var reqHeader = new HttpHeaders({
         'Content-Type': 'application/json',
         'Authorization': 'Bearer ' + token
     });
     return this._http.post(this.url + 'general/saveconsulta', request, { headers: reqHeader });
+  }
+  getControlEstamosTramite(token): Observable<any> {
+    var reqHeader = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + token
+    });
+    return this._http.post(this.url + 'general/getcontrolestamostramite', {}, { headers: reqHeader });
   }
 }
