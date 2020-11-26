@@ -54,6 +54,7 @@ export class ControlEstadoTramitesComponent extends BaseComponent implements OnI
   }
 
   ngOnInit() {
+    this.getControlEstadosTramite();
     this.getEstudiantes();
     this.getTipoTramite();
     this.getTablaTramitesCursos();
@@ -228,5 +229,15 @@ export class ControlEstadoTramitesComponent extends BaseComponent implements OnI
       }
     });
     console.log(tramite);
+  }
+
+  // Metodo dinámico
+  getControlEstadosTramite() {
+    this._general_service.getControlEstamosTramite(this.getToken().token).subscribe(
+      result => {
+        console.log('Trámites Dinámicos');
+        console.log(result.data);
+      }
+    );
   }
 }
