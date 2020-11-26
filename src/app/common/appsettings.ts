@@ -4,3 +4,4 @@ export class AppSettings {
     public static FILE_FORMAT_FAIL='El archivo no tiene el formato correcto';
  }
  // Hola Fer de parte de Leti
+ // Ok Leti, bienvenida nuevamente
