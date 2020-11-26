@@ -10,7 +10,7 @@
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-image: url('./../../../../assets/img/andina/uac6.jpg');
-  opacity: 95%;
+  opacity: 90%;
 }
 .example-fill-remaining-space {
     flex: 1 1 auto;

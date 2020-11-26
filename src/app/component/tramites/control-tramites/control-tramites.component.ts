@@ -1,9 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { BaseComponent } from './../../base/base.component';
 import { MatSnackBar } from '@angular/material';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
+import { GeneralService } from '../../../service/general.service';
 
 import { CarnetUInfoComponent } from './../../tramites/tramite-carnet-universitario/carnet-u-info/carnet-u-info.component';
 import { ConstanciaEgresadoInfoComponent } from './../../tramites/tramite-constancia-de-egresado/constancia-egresado-info/constancia-egresado-info.component';
@@ -15,25 +17,46 @@ import { MatriculaInfoComponent } from './../../tramites/tramite-de-matricula/ma
 import { OtrosTramitesInfoComponent } from './../../tramites/otros-tramites/otros-tramites-info/otros-tramites-info.component';
 import { ReinicioEstudiosInfoComponent } from './../../tramites/tramite-reinicio-de-estudios/reinicio-estudios-info/reinicio-estudios-info.component';
 
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-control-tramites',
   templateUrl: './control-tramites.component.html',
-  styleUrls: ['./control-tramites.component.css']
+  styleUrls: ['./control-tramites.component.css'],
+  providers: [GeneralService],
 })
 export class ControlTramitesComponent extends BaseComponent implements OnInit {
   public mostrandoIf: boolean = false;
 
+  form: FormGroup;
+  public usuario: any = '';
+  asuntoConsulta = '';
+  mensajeConsulta ='';
+
+  idEstudiante = 0;
+  nombreEstudiante = '';
   constructor(
     private breakpointObserver: BreakpointObserver,
     public router: Router,
+    private generalService: GeneralService,
     public snackBar: MatSnackBar,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private formBuilder: FormBuilder,
   ) {
     super(snackBar, router);
+    this.idEstudiante = this.getToken().data.id_estudiante;
+    this.nombreEstudiante = this.getToken().data.nombres;
   }
 
   ngOnInit() {
+    this.buildForm();
+  }
+
+  private buildForm() {
+    this.form = this.formBuilder.group({
+      asunto: ['', [Validators.required]],
+      mensaje: ['', [Validators.required]],
+    });
   }
 
   openDialogTramiteCursosEquivalentes(): void {
@@ -194,4 +217,30 @@ export class ControlTramitesComponent extends BaseComponent implements OnInit {
       console.log(this.mostrandoIf);
     }
   }
+  guardarConsulta(event: Event) {
+    event.preventDefault();
+    const req = {
+      id_estudiante: this.idEstudiante,
+      asunto: this.form.value.asunto,
+      mensaje: this.form.value.mensaje,
+    };
+    console.log('usuario--'+this.idEstudiante)
+    console.log(req);
+    this.generalService.saveConsulta(req, this.getToken().token).subscribe(
+       result => {
+          if (result.estado) {
+              console.log('Consulta guardada satisfactoriamente');
+              this.buildForm();
+              this.mostrandoIf = false;
+          } else {
+          this.openSnackBar(result.mensaje, 99);
+            
+          }
+        }, error => {
+          this.openSnackBar(<any>error, 99);
+          alert(error.error);
+        });
+        //this.router.navigate(['/infotramite']);
+  };
+
 }
