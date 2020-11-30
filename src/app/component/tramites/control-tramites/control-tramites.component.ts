@@ -124,7 +124,7 @@ export class ControlTramitesComponent extends BaseComponent implements OnInit {
       }
     });
   }
-  
+
   openDialogTramiteUniversitario(): void {
     const dialogRef = this.dialog.open(CarnetUInfoComponent, {
       width: '750px',
@@ -207,7 +207,7 @@ export class ControlTramitesComponent extends BaseComponent implements OnInit {
       }
     });
   }
-  
+
   mostrarElementoNgIf() {
     if (this.mostrandoIf) {
       this.mostrandoIf = false;
@@ -217,6 +217,27 @@ export class ControlTramitesComponent extends BaseComponent implements OnInit {
       console.log(this.mostrandoIf);
     }
   }
+
+  alertaGuardarConsulta(event: Event) {
+    swal({
+      title: '¿Deseas Enviar tu Consulta?',
+      text: 'Una vez enviado no podrás editar!',
+      icon: 'warning',
+      buttons: ['Cancelar', true],
+      dangerMode: true,
+    })
+      .then((respuesta) => {
+        if (respuesta) {
+          swal('Consulta enviada!', {
+            icon: 'success',
+          });
+          this.guardarConsulta(event);
+        } else {
+          swal('Aún puedes editar!');
+        }
+      });
+  }
+
   guardarConsulta(event: Event) {
     event.preventDefault();
     const req = {
@@ -224,23 +245,18 @@ export class ControlTramitesComponent extends BaseComponent implements OnInit {
       asunto: this.form.value.asunto,
       mensaje: this.form.value.mensaje,
     };
-    console.log('usuario--'+this.idEstudiante)
-    console.log(req);
     this.generalService.saveConsulta(req, this.getToken().token).subscribe(
-       result => {
-          if (result.estado) {
-              console.log('Consulta guardada satisfactoriamente');
-              this.buildForm();
-              this.mostrandoIf = false;
-          } else {
-          this.openSnackBar(result.mensaje, 99);
-            
-          }
-        }, error => {
-          this.openSnackBar(<any>error, 99);
-          alert(error.error);
-        });
-        //this.router.navigate(['/infotramite']);
-  };
-
+      result => {
+        if (result.estado) {
+            this.buildForm();
+            this.mostrandoIf = false;
+            this.router.navigate(['/misconsultas']);
+        } else {
+        this.openSnackBar(result.mensaje, 99);
+        }
+      }, error => {
+        this.openSnackBar(<any>error, 99);
+        alert(error.error);
+      });
+  }
 }
