@@ -80,6 +80,7 @@ import { ControlEstadoTramitesComponent } from './component/admin/control-estado
 import { ResumenTramiteComponent } from './component/admin/resumen-tramite/resumen-tramite.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { MisTramitesComponent } from './component/tramites/mis-tramites/mis-tramites.component';
+import { MisConsultasComponent } from './component/consultas/mis-consultas/mis-consultas.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -124,6 +125,7 @@ import { MisTramitesComponent } from './component/tramites/mis-tramites/mis-tram
     ControlEstadoTramitesComponent,
     ResumenTramiteComponent,
     MisTramitesComponent,
+    MisConsultasComponent,
   ],
   imports: [
     FormsModule,

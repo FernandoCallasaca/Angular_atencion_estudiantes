@@ -227,4 +227,11 @@ export class GeneralService {
     });
     return this._http.post(this.url + 'general/getcontrolestamostramite', {}, { headers: reqHeader });
   }
+  getConsultas(request, token): Observable<any> {
+    var reqHeader = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + token
+    });
+    return this._http.post(this.url + 'general/getconsultas', request, { headers: reqHeader });
+  }
 }

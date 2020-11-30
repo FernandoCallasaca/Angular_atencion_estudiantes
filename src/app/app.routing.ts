@@ -26,7 +26,7 @@ import { ConstanciaEgresadoTramiteComponent } from './component/tramites/tramite
 import { ControlReportesTramitesComponent } from './component/admin/control-reportes-tramites/control-reportes-tramites.component';
 import { ControlEstadoTramitesComponent } from './component/admin/control-estado-tramites/control-estado-tramites.component';
 import { MisTramitesComponent } from './component/tramites/mis-tramites/mis-tramites.component';
-
+import { MisConsultasComponent } from './component/consultas/mis-consultas/mis-consultas.component';
 //Array de rutas
 const appRoutes:Routes=[
     {path:'',component:LoginComponent},
@@ -51,7 +51,8 @@ const appRoutes:Routes=[
     {path: 'constanciaegresado', component: ConstanciaEgresadoTramiteComponent },
     {path: 'reportestramites', component: ControlReportesTramitesComponent },
     {path: 'controlestadotramites', component: ControlEstadoTramitesComponent  },
-    {path: 'mistramites', component: MisTramitesComponent  },
+    {path: 'mistramites', component: MisTramitesComponent },
+    {path: 'misconsultas', component: MisConsultasComponent },
     {path: '**', component: LoginComponent}
 ]
 export const appRoutingProviders: any[] = [];

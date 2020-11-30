@@ -36,6 +36,10 @@
               <mat-icon>folder_shared</mat-icon>
               <span>Mis Trámites</span>
           </a>
+          <a mat-list-item [routerLink]="['/misconsultas']" *ngIf="misconsultas">
+              <mat-icon>message</mat-icon>
+              <span>Mis Consultas</span>
+          </a>
         </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
