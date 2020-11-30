@@ -40,7 +40,7 @@ export class MisConsultasComponent extends BaseComponent implements OnInit {
 
   getTablaConsultas() {
     const request = {
-      id_estudiante: this.getToken().data.id_estudiante
+      id_estudiante: this.getToken().data.id_estudiante === null ?  0 : this.getToken().data.id_estudiante
     };
     this.generalService.getConsultas(request, this.getToken().token).subscribe(
       result => {

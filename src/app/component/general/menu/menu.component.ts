@@ -63,7 +63,7 @@ export class MenuComponent extends BaseComponent implements OnInit {
           this.setearMenu(false, false, false, false, true, true, false, true, true);
           break;
         case 2: // secretaria
-          this.setearMenu(true, true, true, true, false, false, true, false, false);
+          this.setearMenu(true, true, true, true, false, false, true, false, true);
           break;
       }
     }
