@@ -59,7 +59,7 @@ export class ControlEstadoTramitesComponent extends BaseComponent implements OnI
     this.getTipoTramite();
     this.getTablaTramitesCursos();
     this.getTablaTramitesMatriculas();
-    this.getTablaTramitesReinicio()
+    this.getTablaTramitesReinicio();
     this.getEstadoTramite();
   }
 
@@ -223,12 +223,20 @@ export class ControlEstadoTramitesComponent extends BaseComponent implements OnI
       });
   }
   dialogResumenTramite(tramite) {
-    this.dialog.open(ResumenTramiteComponent, {
+    const dialogRef = this.dialog.open(ResumenTramiteComponent, {
       data: {
         tramite: tramite
       }
     });
-    console.log(tramite);
+    dialogRef.afterClosed().subscribe(result => {
+      try {
+        this.getTablaTramitesCursos();
+        this.getTablaTramitesMatriculas();
+        this.getTablaTramitesReinicio();
+      } catch (error) {
+        console.log(error);
+      }
+    });
   }
 
   // Metodo dinámico

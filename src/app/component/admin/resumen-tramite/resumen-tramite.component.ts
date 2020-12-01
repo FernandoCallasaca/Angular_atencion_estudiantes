@@ -87,7 +87,6 @@ export class ResumenTramiteComponent extends BaseComponent implements OnInit {
           }
         );
       }
-
     );
   }
   dialogObservacion(cambio) {
@@ -99,27 +98,30 @@ export class ResumenTramiteComponent extends BaseComponent implements OnInit {
     cancelButtonText: 'Cancelar',
     } as any)
     .then((value) => {
-      const observacionInput=value;
-      if (value ==''){
-        swal(`No ingreso una obsevacion`,{
+      const observacionInput = value;
+      if (value === '') {
+        swal(`No ingreso una obsevacion`, {
           title: 'ERROR',
           icon: 'error'}
-        )
-      }
-      else{
-        if (value!=null){
-          swal(`El tramite de ${this.tramite.nombres} de tipo ${this.tramite.tipotramite} será  ${cambio}`,{icon: 'info',
+        );
+      } else {
+        if (value !== null) {
+          swal(`El tramite de ${this.tramite.nombres} de tipo ${this.tramite.tipotramite} será  ${cambio}`, {icon: 'info',
           title: 'Estas seguro??',
           buttons: true,
           showCloseButton: true,
           cancelButtonText: 'Cancelar',
           } as any)
-          .then((value) => {
-              if (observacionInput!= null)
-              swal(`El tramite de ${this.tramite.nombres} de tipo ${this.tramite.tipotramite} fue  ${cambio}`,`Observacion: ${observacionInput}`,'success');
-          })
+          .then( value => {
+            if (observacionInput !== null) {
+              swal(`El tramite de ${this.tramite.nombres} de tipo ${this.tramite.tipotramite}
+              fue  ${cambio}`, `Observacion: ${observacionInput}`, 'success');
+              this.cambioDeEstado(cambio, value);
+              this.dialogRef.close();
+            }
+          });
         }
       }
-    })
+    });
   }
 }
