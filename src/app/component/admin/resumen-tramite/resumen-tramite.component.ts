@@ -90,23 +90,23 @@ export class ResumenTramiteComponent extends BaseComponent implements OnInit {
 
     );
   }
-  dialogObservacion(cambio){
+  dialogObservacion(cambio) {
     swal(`Escribe una observacion para este tramite que será ${cambio}:`, {icon: 'info',
     title: 'Estas seguro?',
     buttons: true,
-    content: "input", 
+    content: 'input',
     showCloseButton: true,
     cancelButtonText: 'Cancelar',
-    } as any,)
+    } as any)
     .then((value) => {
-      if (value ==''){
-        swal(`El tramite de ${this.tramite.nombres} de tipo ${this.tramite.tipotramite} fue  ${cambio}`,'','success');       
+      if (value === '') {
+        swal(`El tramite de ${this.tramite.nombres} de tipo ${this.tramite.tipotramite} fue  ${cambio}`, '', 'success');
+      } else {
+        if (value !== null) {
+          swal(`El tramite de ${this.tramite.nombres} de tipo ${this.tramite.tipotramite} fue  ${cambio}`,
+          `Observacion: ${value}`, 'success');
+        }
       }
-      else {
-        if (value!= null)
-        swal(`El tramite de ${this.tramite.nombres} de tipo ${this.tramite.tipotramite} fue  ${cambio}`,`Observacion: ${value}`,'success');       
-      }
-      
-    })
+    });
   }
 }
