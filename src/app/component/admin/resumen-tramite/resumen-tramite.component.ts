@@ -92,21 +92,34 @@ export class ResumenTramiteComponent extends BaseComponent implements OnInit {
   }
   dialogObservacion(cambio) {
     swal(`Escribe una observacion para este tramite que será ${cambio}:`, {icon: 'info',
-    title: 'Estas seguro?',
+    title: 'Observación',
     buttons: true,
     content: 'input',
     showCloseButton: true,
     cancelButtonText: 'Cancelar',
     } as any)
     .then((value) => {
-      if (value === '') {
-        swal(`El tramite de ${this.tramite.nombres} de tipo ${this.tramite.tipotramite} fue  ${cambio}`, '', 'success');
-      } else {
-        if (value !== null) {
-          swal(`El tramite de ${this.tramite.nombres} de tipo ${this.tramite.tipotramite} fue  ${cambio}`,
-          `Observacion: ${value}`, 'success');
+      const observacionInput=value;
+      if (value ==''){
+        swal(`No ingreso una obsevacion`,{
+          title: 'ERROR',
+          icon: 'error'}
+        )
+      }
+      else{
+        if (value!=null){
+          swal(`El tramite de ${this.tramite.nombres} de tipo ${this.tramite.tipotramite} será  ${cambio}`,{icon: 'info',
+          title: 'Estas seguro??',
+          buttons: true,
+          showCloseButton: true,
+          cancelButtonText: 'Cancelar',
+          } as any)
+          .then((value) => {
+              if (observacionInput!= null)
+              swal(`El tramite de ${this.tramite.nombres} de tipo ${this.tramite.tipotramite} fue  ${cambio}`,`Observacion: ${observacionInput}`,'success');
+          })
         }
       }
-    });
+    })
   }
 }
