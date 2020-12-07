@@ -52,23 +52,13 @@ import { EstudianteeditarComponent } from './component/estudianteeditar/estudian
 import { AdministradorComponent } from './component/administrador/administrador.component';
 import { AdministradorEditarComponent } from './component/administrador-editar/administrador-editar.component';
 
-import { CarnetUInfoComponent } from './component//tramites/tramite-carnet-universitario/carnet-u-info/carnet-u-info.component';
-import { CarnetUTramiteComponent } from './component//tramites/tramite-carnet-universitario/carnet-u-tramite/carnet-u-tramite.component';
 import { ControlTramitesComponent } from './component/tramites/control-tramites/control-tramites.component';
-import { ConstanciaEgresadoInfoComponent } from './component/tramites/tramite-constancia-de-egresado/constancia-egresado-info/constancia-egresado-info.component';
-import { ConstanciaEgresadoTramiteComponent } from './component/tramites/tramite-constancia-de-egresado/constancia-egresado-tramite/constancia-egresado-tramite.component';
-import { ConstanciaEstudiosTramiteComponent } from './component/tramites/tramite-constancia-de-estudios/constancia-estudios-tramite/constancia-estudios-tramite.component';
-import { ConstanciaEstudiosInfoComponent } from './component/tramites/tramite-constancia-de-estudios/constancia-estudios-info/constancia-estudios-info.component';
-import { ConstanciaPromedioTramiteComponent } from './component/tramites/tramite-constancia-de-promedio/constancia-promedio-tramite/constancia-promedio-tramite.component';
-import { ConstanciaPromedioInfoComponent } from './component/tramites/tramite-constancia-de-promedio/constancia-promedio-info/constancia-promedio-info.component';
 import { DragGropFilesComponent } from './component/tramites/upload-files/drag-grop-files/drag-grop-files.component';
 import { ProgressComponent } from './component/tramites/upload-files/progress/progress.component';
 import { DndDirective } from './directivas/dnd.directive';
 import { ControlReportesTramitesComponent } from './component/admin/control-reportes-tramites/control-reportes-tramites.component';
 import { OtrosTramitesTramiteComponent } from './component/tramites/otros-tramites/otros-tramites-tramite/otros-tramites-tramite.component';
 import { OtrosTramitesInfoComponent } from './component/tramites/otros-tramites/otros-tramites-info/otros-tramites-info.component';
-import { CambioHorarioInfoComponent } from './component/tramites/tramite-cambio-de-horario/cambio-horario-info/cambio-horario-info.component';
-import { CambioHorarioTramiteComponent } from './component/tramites/tramite-cambio-de-horario/cambio-horario-tramite/cambio-horario-tramite.component';
 import { CursosEquivalentesTramiteComponent } from './component/tramites/tramite-cursos-equivalentes/cursos-equivalentes-tramite/cursos-equivalentes-tramite.component';
 import { CursosEquivalentesInfoComponent } from './component/tramites/tramite-cursos-equivalentes/cursos-equivalentes-info/cursos-equivalentes-info.component';
 import { MatriculaInfoComponent } from './component/tramites/tramite-de-matricula/matricula-info/matricula-info.component';
@@ -82,6 +72,12 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { MisTramitesComponent } from './component/tramites/mis-tramites/mis-tramites.component';
 import { MisConsultasComponent } from './component/consultas/mis-consultas/mis-consultas.component';
 import { InformativoPrincipalComponent } from './component/tramites/tramites-informativos/informativo-principal/informativo-principal.component';
+import { MatriculaCreditosInfoComponent } from './component/tramites/tramite-matricula-creditos/matricula-creditos-info/matricula-creditos-info.component';
+import { MatriculaCreditosTramiteComponent } from './component/tramites/tramite-matricula-creditos/matricula-creditos-tramite/matricula-creditos-tramite.component';
+import { CursosParalelosInfoComponent } from './component/tramites/tramite-cursos-paralelos/cursos-paralelos-info/cursos-paralelos-info.component';
+import { CursosParalelosTramiteComponent } from './component/tramites/tramite-cursos-paralelos/cursos-paralelos-tramite/cursos-paralelos-tramite.component';
+import { CruceHorariosInfoComponent } from './component/tramites/tramite-cruce-horarios/cruce-horarios-info/cruce-horarios-info.component';
+import { CruceHorariosTramiteComponent } from './component/tramites/tramite-cruce-horarios/cruce-horarios-tramite/cruce-horarios-tramite.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -99,23 +95,13 @@ import { InformativoPrincipalComponent } from './component/tramites/tramites-inf
     EstudianteeditarComponent,
     AdministradorComponent,
     AdministradorEditarComponent,
-    CarnetUInfoComponent,
-    CarnetUTramiteComponent,
     ControlTramitesComponent,
-    ConstanciaEgresadoInfoComponent,
-    ConstanciaEgresadoTramiteComponent,
-    ConstanciaEstudiosTramiteComponent,
-    ConstanciaEstudiosInfoComponent,
-    ConstanciaPromedioTramiteComponent,
-    ConstanciaPromedioInfoComponent,
     DragGropFilesComponent,
     ProgressComponent,
     DndDirective,
     ControlReportesTramitesComponent,
     OtrosTramitesTramiteComponent,
     OtrosTramitesInfoComponent,
-    CambioHorarioInfoComponent,
-    CambioHorarioTramiteComponent,
     CursosEquivalentesTramiteComponent,
     CursosEquivalentesInfoComponent,
     MatriculaInfoComponent,
@@ -128,6 +114,12 @@ import { InformativoPrincipalComponent } from './component/tramites/tramites-inf
     MisTramitesComponent,
     MisConsultasComponent,
     InformativoPrincipalComponent,
+    MatriculaCreditosInfoComponent,
+    MatriculaCreditosTramiteComponent,
+    CursosParalelosInfoComponent,
+    CursosParalelosTramiteComponent,
+    CruceHorariosInfoComponent,
+    CruceHorariosTramiteComponent,
   ],
   imports: [
     FormsModule,
@@ -173,15 +165,13 @@ import { InformativoPrincipalComponent } from './component/tramites/tramites-inf
     UsereditComponent,
     EstudianteeditarComponent,
     AdministradorEditarComponent,
-    CarnetUInfoComponent,
-    ConstanciaEgresadoInfoComponent,
-    ConstanciaEstudiosInfoComponent,
-    ConstanciaPromedioInfoComponent,
-    CambioHorarioInfoComponent,
     MatriculaInfoComponent,
     CursosEquivalentesInfoComponent,
     OtrosTramitesInfoComponent,
     ReinicioEstudiosInfoComponent,
+    MatriculaCreditosInfoComponent,
+    CursosParalelosInfoComponent,
+    CruceHorariosInfoComponent,
     RegistroEstudianteComponent,
     ResumenTramiteComponent
   ],
