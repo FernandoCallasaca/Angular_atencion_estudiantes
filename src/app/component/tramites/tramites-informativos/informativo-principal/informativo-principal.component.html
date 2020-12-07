@@ -1,0 +1,55 @@
+<app-menu>
+    <div class="contenedor">
+        
+        <!-- Card de cada tramite -->
+        <mat-card class="example-card space-card" *ngFor="let tramite of tablaTramites">
+            <mat-card-header>
+                <img mat-card-avatar class="example-header-image" *ngIf="tramite.id_tramite"
+                    src="https://image.winudf.com/v2/image1/dHJhbWkuYmFzaWNvc19pY29uXzE1OTMwMjg4NzhfMDU4/icon.png?w=170&fakeurl=1">
+            
+
+                <mat-card-title>{{tramite.denominacion}}</mat-card-title>
+                <mat-card-subtitle>{{tramite.aprobacion_tramite}}</mat-card-subtitle>
+            </mat-card-header>
+
+            <mat-card-content class="contenido-card">
+                <p [ngStyle]="{'text-align':'justify'}">
+                    {{tramite.requisitos}}
+                </p>
+                <h3>REQUISITOS:</h3>
+                <ul *ngFor="let requisito of RequisitosNumerados(tramite.requisitos_numeracion)">
+                    <li>{{requisito}}</li>
+                </ul>
+                <h4>NOTA:</h4>
+                <p>
+                    {{tramite.nota}}
+                </p>
+
+
+            </mat-card-content>
+            <!-- Aquí en el Mat Card Actions se colocan todas las acciones que hagas con el card -->
+            <mat-card-actions>
+                <!-- Aquí un boton para abrir el dialogo de información del trámite -->
+                <div class="botones-final">
+                    <mat-accordion class="example-headers-align" multi>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    Leer mas...
+                                </mat-panel-title>
+                                <mat-panel-description>
+                                    Costos
+                                    <mat-icon>map</mat-icon>
+                                </mat-panel-description>
+                            </mat-expansion-panel-header>
+
+                        </mat-expansion-panel>
+                    </mat-accordion>
+                </div>
+            </mat-card-actions>
+        </mat-card>
+
+
+    </div>
+
+</app-menu>

@@ -81,6 +81,7 @@ import { ResumenTramiteComponent } from './component/admin/resumen-tramite/resum
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { MisTramitesComponent } from './component/tramites/mis-tramites/mis-tramites.component';
 import { MisConsultasComponent } from './component/consultas/mis-consultas/mis-consultas.component';
+import { InformativoPrincipalComponent } from './component/tramites/tramites-informativos/informativo-principal/informativo-principal.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -126,6 +127,7 @@ import { MisConsultasComponent } from './component/consultas/mis-consultas/mis-c
     ResumenTramiteComponent,
     MisTramitesComponent,
     MisConsultasComponent,
+    InformativoPrincipalComponent,
   ],
   imports: [
     FormsModule,

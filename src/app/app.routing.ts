@@ -27,6 +27,7 @@ import { ControlReportesTramitesComponent } from './component/admin/control-repo
 import { ControlEstadoTramitesComponent } from './component/admin/control-estado-tramites/control-estado-tramites.component';
 import { MisTramitesComponent } from './component/tramites/mis-tramites/mis-tramites.component';
 import { MisConsultasComponent } from './component/consultas/mis-consultas/mis-consultas.component';
+import { InformativoPrincipalComponent } from './component/tramites/tramites-informativos/informativo-principal/informativo-principal.component';
 //Array de rutas
 const appRoutes:Routes=[
     {path:'',component:LoginComponent},
@@ -53,6 +54,7 @@ const appRoutes:Routes=[
     {path: 'controlestadotramites', component: ControlEstadoTramitesComponent  },
     {path: 'mistramites', component: MisTramitesComponent },
     {path: 'misconsultas', component: MisConsultasComponent },
+    {path: 'informativoprincipal', component: InformativoPrincipalComponent },
     {path: '**', component: LoginComponent}
 ]
 export const appRoutingProviders: any[] = [];

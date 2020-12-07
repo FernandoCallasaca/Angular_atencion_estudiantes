@@ -40,6 +40,10 @@
               <mat-icon>message</mat-icon>
               <span>Consultas</span>
           </a>
+          <a mat-list-item [routerLink]="['/informativoprincipal']" *ngIf="informativoprincipal">
+            <mat-icon>message</mat-icon>
+            <span>Tramites Informativos</span>
+          </a>
         </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>

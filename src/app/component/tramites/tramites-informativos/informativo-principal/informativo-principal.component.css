@@ -1,0 +1,38 @@
+.example-card {
+    max-width: 400px;
+  }
+  
+  .example-header-image {
+    background-size: cover;
+    object-fit: cover; /*this makes the image in src fit to the size specified below*/
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  .space-card {
+    margin: 10px;
+  }
+  .contenido-card {
+   margin-bottom: 15%;
+  }
+  .botones-final{
+    margin-bottom: 0px;
+    margin-right: 8px;
+    position: absolute;
+    bottom: 3%;
+    right: 1%;
+  }
+  .example-headers-align{
+      width: 100px;
+  }
+  
+  .boton-interno{
+    position: relative;
+    left: 40%;
+  }
