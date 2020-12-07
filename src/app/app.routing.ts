@@ -17,18 +17,21 @@ import { CursosEquivalentesTramiteComponent } from './component/tramites/tramite
 import { MatriculaTramiteComponent } from './component/tramites/tramite-de-matricula/matricula-tramite/matricula-tramite.component';
 import { ReinicioEstudiosTramiteComponent } from './component/tramites/tramite-reinicio-de-estudios/reinicio-estudios-tramite/reinicio-estudios-tramite.component';
 import { OtrosTramitesTramiteComponent } from './component/tramites/otros-tramites/otros-tramites-tramite/otros-tramites-tramite.component';
+import { MatriculaCreditosTramiteComponent } from './component/tramites/tramite-matricula-creditos/matricula-creditos-tramite/matricula-creditos-tramite.component';
+import { CursosParalelosTramiteComponent } from './component/tramites/tramite-cursos-paralelos/cursos-paralelos-tramite/cursos-paralelos-tramite.component';
+import { CruceHorariosTramiteComponent } from './component/tramites/tramite-cruce-horarios/cruce-horarios-tramite/cruce-horarios-tramite.component';
 
 import { ControlReportesTramitesComponent } from './component/admin/control-reportes-tramites/control-reportes-tramites.component';
 import { ControlEstadoTramitesComponent } from './component/admin/control-estado-tramites/control-estado-tramites.component';
 import { MisTramitesComponent } from './component/tramites/mis-tramites/mis-tramites.component';
 import { MisConsultasComponent } from './component/consultas/mis-consultas/mis-consultas.component';
 //Array de rutas
-const appRoutes:Routes=[
-    {path:'',component:LoginComponent},
-    {path:'login',component:LoginComponent},
-    {path:'home',component:HomeComponent},
-    {path:'resumen',component:ResumenComponent},
-    {path:'app',component:AppComponent},
+const appRoutes: Routes = [
+    {path: '', component: LoginComponent},
+    {path: 'login', component: LoginComponent},
+    {path: 'home', component: HomeComponent},
+    {path: 'resumen', component: ResumenComponent},
+    {path: 'app', component: AppComponent},
     {path: 'estudiante', component: EstudianteComponent},
     {path: 'administrador', component: AdministradorComponent},
     {path: 'usuario', component: UserComponent},
@@ -37,6 +40,10 @@ const appRoutes:Routes=[
     {path: 'cursosequivalentes', component: CursosEquivalentesTramiteComponent},
     {path: 'matricula', component: MatriculaTramiteComponent },
     {path: 'reinicioestudios', component: ReinicioEstudiosTramiteComponent },
+    {path: 'matriculacreditos', component: MatriculaCreditosTramiteComponent },
+    {path: 'cursosparalelos', component: CursosParalelosTramiteComponent },
+    {path: 'crucehorarios', component: CruceHorariosTramiteComponent },
+
     {path: 'otrostramites', component: OtrosTramitesTramiteComponent},
 
     {path: 'reportestramites', component: ControlReportesTramitesComponent },

@@ -71,6 +71,12 @@ import { ResumenTramiteComponent } from './component/admin/resumen-tramite/resum
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { MisTramitesComponent } from './component/tramites/mis-tramites/mis-tramites.component';
 import { MisConsultasComponent } from './component/consultas/mis-consultas/mis-consultas.component';
+import { MatriculaCreditosInfoComponent } from './component/tramites/tramite-matricula-creditos/matricula-creditos-info/matricula-creditos-info.component';
+import { MatriculaCreditosTramiteComponent } from './component/tramites/tramite-matricula-creditos/matricula-creditos-tramite/matricula-creditos-tramite.component';
+import { CursosParalelosInfoComponent } from './component/tramites/tramite-cursos-paralelos/cursos-paralelos-info/cursos-paralelos-info.component';
+import { CursosParalelosTramiteComponent } from './component/tramites/tramite-cursos-paralelos/cursos-paralelos-tramite/cursos-paralelos-tramite.component';
+import { CruceHorariosInfoComponent } from './component/tramites/tramite-cruce-horarios/cruce-horarios-info/cruce-horarios-info.component';
+import { CruceHorariosTramiteComponent } from './component/tramites/tramite-cruce-horarios/cruce-horarios-tramite/cruce-horarios-tramite.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -106,6 +112,12 @@ import { MisConsultasComponent } from './component/consultas/mis-consultas/mis-c
     ResumenTramiteComponent,
     MisTramitesComponent,
     MisConsultasComponent,
+    MatriculaCreditosInfoComponent,
+    MatriculaCreditosTramiteComponent,
+    CursosParalelosInfoComponent,
+    CursosParalelosTramiteComponent,
+    CruceHorariosInfoComponent,
+    CruceHorariosTramiteComponent,
   ],
   imports: [
     FormsModule,
@@ -155,6 +167,9 @@ import { MisConsultasComponent } from './component/consultas/mis-consultas/mis-c
     CursosEquivalentesInfoComponent,
     OtrosTramitesInfoComponent,
     ReinicioEstudiosInfoComponent,
+    MatriculaCreditosInfoComponent,
+    CursosParalelosInfoComponent,
+    CruceHorariosInfoComponent,
     RegistroEstudianteComponent,
     ResumenTramiteComponent
   ],

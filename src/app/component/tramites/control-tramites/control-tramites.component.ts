@@ -70,22 +70,6 @@ export class ControlTramitesComponent extends BaseComponent implements OnInit {
       }
     });
   }
-  // openDialogTramiteCambioHorario(): void {
-  //   const dialogRef = this.dialog.open(CambioHorarioInfoComponent, {
-  //     width: '750px',
-  //     // data: {
-  //     //   estudiante: estudiante
-  //     // }
-  //   });
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     try {
-  //       // this.gettablaEstudiante();
-
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   });
-  // }
   openDialogTramiteMatricula(): void {
     const dialogRef = this.dialog.open(MatriculaInfoComponent , {
       width: '750px',
@@ -102,89 +86,6 @@ export class ControlTramitesComponent extends BaseComponent implements OnInit {
       }
     });
   }
-
-  openDialogTramiteReinicioEstudios(): void {
-    const dialogRef = this.dialog.open(ReinicioEstudiosInfoComponent , {
-      width: '750px',
-      // data: {
-      //   estudiante: estudiante
-      // }
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      try {
-        // this.gettablaEstudiante();
-
-      } catch (error) {
-        console.log(error);
-      }
-    });
-  }
-
-  // openDialogTramiteUniversitario(): void {
-  //   const dialogRef = this.dialog.open(CarnetUInfoComponent, {
-  //     width: '750px',
-  //     // data: {
-  //     //   estudiante: estudiante
-  //     // }
-  //   });
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     try {
-  //       // this.gettablaEstudiante();
-
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   });
-  // }
-
-  // openDialogTramiteConstanciaEgresado(): void {
-  //   const dialogRef = this.dialog.open(ConstanciaEgresadoInfoComponent, {
-  //     width: '750px',
-  //     // data: {
-  //     //   estudiante: estudiante
-  //     // }
-  //   });
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     try {
-  //       // this.gettablaEstudiante();
-
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   });
-  // }
-  // openDialogTramiteConstanciaEstudios(): void {
-  //   const dialogRef = this.dialog.open(ConstanciaEstudiosInfoComponent, {
-  //     width: '750px',
-  //     // data: {
-  //     //   estudiante: estudiante
-  //     // }
-  //   });
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     try {
-  //       // this.gettablaEstudiante();
-
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   });
-  // }
-  // openDialogTramiteConstanciaPromedio(): void {
-  //   const dialogRef = this.dialog.open(ConstanciaPromedioInfoComponent, {
-  //     width: '750px',
-  //     // data: {
-  //     //   estudiante: estudiante
-  //     // }
-  //   });
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     try {
-  //       // this.gettablaEstudiante();
-
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   });
-  // }
 
   openDialogOtrosTramites(): void {
     const dialogRef = this.dialog.open(OtrosTramitesInfoComponent , {
