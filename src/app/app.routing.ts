@@ -14,15 +14,10 @@ import { UserComponent } from './component/user/user.component';
 import { ControlTramitesComponent } from './component/tramites/control-tramites/control-tramites.component';
 
 import { CursosEquivalentesTramiteComponent } from './component/tramites/tramite-cursos-equivalentes/cursos-equivalentes-tramite/cursos-equivalentes-tramite.component';
-import { CambioHorarioTramiteComponent } from './component/tramites/tramite-cambio-de-horario/cambio-horario-tramite/cambio-horario-tramite.component';
 import { MatriculaTramiteComponent } from './component/tramites/tramite-de-matricula/matricula-tramite/matricula-tramite.component';
 import { ReinicioEstudiosTramiteComponent } from './component/tramites/tramite-reinicio-de-estudios/reinicio-estudios-tramite/reinicio-estudios-tramite.component';
 import { OtrosTramitesTramiteComponent } from './component/tramites/otros-tramites/otros-tramites-tramite/otros-tramites-tramite.component';
 
-import { CarnetUTramiteComponent } from './component/tramites/tramite-carnet-universitario/carnet-u-tramite/carnet-u-tramite.component';
-import { ConstanciaPromedioTramiteComponent } from './component/tramites/tramite-constancia-de-promedio/constancia-promedio-tramite/constancia-promedio-tramite.component';
-import { ConstanciaEstudiosTramiteComponent } from './component/tramites/tramite-constancia-de-estudios/constancia-estudios-tramite/constancia-estudios-tramite.component';
-import { ConstanciaEgresadoTramiteComponent } from './component/tramites/tramite-constancia-de-egresado/constancia-egresado-tramite/constancia-egresado-tramite.component';
 import { ControlReportesTramitesComponent } from './component/admin/control-reportes-tramites/control-reportes-tramites.component';
 import { ControlEstadoTramitesComponent } from './component/admin/control-estado-tramites/control-estado-tramites.component';
 import { MisTramitesComponent } from './component/tramites/mis-tramites/mis-tramites.component';
@@ -42,13 +37,8 @@ const appRoutes:Routes=[
     {path: 'cursosequivalentes', component: CursosEquivalentesTramiteComponent},
     {path: 'matricula', component: MatriculaTramiteComponent },
     {path: 'reinicioestudios', component: ReinicioEstudiosTramiteComponent },
-    {path: 'cambiohorario', component: CambioHorarioTramiteComponent},
     {path: 'otrostramites', component: OtrosTramitesTramiteComponent},
 
-    {path: 'carnetuniversitario', component: CarnetUTramiteComponent},
-    {path: 'constanciapromedio', component: ConstanciaPromedioTramiteComponent },
-    {path: 'constanciaestudios', component: ConstanciaEstudiosTramiteComponent },
-    {path: 'constanciaegresado', component: ConstanciaEgresadoTramiteComponent },
     {path: 'reportestramites', component: ControlReportesTramitesComponent },
     {path: 'controlestadotramites', component: ControlEstadoTramitesComponent  },
     {path: 'mistramites', component: MisTramitesComponent },

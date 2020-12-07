@@ -52,23 +52,13 @@ import { EstudianteeditarComponent } from './component/estudianteeditar/estudian
 import { AdministradorComponent } from './component/administrador/administrador.component';
 import { AdministradorEditarComponent } from './component/administrador-editar/administrador-editar.component';
 
-import { CarnetUInfoComponent } from './component//tramites/tramite-carnet-universitario/carnet-u-info/carnet-u-info.component';
-import { CarnetUTramiteComponent } from './component//tramites/tramite-carnet-universitario/carnet-u-tramite/carnet-u-tramite.component';
 import { ControlTramitesComponent } from './component/tramites/control-tramites/control-tramites.component';
-import { ConstanciaEgresadoInfoComponent } from './component/tramites/tramite-constancia-de-egresado/constancia-egresado-info/constancia-egresado-info.component';
-import { ConstanciaEgresadoTramiteComponent } from './component/tramites/tramite-constancia-de-egresado/constancia-egresado-tramite/constancia-egresado-tramite.component';
-import { ConstanciaEstudiosTramiteComponent } from './component/tramites/tramite-constancia-de-estudios/constancia-estudios-tramite/constancia-estudios-tramite.component';
-import { ConstanciaEstudiosInfoComponent } from './component/tramites/tramite-constancia-de-estudios/constancia-estudios-info/constancia-estudios-info.component';
-import { ConstanciaPromedioTramiteComponent } from './component/tramites/tramite-constancia-de-promedio/constancia-promedio-tramite/constancia-promedio-tramite.component';
-import { ConstanciaPromedioInfoComponent } from './component/tramites/tramite-constancia-de-promedio/constancia-promedio-info/constancia-promedio-info.component';
 import { DragGropFilesComponent } from './component/tramites/upload-files/drag-grop-files/drag-grop-files.component';
 import { ProgressComponent } from './component/tramites/upload-files/progress/progress.component';
 import { DndDirective } from './directivas/dnd.directive';
 import { ControlReportesTramitesComponent } from './component/admin/control-reportes-tramites/control-reportes-tramites.component';
 import { OtrosTramitesTramiteComponent } from './component/tramites/otros-tramites/otros-tramites-tramite/otros-tramites-tramite.component';
 import { OtrosTramitesInfoComponent } from './component/tramites/otros-tramites/otros-tramites-info/otros-tramites-info.component';
-import { CambioHorarioInfoComponent } from './component/tramites/tramite-cambio-de-horario/cambio-horario-info/cambio-horario-info.component';
-import { CambioHorarioTramiteComponent } from './component/tramites/tramite-cambio-de-horario/cambio-horario-tramite/cambio-horario-tramite.component';
 import { CursosEquivalentesTramiteComponent } from './component/tramites/tramite-cursos-equivalentes/cursos-equivalentes-tramite/cursos-equivalentes-tramite.component';
 import { CursosEquivalentesInfoComponent } from './component/tramites/tramite-cursos-equivalentes/cursos-equivalentes-info/cursos-equivalentes-info.component';
 import { MatriculaInfoComponent } from './component/tramites/tramite-de-matricula/matricula-info/matricula-info.component';
@@ -98,23 +88,13 @@ import { MisConsultasComponent } from './component/consultas/mis-consultas/mis-c
     EstudianteeditarComponent,
     AdministradorComponent,
     AdministradorEditarComponent,
-    CarnetUInfoComponent,
-    CarnetUTramiteComponent,
     ControlTramitesComponent,
-    ConstanciaEgresadoInfoComponent,
-    ConstanciaEgresadoTramiteComponent,
-    ConstanciaEstudiosTramiteComponent,
-    ConstanciaEstudiosInfoComponent,
-    ConstanciaPromedioTramiteComponent,
-    ConstanciaPromedioInfoComponent,
     DragGropFilesComponent,
     ProgressComponent,
     DndDirective,
     ControlReportesTramitesComponent,
     OtrosTramitesTramiteComponent,
     OtrosTramitesInfoComponent,
-    CambioHorarioInfoComponent,
-    CambioHorarioTramiteComponent,
     CursosEquivalentesTramiteComponent,
     CursosEquivalentesInfoComponent,
     MatriculaInfoComponent,
@@ -171,11 +151,6 @@ import { MisConsultasComponent } from './component/consultas/mis-consultas/mis-c
     UsereditComponent,
     EstudianteeditarComponent,
     AdministradorEditarComponent,
-    CarnetUInfoComponent,
-    ConstanciaEgresadoInfoComponent,
-    ConstanciaEstudiosInfoComponent,
-    ConstanciaPromedioInfoComponent,
-    CambioHorarioInfoComponent,
     MatriculaInfoComponent,
     CursosEquivalentesInfoComponent,
     OtrosTramitesInfoComponent,
