@@ -7,7 +7,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { routing1, appRoutingProviders } from './app.routing';
 
-import { AgmCoreModule } from '@agm/core';
+import { AgmCoreModule } from '@agm/core'; 
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -173,7 +173,7 @@ import { CruceHorariosTramiteComponent } from './component/tramites/tramite-cruc
     CursosParalelosInfoComponent,
     CruceHorariosInfoComponent,
     RegistroEstudianteComponent,
-    ResumenTramiteComponent
+    ResumenTramiteComponent  
   ],
   providers: [appRoutingProviders, { provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
