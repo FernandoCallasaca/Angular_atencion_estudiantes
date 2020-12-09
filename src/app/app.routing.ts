@@ -26,6 +26,8 @@ import { ControlEstadoTramitesComponent } from './component/admin/control-estado
 import { MisTramitesComponent } from './component/tramites/mis-tramites/mis-tramites.component';
 import { MisConsultasComponent } from './component/consultas/mis-consultas/mis-consultas.component';
 import { InformativoPrincipalComponent } from './component/tramites/tramites-informativos/informativo-principal/informativo-principal.component';
+import { SecretariaComponent } from './component/secretaria/secretaria.component';
+
 //Array de rutas
 const appRoutes: Routes = [
     {path: '', component: LoginComponent},
@@ -35,6 +37,7 @@ const appRoutes: Routes = [
     {path: 'app', component: AppComponent},
     {path: 'estudiante', component: EstudianteComponent},
     {path: 'administrador', component: AdministradorComponent},
+    {path: 'secretaria', component: SecretariaComponent},
     {path: 'usuario', component: UserComponent},
     {path: 'infotramite', component: ControlTramitesComponent},
 

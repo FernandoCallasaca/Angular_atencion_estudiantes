@@ -7,7 +7,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { routing1, appRoutingProviders } from './app.routing';
 
-import { AgmCoreModule } from '@agm/core'; 
+import { AgmCoreModule } from '@agm/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -78,6 +78,9 @@ import { CursosParalelosInfoComponent } from './component/tramites/tramite-curso
 import { CursosParalelosTramiteComponent } from './component/tramites/tramite-cursos-paralelos/cursos-paralelos-tramite/cursos-paralelos-tramite.component';
 import { CruceHorariosInfoComponent } from './component/tramites/tramite-cruce-horarios/cruce-horarios-info/cruce-horarios-info.component';
 import { CruceHorariosTramiteComponent } from './component/tramites/tramite-cruce-horarios/cruce-horarios-tramite/cruce-horarios-tramite.component';
+import { SecretariaComponent } from './component/secretaria/secretaria.component';
+import { SecretariaEditarComponent } from './component/secretaria-editar/secretaria-editar.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -120,6 +123,8 @@ import { CruceHorariosTramiteComponent } from './component/tramites/tramite-cruc
     CursosParalelosTramiteComponent,
     CruceHorariosInfoComponent,
     CruceHorariosTramiteComponent,
+    SecretariaComponent,
+    SecretariaEditarComponent,
   ],
   imports: [
     FormsModule,
@@ -173,7 +178,8 @@ import { CruceHorariosTramiteComponent } from './component/tramites/tramite-cruc
     CursosParalelosInfoComponent,
     CruceHorariosInfoComponent,
     RegistroEstudianteComponent,
-    ResumenTramiteComponent  
+    ResumenTramiteComponent,
+    SecretariaEditarComponent
   ],
   providers: [appRoutingProviders, { provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]

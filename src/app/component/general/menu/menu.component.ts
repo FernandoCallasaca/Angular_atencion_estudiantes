@@ -26,6 +26,7 @@ export class MenuComponent extends BaseComponent implements OnInit {
 
   public user: boolean = false;
   public administrador: boolean = false;
+  public secretaria: boolean = false;
   public estudiantes: boolean = false;
   public reportetramites: boolean = false;
 
@@ -61,17 +62,21 @@ export class MenuComponent extends BaseComponent implements OnInit {
       }
       switch (this.usuario.id_role) {
         case 1: // estudiante
-          this.setearMenu(false, false, false, false, true, true, false, true, true,true);
+          this.setearMenu(false, false, false, false, true, true, false, true, true, true, false);
           break;
-        case 2: // secretaria
-          this.setearMenu(true, true, true, true, false, false, true, false, true,false);
+        case 2: // secretaria o director(admin)
+          if (this.usuario.rol === 'Secretario(a)') { // secretaria
+            this.setearMenu(true, true, true, true, false, false, true, false, true, false, false);
+          } else { // administrador
+            this.setearMenu(true, true, true, true, false, false, true, false, true, false, true);
+          }
           break;
       }
     }
   }
 
-  setearMenu(b_usuario, b_administrador, b_estudiantes, b_reportetramites,
-    b_tramitedocumentario, b_estadotramites, b_controlestadotramites, b_mistramites, b_misconsultas, b_informativoprincipal) {
+  setearMenu(b_usuario, b_administrador, b_estudiantes, b_reportetramites, b_tramitedocumentario, b_estadotramites,
+    b_controlestadotramites, b_mistramites, b_misconsultas, b_informativoprincipal, b_secretaria) {
     this.user = b_usuario;
     this.administrador = b_administrador;
     this.estudiantes = b_estudiantes;
@@ -82,6 +87,7 @@ export class MenuComponent extends BaseComponent implements OnInit {
     this.mistramites = b_mistramites;
     this.misconsultas = b_misconsultas;
     this.informativoprincipal = b_informativoprincipal;
+    this.secretaria = b_secretaria;
   }
 
   logoff() {

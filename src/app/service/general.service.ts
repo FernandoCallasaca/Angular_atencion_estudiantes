@@ -49,6 +49,13 @@ export class GeneralService {
     });
     return this._http.post(this.url + 'general/getadministrador', {}, { headers: reqHeader });
   }
+  getSecretaria(token): Observable<any> {
+    var reqHeader = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + token
+    });
+    return this._http.post(this.url + 'general/getsecretaria', {}, { headers: reqHeader });
+  }
 
   deleteAdministrador(data, token): Observable<any> {
     var reqHeader = new HttpHeaders({

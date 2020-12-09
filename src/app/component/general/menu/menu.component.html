@@ -15,6 +15,10 @@
               <mat-icon>people_alt</mat-icon>
               <span>Administradores</span>
           </a>
+          <a mat-list-item [routerLink]="['/secretaria']" *ngIf="secretaria">
+              <mat-icon>people_alt</mat-icon>
+              <span>Secreatarias(os)</span>
+          </a>
           <a mat-list-item [routerLink]="['/estudiante']" *ngIf="estudiantes">
               <mat-icon>sentiment_very_satisfied</mat-icon>
               <span>Estudiantes</span>
