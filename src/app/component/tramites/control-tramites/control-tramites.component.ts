@@ -12,6 +12,10 @@ import { MatriculaInfoComponent } from './../../tramites/tramite-de-matricula/ma
 import { OtrosTramitesInfoComponent } from './../../tramites/otros-tramites/otros-tramites-info/otros-tramites-info.component';
 import { ReinicioEstudiosInfoComponent } from './../../tramites/tramite-reinicio-de-estudios/reinicio-estudios-info/reinicio-estudios-info.component';
 
+import { CursosParalelosInfoComponent } from './../tramite-cursos-paralelos/cursos-paralelos-info/cursos-paralelos-info.component';
+import { MatriculaCreditosInfoComponent } from './../tramite-matricula-creditos/matricula-creditos-info/matricula-creditos-info.component';
+import { CruceHorariosInfoComponent } from './../tramite-cruce-horarios/cruce-horarios-info/cruce-horarios-info.component';
+
 import swal from 'sweetalert';
 
 @Component({
@@ -87,6 +91,57 @@ export class ControlTramitesComponent extends BaseComponent implements OnInit {
     });
   }
 
+  openDialogoMatriculaCreditos(): void {
+    const dialogRef = this.dialog.open(MatriculaCreditosInfoComponent , {
+      width: '750px',
+      // data: {
+      //   estudiante: estudiante
+      // }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      try {
+        // this.gettablaEstudiante();
+
+      } catch (error) {
+        console.log(error);
+      }
+    });
+  }
+
+  openDialogoCursosParalelos(): void {
+    const dialogRef = this.dialog.open(CursosParalelosInfoComponent , {
+      width: '750px',
+      // data: {
+      //   estudiante: estudiante
+      // }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      try {
+        // this.gettablaEstudiante();
+
+      } catch (error) {
+        console.log(error);
+      }
+    });
+  }
+
+  openDialogoCruceHorarios(): void {
+    const dialogRef = this.dialog.open(CruceHorariosInfoComponent , {
+      width: '750px',
+      // data: {
+      //   estudiante: estudiante
+      // }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      try {
+        // this.gettablaEstudiante();
+
+      } catch (error) {
+        console.log(error);
+      }
+    });
+  }
+
   openDialogOtrosTramites(): void {
     const dialogRef = this.dialog.open(OtrosTramitesInfoComponent , {
       width: '750px',
@@ -103,6 +158,7 @@ export class ControlTramitesComponent extends BaseComponent implements OnInit {
       }
     });
   }
+
 
   mostrarElementoNgIf() {
     if (this.mostrandoIf) {

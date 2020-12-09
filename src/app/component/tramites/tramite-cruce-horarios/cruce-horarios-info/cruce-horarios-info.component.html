@@ -1,1 +1,54 @@
-<p>cruce-horarios-info works!</p>
+<h1 mat-dialog-title>TRÁMITE CRUCE DE HORARIOS</h1>
+<hr />
+<mat-dialog-content class="mat-typography">
+  <p>(Sólo para estudiantes en condición Egresantes)</p>
+
+  <ul>
+    <li>
+      Remitir correo electrónico, desde su correo institucional, a:
+      <a href="ep_sistemas@uandina.edu.pe" target="_blank"
+        >ep_sistemas@uandina.edu.pe</a
+      >
+    </li>
+    <li>
+      Indicar el detalle de la(s) asignatura(s) que se requiere matricular en
+      paralelo, si es el caso, (código de la asignatura, nombre de la asignatura
+      y grupo)
+    </li>
+  </ul>
+
+  <p>
+    Adjuntar al correo: Histórico de notas; Copia de Constancia de matrícula,
+    Horario de su matrícula actual
+  </p>
+  <p>
+    <strong>Importante: </strong>Revisar detalladamente lo establecido en el
+    apartado “e”, parte “B”, sección “VI”, de la Directiva de Matrículas:
+    <br/>
+    e) Expecionalmente, los estudiantes que se encuentren en situación de <strong>egresantes,</strong> es decir,
+    están en el último ciclo del plan de estudios de la Escuela Profesional y deben asignaturas del ciclo
+    de estudios previo y en el caso de los estudiantes de la facultad de Ciencias de la Salud, que se encuentren
+    en el ciclo previo al inicio del Intermedio o Prácticas Pre profesionales, podrán:
+  </p>
+  <ul>
+    <li>Registrar matrícula hasta en vientiseís créditos.</li>
+    <li>Matricularse en dos asignaturas en paralelo (sin tener pre-requisito correspondiente) de acuerdo al siguiente criterio:
+      <ul>
+        <li>Asignatura A paralelo con Asignatura B y Asignatura C paralela con Asignatura D</li>
+      </ul>
+    </li>
+    <li>Regitrar matrícula con cruce de horarios de dos asignaturas, hasta en dos horas por cada una de ellas,
+      haciendo un total de cuatro horas con cruce de horario como máximo, de acuerdo a las siguientes criterios:
+      <ul>
+        <li>Asignatura A con Asignatura B cruce de los  horas y Asignatura C con Asignatura D crucec de horas</li>
+        <li>Asignatura A con Asignatura B cruce de una hora y Asignatura A con Asignatura C cruce de una hora.</li>
+      </ul>
+    </li>
+  </ul>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-stroked-button color="accent" (click)="openCursoCruceHorario()">
+    REALIZAR TRÁMITE
+  </button>
+</mat-dialog-actions>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-cruce-horarios-info',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CruceHorariosInfoComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private dialog: MatDialog
+  ) { }
 
   ngOnInit() {
   }
 
+  openCursoCruceHorario() {
+    const dialogRef = this.dialog;
+    dialogRef.closeAll();
+    this.router.navigate(['/crucehorarios']);
+  }
 }
