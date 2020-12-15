@@ -1,52 +1,95 @@
 <app-menu>
     <div class="contenedor">
-        
+        <mat-form-field style="width: 100%">
+            <input matInput [(ngModel)]="searchText" type="text" placeholder="Search" [formControl]="myControl"
+                [matAutocomplete]="auto">
+            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                <mat-option *ngFor="let option of filteredOptions| async" [value]="option">
+                    {{option}}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
         <!-- Card de cada tramite -->
-        <mat-card class="example-card space-card" *ngFor="let tramite of tablaTramites">
-            <mat-card-header>
-                <img mat-card-avatar class="example-header-image" *ngIf="tramite.id_tramite"
-                    src="https://image.winudf.com/v2/image1/dHJhbWkuYmFzaWNvc19pY29uXzE1OTMwMjg4NzhfMDU4/icon.png?w=170&fakeurl=1">
-            
-
-                <mat-card-title>{{tramite.denominacion}}</mat-card-title>
-                <mat-card-subtitle>{{tramite.aprobacion_tramite}}</mat-card-subtitle>
-            </mat-card-header>
-
-            <mat-card-content class="contenido-card">
-                <p [ngStyle]="{'text-align':'justify'}">
-                    {{tramite.requisitos}}
-                </p>
-                <h3>REQUISITOS:</h3>
-                <ul *ngFor="let requisito of RequisitosNumerados(tramite.requisitos_numeracion)">
-                    <li>{{requisito}}</li>
-                </ul>
-                <h4>NOTA:</h4>
-                <p>
-                    {{tramite.nota}}
-                </p>
+        <mat-card class="example-card space-card"
+            *ngFor="let tramite of tablaTramites| search:'denominacion':searchText" [class.mat-elevation-z8]=true>
+            <div class="fondo">
+                <mat-card-header>
+                    <img mat-card-avatar class="example-header-image" *ngIf="tramite.id_tramite"
+                        src="https://cdn.icon-icons.com/icons2/1879/PNG/512/iconfinder-3-avatar-2754579_120516.png">
 
 
-            </mat-card-content>
-            <!-- Aquí en el Mat Card Actions se colocan todas las acciones que hagas con el card -->
-            <mat-card-actions>
-                <!-- Aquí un boton para abrir el dialogo de información del trámite -->
-                <div class="botones-final">
-                    <mat-accordion class="example-headers-align" multi>
-                        <mat-expansion-panel>
-                            <mat-expansion-panel-header>
-                                <mat-panel-title>
-                                    Leer mas...
-                                </mat-panel-title>
-                                <mat-panel-description>
-                                    Costos
-                                    <mat-icon>map</mat-icon>
-                                </mat-panel-description>
-                            </mat-expansion-panel-header>
+                    <mat-card-title>{{tramite.denominacion}}</mat-card-title>
+                    <mat-card-subtitle>{{tramite.aprobacion_tramite}}</mat-card-subtitle>
+                </mat-card-header>
 
-                        </mat-expansion-panel>
-                    </mat-accordion>
-                </div>
-            </mat-card-actions>
+                <mat-card-content class="contenido-card">
+                    <mat-card class="izquierda">
+                        <mat-chip-list class="mat-chip-list-stacked">
+                            <mat-chip color="primary" selected>
+                                <mat-icon>history</mat-icon>
+                                Inicio del Tramite : {{tramite.inicio_tramite}}
+                            </mat-chip>
+                            <mat-chip color="primary" selected>
+                                <mat-icon>receipt</mat-icon>
+                                Instancia que lo resuelve : {{tramite.instancia_resuelve}}
+                            </mat-chip>
+                        </mat-chip-list>
+
+                    </mat-card>
+                    <mat-card class="centro">
+                        <mat-chip-list class="mat-chip-list-stacked">
+                            <mat-chip color="primary" selected>
+                                <mat-icon>done_outline</mat-icon>
+                                Aprobacion del tramite : {{tramite.aprobacion_tramite}}
+                            </mat-chip>
+                            <mat-chip color="primary" selected>
+                                <mat-icon>tag_faces</mat-icon>
+                                Termino del procedimiento : {{tramite.termino_tramite}}
+                            </mat-chip>
+                        </mat-chip-list>
+                    
+                    </mat-card>
+
+                    <mat-card class="derecha">
+                        <h3>Costo</h3>
+                        <mat-chip-list class="mat-chip-costo">
+                            <mat-chip color="accent" selected>
+                                S/. {{tramite.tasa_soles}}
+                            </mat-chip>
+                            <mat-chip color="accent" selected>
+                                {{tramite.tasa_uit}} UIT
+                            </mat-chip>
+                        </mat-chip-list>
+                    </mat-card>
+
+                </mat-card-content>
+                <!-- Aquí en el Mat Card Actions se colocan todas las acciones que hagas con el card -->
+                <mat-card-actions>
+                    <!-- Aquí un boton para abrir el dialogo de información del trámite -->
+                    <div class="botones-final">
+                        <mat-accordion class="example-headers-align" multi>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                        Requisitos
+                                    </mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <p [ngStyle]="{'text-align':'justify'}">
+                                    {{tramite.requisitos}}
+                                </p>
+                                <h3>REQUISITOS:</h3>
+                                <ul *ngFor="let requisito of RequisitosNumerados(tramite.requisitos_numeracion)">
+                                    <li>{{requisito}}</li>
+                                </ul>
+                                <h4>NOTA:</h4>
+                                <p>
+                                    {{tramite.nota}}
+                                </p>
+                            </mat-expansion-panel>
+                        </mat-accordion>
+                    </div>
+                </mat-card-actions>
+            </div>
         </mat-card>
 
 

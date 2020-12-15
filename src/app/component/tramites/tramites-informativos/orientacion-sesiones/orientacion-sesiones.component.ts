@@ -7,17 +7,15 @@ import { BaseComponent } from './../../../base/base.component';
 import { MatSnackBar } from '@angular/material';
 import { Router } from '@angular/router';
 import { AppSettings } from 'src/app/common/appsettings';
-
-@Component ({
-  selector: 'app-informativo-principal',
-  templateUrl: './informativo-principal.component.html',
-  styleUrls: ['./informativo-principal.component.css'],
+@Component({
+  selector: 'app-orientacion-sesiones',
+  templateUrl: './orientacion-sesiones.component.html',
+  styleUrls: ['./orientacion-sesiones.component.css'],
   providers: [GeneralService]
 })
+export class OrientacionSesionesComponent extends BaseComponent  implements OnInit {
 
-export class InformativoPrincipalComponent extends BaseComponent implements OnInit {
-  
-  public tablaTramites: [];
+  public tablaSesiones: [];
   myControl = new FormControl();
   public filteredOptions: Observable<string[]>;
   public options= [];
@@ -29,28 +27,22 @@ export class InformativoPrincipalComponent extends BaseComponent implements OnIn
     super(snackBar, router);
   }
 
-
   ngOnInit() {
-    this.getTramites();
+    this.getEnlaces();
     this.filteredOptions = this.myControl.valueChanges.pipe(
       startWith(' '),map(value => this._filter(value))
     );
   }
 
-
-  RequisitosNumerados(reque){
-    var myRe = new RegExp(/[A-Za-z]\)\s/);
-    var arreglo = reque.split(myRe);
-    return arreglo.splice(1);
-  }
-  getTramites() {
-    this.generalService.getTramitesInformativos(this.getToken().token).subscribe(
+  getEnlaces() {
+    this.generalService.getEnlacesSesiones(this.getToken().token).subscribe(
       result => {
+        console.log(result);
         try {
           if (result.estado) {
-            this.tablaTramites = result.data;
-            for (var i=0;i<this.tablaTramites.length;i++){
-              this.options[i]=result.data[i].denominacion;
+            this.tablaSesiones = result.data;
+            for (var i=0;i<this.tablaSesiones.length;i++){
+              this.options[i]=result.data[i].nombre_curso;
               
             }
           } else {
@@ -59,16 +51,16 @@ export class InformativoPrincipalComponent extends BaseComponent implements OnIn
         } catch (error) {
           this.openSnackBar(AppSettings.SERVICE_NO_CONECT_SERVER, 99);
         } finally {
-          
+          //this.applyFilter(this.textfilter);
         }
       }, error => {
         this.openSnackBar(error.error, 99);
       });
+      
   }
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
     
     return this.options.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
   }
-  
 }

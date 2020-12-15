@@ -47,6 +47,7 @@ import { AgmJsMarkerClustererModule } from '@agm/js-marker-clusterer';
 import { UserComponent } from './component/user/user.component';
 import { UsereditComponent } from './component/useredit/useredit.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatChipsModule} from '@angular/material/chips';
 import { EstudianteComponent } from './component/estudiante/estudiante.component';
 import { EstudianteeditarComponent } from './component/estudianteeditar/estudianteeditar.component';
 import { AdministradorComponent } from './component/administrador/administrador.component';
@@ -80,6 +81,8 @@ import { CruceHorariosInfoComponent } from './component/tramites/tramite-cruce-h
 import { CruceHorariosTramiteComponent } from './component/tramites/tramite-cruce-horarios/cruce-horarios-tramite/cruce-horarios-tramite.component';
 import { SecretariaComponent } from './component/secretaria/secretaria.component';
 import { SecretariaEditarComponent } from './component/secretaria-editar/secretaria-editar.component';
+import { OrientacionSesionesComponent } from './component/tramites/tramites-informativos/orientacion-sesiones/orientacion-sesiones.component';
+import { SearchPipe } from './component/tramites/tramites-informativos/search.pipe';
 
 @NgModule({
   declarations: [
@@ -125,6 +128,8 @@ import { SecretariaEditarComponent } from './component/secretaria-editar/secreta
     CruceHorariosTramiteComponent,
     SecretariaComponent,
     SecretariaEditarComponent,
+    OrientacionSesionesComponent,
+    SearchPipe
   ],
   imports: [
     FormsModule,
@@ -159,6 +164,7 @@ import { SecretariaEditarComponent } from './component/secretaria-editar/secreta
     MatTabsModule,
     MatAutocompleteModule,
     PdfViewerModule,
+    MatChipsModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDpcWweoH2IqPSGvBX91N46EsIdY-IfNiY'
     }),

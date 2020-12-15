@@ -27,6 +27,7 @@ import { MisTramitesComponent } from './component/tramites/mis-tramites/mis-tram
 import { MisConsultasComponent } from './component/consultas/mis-consultas/mis-consultas.component';
 import { InformativoPrincipalComponent } from './component/tramites/tramites-informativos/informativo-principal/informativo-principal.component';
 import { SecretariaComponent } from './component/secretaria/secretaria.component';
+import { OrientacionSesionesComponent } from './component/tramites/tramites-informativos/orientacion-sesiones/orientacion-sesiones.component';
 
 //Array de rutas
 const appRoutes: Routes = [
@@ -55,6 +56,7 @@ const appRoutes: Routes = [
     {path: 'mistramites', component: MisTramitesComponent },
     {path: 'misconsultas', component: MisConsultasComponent },
     {path: 'informativoprincipal', component: InformativoPrincipalComponent },
+    {path: 'orientacionsesiones', component: OrientacionSesionesComponent},
     {path: '**', component: LoginComponent}
 ]
 export const appRoutingProviders: any[] = [];

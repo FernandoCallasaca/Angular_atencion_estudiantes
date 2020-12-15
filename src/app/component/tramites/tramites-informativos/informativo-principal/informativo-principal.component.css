@@ -1,38 +1,62 @@
 .example-card {
-    max-width: 400px;
+    min-width: 1200px;
+    background-color: hsla(206, 47%, 94%, 0.918); 
   }
   
   .example-header-image {
     background-size: cover;
     object-fit: cover; /*this makes the image in src fit to the size specified below*/
-    height: 100px;
-    width: 100px;
-    border-radius: 50%;
+    height: 70px;
+    width: 70px;
+    border-radius: 40%;
     flex-shrink: 0;
   }
+  h5{
+    margin-left: 5px;
+  }
+
+  th{
+    text-align: left;
+    margin-right: 10px;
+  }  
+  
   .contenedor {
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 20px;
+    margin: 1%;
+    
   }
   .space-card {
     margin: 10px;
   }
   .contenido-card {
-   margin-bottom: 15%;
-  }
-  .botones-final{
-    margin-bottom: 0px;
-    margin-right: 8px;
-    position: absolute;
-    bottom: 3%;
-    right: 1%;
-  }
-  .example-headers-align{
-      width: 100px;
+  margin-bottom: 1%;
+  display: flex;                  /* establish flex container */
+  flex-direction: row;            /* default value; can be omitted */
+  flex-wrap: nowrap;              /* default value; can be omitted */
+  justify-content: space-between; /* switched from default (flex-start, see below) */
+     
   }
   
-  .boton-interno{
-    position: relative;
-    left: 40%;
+  .example-headers-align{
+    width: 100px;
+  }
+  
+  .izquierda{
+    width: 380px;
+    height: 80px;
+    
+  }
+  .centro{
+    width: 600px;
+    height: 80px;
+  }
+  .derecha{
+    width: 83px;
+    border: 2px dashed rgb(46, 31, 182);
+    text-align: center;
+    padding: 3px;
+  }
+  .mat-chip-costo{
+    width: 60px;
   }

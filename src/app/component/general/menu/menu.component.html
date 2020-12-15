@@ -45,8 +45,12 @@
               <span>Consultas</span>
           </a>
           <a mat-list-item [routerLink]="['/informativoprincipal']" *ngIf="informativoprincipal">
-            <mat-icon>message</mat-icon>
+            <mat-icon>school</mat-icon>
             <span>Tramites Informativos</span>
+          </a>
+          <a mat-list-item [routerLink]="['/orientacionsesiones']" *ngIf="orientacionsesiones">
+            <mat-icon> local_library</mat-icon>
+            <span>Orientacion de sesiones</span>
           </a>
         </mat-nav-list>
     </mat-sidenav>

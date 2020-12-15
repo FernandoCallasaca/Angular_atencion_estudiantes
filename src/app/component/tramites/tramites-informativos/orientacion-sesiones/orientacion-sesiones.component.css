@@ -1,0 +1,33 @@
+.example-card {
+    min-width: 360px;
+    max-width: 360px;
+    max-height: 600px;
+    background-color: hsla(240, 42%, 95%, 0.918); 
+  }
+  
+  .example-header-image {
+    background-size: cover;
+    object-fit: cover; /*this makes the image in src fit to the size specified below*/
+    height: 65px;
+    width: 65px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  
+  .contenedor {
+    display: flex;
+    flex-wrap: wrap; 
+    margin: 1%;   
+  }
+  .space-card {
+    margin: 10px;
+  }
+  .contenido-card {
+   margin-bottom: 5px;
+  }
+  
+  .example-headers-align{
+      width: 100px;
+  }
+  
+  
