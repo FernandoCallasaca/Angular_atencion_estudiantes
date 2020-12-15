@@ -25,6 +25,7 @@ export class ResumenTramiteComponent extends BaseComponent implements OnInit {
   documentosTramite = [];
   idEstadoTramite = 0;
   idTramite = -1;
+  role = 2;
 
 
   constructor(
@@ -38,6 +39,7 @@ export class ResumenTramiteComponent extends BaseComponent implements OnInit {
     this.tramite = this.data.tramite;
     this.idEstadoTramite = this.tramite['id_estado_tramite'];
     this.idTramite = this.tramite['id_tramite'];
+    this.role = this.getToken().data.id_role;
   }
 
   ngOnInit() {

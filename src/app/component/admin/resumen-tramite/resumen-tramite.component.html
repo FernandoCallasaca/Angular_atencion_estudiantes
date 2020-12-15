@@ -47,7 +47,7 @@
     </div>
   </mat-dialog-content>
 </div>
-<mat-dialog-actions align="end" *ngIf="this.idEstadoTramite === 1">
+<mat-dialog-actions align="end" *ngIf="this.idEstadoTramite === 1 && role !== 1">
   <!-- Aquí agregas los 3 botones -->
   <button mat-flat-button (click)="dialogObservacion('Observado')" color="accent">Observar</button>
   <button mat-flat-button (click)="dialogObservacion('Rechazado')" color="warn">Rechazar</button>

@@ -16,7 +16,7 @@ import { AppSettings } from 'src/app/common/appsettings';
 })
 
 export class InformativoPrincipalComponent extends BaseComponent implements OnInit {
-  
+  searchText = '';
   public tablaTramites: [];
   myControl = new FormControl();
   public filteredOptions: Observable<string[]>;
@@ -51,7 +51,7 @@ export class InformativoPrincipalComponent extends BaseComponent implements OnIn
             this.tablaTramites = result.data;
             for (var i=0;i<this.tablaTramites.length;i++){
               this.options[i]=result.data[i].denominacion;
-              
+
             }
           } else {
             this.openSnackBar(result.mensaje, 99);
@@ -59,7 +59,7 @@ export class InformativoPrincipalComponent extends BaseComponent implements OnIn
         } catch (error) {
           this.openSnackBar(AppSettings.SERVICE_NO_CONECT_SERVER, 99);
         } finally {
-          
+
         }
       }, error => {
         this.openSnackBar(error.error, 99);
@@ -67,8 +67,8 @@ export class InformativoPrincipalComponent extends BaseComponent implements OnIn
   }
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
-    
+
     return this.options.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
   }
-  
+
 }

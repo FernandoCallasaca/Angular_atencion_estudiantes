@@ -96,6 +96,13 @@ export class MisTramitesComponent extends BaseComponent implements OnInit {
   }
 
   dialogResumenTramite(tr) {
+    const dialogRef = this.dialog.open(ResumenTramiteComponent, {
+      data: {
+        tramite: tr
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
 
+    });
   }
 }

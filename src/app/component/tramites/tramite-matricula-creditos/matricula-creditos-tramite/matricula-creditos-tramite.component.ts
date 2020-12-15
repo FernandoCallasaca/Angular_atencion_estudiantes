@@ -73,7 +73,7 @@ export class MatriculaCreditosTramiteComponent extends BaseComponent implements 
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(MatriculaCreditosTramiteComponent, {
+    const dialogRef = this.dialog.open(MatriculaCreditosInfoComponent, {
       width: '750px',
     });
     dialogRef.afterClosed().subscribe(result => {

@@ -15,6 +15,7 @@ import { AppSettings } from 'src/app/common/appsettings';
 })
 export class OrientacionSesionesComponent extends BaseComponent  implements OnInit {
 
+  searchText = '';
   public tablaSesiones: [];
   myControl = new FormControl();
   public filteredOptions: Observable<string[]>;
@@ -43,7 +44,7 @@ export class OrientacionSesionesComponent extends BaseComponent  implements OnIn
             this.tablaSesiones = result.data;
             for (var i=0;i<this.tablaSesiones.length;i++){
               this.options[i]=result.data[i].nombre_curso;
-              
+
             }
           } else {
             this.openSnackBar(result.mensaje, 99);
@@ -56,11 +57,11 @@ export class OrientacionSesionesComponent extends BaseComponent  implements OnIn
       }, error => {
         this.openSnackBar(error.error, 99);
       });
-      
+
   }
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
-    
+
     return this.options.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
   }
 }
