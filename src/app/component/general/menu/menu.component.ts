@@ -69,7 +69,7 @@ export class MenuComponent extends BaseComponent implements OnInit {
           if (this.usuario.rol === 'Secretario(a)') { // secretaria
             this.setearMenu(false, false, true, true, false, false, true, false, true, false, false,false);
           } else { // administrador
-            this.setearMenu(true, true, true, true, false, false, true, false, true, false, true,false);
+            this.setearMenu(true, true, true, true, false, false, true, false, true, true, true, true);
           }
           break;
       }
