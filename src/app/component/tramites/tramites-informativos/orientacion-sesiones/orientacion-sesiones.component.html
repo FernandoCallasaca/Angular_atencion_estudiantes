@@ -9,6 +9,7 @@
                 </mat-option>
             </mat-autocomplete>
         </mat-form-field>
+
         <!-- Card de cada tramite -->
         <mat-card class="example-card space-card"
             *ngFor="let sesion of tablaSesiones| search:'nombre_curso':searchText" [class.mat-elevation-z8]=true>
@@ -27,7 +28,7 @@
                             <mat-icon>history</mat-icon>
                             Docente: {{sesion.docente}}
                         </mat-chip>
-                        <mat-chip color="primary" selected>
+                        <mat-chip  color="primary" selected>
                             <mat-icon>receipt</mat-icon>
                             Seccion: {{sesion.seccion}}
                         </mat-chip>
@@ -35,9 +36,13 @@
                             <mat-icon>receipt</mat-icon>
                             Ciclo: {{sesion.ciclo}}
                         </mat-chip>
-                        <mat-chip color="primary" selected>
+                        <mat-chip color="warn" selected>
                             <mat-icon> person_pin</mat-icon>
                             Enlace: {{sesion.enlace}}
+                        </mat-chip>
+                        <mat-chip color="primary" selected>
+                            <mat-icon> person_pin</mat-icon>
+                            Plan Curricular: {{sesion.plan_anio}}
                         </mat-chip>
                     </mat-chip-list>
                  </mat-card-content>

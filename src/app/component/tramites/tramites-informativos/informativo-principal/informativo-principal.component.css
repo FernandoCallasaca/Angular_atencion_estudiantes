@@ -31,6 +31,7 @@
   }
   .contenido-card {
   margin-bottom: 1%;
+  margin-top: 1%;
   display: flex;                  /* establish flex container */
   flex-direction: row;            /* default value; can be omitted */
   flex-wrap: nowrap;              /* default value; can be omitted */
@@ -60,3 +61,4 @@
   .mat-chip-costo{
     width: 60px;
   }
+  
