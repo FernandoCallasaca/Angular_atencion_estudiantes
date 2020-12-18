@@ -28,6 +28,23 @@
             <mat-datepicker #picker2 color="primary"></mat-datepicker>
           </mat-form-field>
 
+          <!-- <div class="example-events">
+            <div *ngFor="let e of events">{{e}}</div>
+          </div> -->
+
+
+
+          <!-- <mat-form-field>
+            <mat-select placeholder="Estudiante">
+              <mat-option value="0" (click)='selectEstudiante(0)'>
+                -TODOS-
+              </mat-option>
+              <mat-option *ngFor="let estudiante of estudiantes" [value]="estudiante.id_estudiante"
+              (click)='selectEstudiante(estudiante.id_estudiante)'>
+                {{estudiante.codigo}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field> -->
           <mat-form-field style="width: 300px">
             <mat-select placeholder="Tipo Trámite">
               <mat-option value="0" (click)='selectTipoTramite(0)'>
