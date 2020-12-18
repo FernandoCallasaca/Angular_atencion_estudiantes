@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { AdministradorEditarComponent } from './administrador-editar.component';
 
@@ -6,7 +6,7 @@ describe('AdministradorEditarComponent', () => {
   let component: AdministradorEditarComponent;
   let fixture: ComponentFixture<AdministradorEditarComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ AdministradorEditarComponent ]
     })

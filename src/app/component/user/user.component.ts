@@ -60,12 +60,8 @@ export class UserComponent extends BaseComponent implements OnInit {
   public tablaUsuario: MatTableDataSource < any > ;
   public confirmar: Confirmar;
 
-  @ViewChild(MatPaginator, {
-    static: false
-  }) paginator: MatPaginator;
-  @ViewChild(MatSort, {
-    static: false
-  }) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
 
   constructor(
     public snackBar: MatSnackBar,

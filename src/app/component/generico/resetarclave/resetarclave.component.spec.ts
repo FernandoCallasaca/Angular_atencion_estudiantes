@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { ResetearclaveComponent } from './resetarclave.component';
 
@@ -6,7 +6,7 @@ describe('ResetarclaveComponent', () => {
   let component: ResetearclaveComponent;
   let fixture: ComponentFixture<ResetearclaveComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ ResetearclaveComponent ]
     })

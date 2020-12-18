@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { OrientacionSesionesComponent } from './orientacion-sesiones.component';
 
@@ -6,7 +6,7 @@ describe('OrientacionSesionesComponent', () => {
   let component: OrientacionSesionesComponent;
   let fixture: ComponentFixture<OrientacionSesionesComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ OrientacionSesionesComponent ]
     })
