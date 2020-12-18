@@ -26,9 +26,6 @@ export class FiltroFechaComponent extends BaseComponent implements OnInit {
 
   tit: String = 'FILTRO > Entre Fechas';
 
-  // estudiantes: [];
-  // idEstudiante = 0;
-
   tipoTramites: [];
   idTipoTramite = 0;
 
@@ -59,15 +56,9 @@ export class FiltroFechaComponent extends BaseComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.getEstudiantes();
     this.getTipoTramite();
-    // this.getTramiteEntreFechas();
   }
 
-  // selectEstudiante(idEst) {
-  //   this.idEstudiante = idEst;
-  //   this.getTablaTramites();
-  // }
 
   selectTipoTramite(idTipoTra) {
     this.idTipoTramite = idTipoTra;
@@ -93,24 +84,6 @@ export class FiltroFechaComponent extends BaseComponent implements OnInit {
     this.getTramiteEntreFechas();
   }
 
-  // getEstudiantes() {
-  //   this._general_service.getEstudiante(this.getToken().token).subscribe(
-  //     result => {
-  //       let resultado = <ResultadoApi>result;
-  //       if (resultado.estado) {
-  //         this.estudiantes = resultado.data;
-  //       } else {
-  //         this.openSnackBar(resultado.mensaje, 99);
-  //       }
-  //     }, error => {
-  //       try {
-  //         this.openSnackBar(error.error.Detail, error.error.StatusCode);
-  //       } catch (error) {
-  //         this.openSnackBar(AppSettings.SERVICE_NO_CONECT_SERVER, 99);
-  //       }
-  //     });
-  // }
-
   getTipoTramite() {
     this._general_service.getTipoTramite(this.getToken().token).subscribe(
       result => {
@@ -129,32 +102,6 @@ export class FiltroFechaComponent extends BaseComponent implements OnInit {
         }
       });
   }
-  // getTablaTramites() {
-  //   let request = {
-  //     id_estudiante: this.idEstudiante,
-  //     id_tipo: this.idTipoTramite
-  //   }
-  //   this._general_service.getVwTramites(request, this.getToken().token).subscribe(
-  //     result => {
-
-  //       try {
-  //         if (result.estado) {
-  //           console.log(result);
-  //           this.tablaTramites = new MatTableDataSource<any>(result.data);
-  //           this.tablaTramites.sort = this.sort;
-  //           this.tablaTramites.paginator = this.paginator;
-  //         } else {
-  //           this.openSnackBar(result.mensaje, 99);
-  //         }
-  //       } catch (error) {
-  //         this.openSnackBar(AppSettings.SERVICE_NO_CONECT_SERVER, 99);
-  //       } finally {
-  //         this.applyFilter(this.textfilter);
-  //       }
-  //     }, error => {
-  //       this.openSnackBar(error.error, 99);
-  //     });
-  // }
 
   getTramiteEntreFechas() {
     const req = {
