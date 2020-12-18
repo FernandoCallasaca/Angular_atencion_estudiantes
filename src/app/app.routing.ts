@@ -28,6 +28,7 @@ import { MisConsultasComponent } from './component/consultas/mis-consultas/mis-c
 import { InformativoPrincipalComponent } from './component/tramites/tramites-informativos/informativo-principal/informativo-principal.component';
 import { SecretariaComponent } from './component/secretaria/secretaria.component';
 import { OrientacionSesionesComponent } from './component/tramites/tramites-informativos/orientacion-sesiones/orientacion-sesiones.component';
+import { FiltroFechaComponent } from './component/admin/filtro-fecha/filtro-fecha.component';
 
 //Array de rutas
 const appRoutes: Routes = [
@@ -55,6 +56,7 @@ const appRoutes: Routes = [
     {path: 'controlestadotramites', component: ControlEstadoTramitesComponent  },
     {path: 'mistramites', component: MisTramitesComponent },
     {path: 'misconsultas', component: MisConsultasComponent },
+    {path: 'filtrofechas', component: FiltroFechaComponent },
     {path: 'informativoprincipal', component: InformativoPrincipalComponent },
     {path: 'orientacionsesiones', component: OrientacionSesionesComponent},
     {path: '**', component: LoginComponent}

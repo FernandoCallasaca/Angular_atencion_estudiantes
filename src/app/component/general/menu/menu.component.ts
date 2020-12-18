@@ -34,6 +34,7 @@ export class MenuComponent extends BaseComponent implements OnInit {
   public estadotramites: boolean = false;
   public controlestadotramites: boolean = false;
   public mistramites: boolean = false;
+  public filtrofechas: boolean = false;
   public misconsultas: boolean = false;
   public informativoprincipal:boolean = false;
   public orientacionsesiones: boolean = false;
@@ -63,13 +64,13 @@ export class MenuComponent extends BaseComponent implements OnInit {
       }
       switch (this.usuario.id_role) {
         case 1: // estudiante
-          this.setearMenu(false, false, false, false, true, true, false, true, true, true, false,true);
+          this.setearMenu(false, false, false, false, true, true, false, true, true, true, false,true, false);
           break;
         case 2: // secretaria o director(admin)
           if (this.usuario.rol === 'Secretario(a)') { // secretaria
-            this.setearMenu(false, false, true, true, false, false, true, false, true, false, false,false);
+            this.setearMenu(false, false, true, true, false, false, true, false, true, false, false,false, true);
           } else { // administrador
-            this.setearMenu(true, true, true, true, false, false, true, false, true, true, true, true);
+            this.setearMenu(true, true, true, true, false, false, true, false, true, true, true, true, true);
           }
           break;
       }
@@ -77,7 +78,7 @@ export class MenuComponent extends BaseComponent implements OnInit {
   }
 
   setearMenu(b_usuario, b_administrador, b_estudiantes, b_reportetramites, b_tramitedocumentario, b_estadotramites,
-    b_controlestadotramites, b_mistramites, b_misconsultas, b_informativoprincipal, b_secretaria, b_orientacionsesiones) {
+    b_controlestadotramites, b_mistramites, b_misconsultas, b_informativoprincipal, b_secretaria, b_orientacionsesiones, b_filtrofechas) {
     this.user = b_usuario;
     this.administrador = b_administrador;
     this.estudiantes = b_estudiantes;
@@ -90,6 +91,7 @@ export class MenuComponent extends BaseComponent implements OnInit {
     this.informativoprincipal = b_informativoprincipal;
     this.secretaria = b_secretaria;
     this.orientacionsesiones = b_orientacionsesiones;
+    this.filtrofechas = b_filtrofechas;
   }
 
   logoff() {

@@ -39,6 +39,10 @@
           <a mat-list-item [routerLink]="['/mistramites']" *ngIf="mistramites">
               <mat-icon>folder_shared</mat-icon>
               <span>Mis Trámites</span>
+            </a>
+          <a mat-list-item [routerLink]="['/filtrofechas']" *ngIf="filtrofechas">
+              <mat-icon>date_range</mat-icon>
+              <span>Filtro - Fechas</span>
           </a>
           <a mat-list-item [routerLink]="['/misconsultas']" *ngIf="misconsultas">
               <mat-icon>message</mat-icon>

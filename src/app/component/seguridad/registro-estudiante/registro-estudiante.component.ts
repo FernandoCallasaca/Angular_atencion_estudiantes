@@ -52,7 +52,8 @@ export class RegistroEstudianteComponent
     // Aquí agregamos al usuario luego conseguimos su id, posterior a ello guardamos el estudiante
     const req = {
       nombre: this.form.value.email,
-      contrasenia: this.form.value.contrasenia
+      contrasenia: this.form.value.contrasenia,
+      role: 1
     };
     this.generalService.saveUsuarioForRegister(req, this.getToken()).subscribe(
       result => {

@@ -97,7 +97,7 @@ export class LoginComponent extends BaseComponent implements OnInit {
             if (result.estado) {
               this.setToken(result);
               if (this.getToken().data.id_role === 1) {
-                swal('Bienvenid@ ' + result1.data.nombres + ' !', 'Realiza tus trámites desde cualquier lugar!', 'success');
+                swal('Bienvenid@ ' + this.getToken().data.nombres + ' !', 'Realiza tus trámites desde cualquier lugar!', 'success');
                 this.router.navigate(['/infotramite']);
               } else {
                 this.router.navigate(['/reportestramites']);

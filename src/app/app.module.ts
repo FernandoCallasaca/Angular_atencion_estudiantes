@@ -83,6 +83,7 @@ import { SecretariaComponent } from './component/secretaria/secretaria.component
 import { SecretariaEditarComponent } from './component/secretaria-editar/secretaria-editar.component';
 import { OrientacionSesionesComponent } from './component/tramites/tramites-informativos/orientacion-sesiones/orientacion-sesiones.component';
 import { SearchPipe } from './component/tramites/tramites-informativos/search.pipe';
+import { FiltroFechaComponent } from './component/admin/filtro-fecha/filtro-fecha.component';
 
 @NgModule({
   declarations: [
@@ -129,7 +130,8 @@ import { SearchPipe } from './component/tramites/tramites-informativos/search.pi
     SecretariaComponent,
     SecretariaEditarComponent,
     OrientacionSesionesComponent,
-    SearchPipe
+    SearchPipe,
+    FiltroFechaComponent
   ],
   imports: [
     FormsModule,

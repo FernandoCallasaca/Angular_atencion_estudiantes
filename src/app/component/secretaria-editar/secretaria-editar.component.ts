@@ -7,6 +7,7 @@ import { AppSettings } from '../../common/appsettings';
 import { Secretaria, SecretariaEditar } from '../../interface/secretaria.interface';
 import { ResultadoApi } from '../../interface/common.interface';
 import { GeneralService } from '../../service/general.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-secretaria-editar',
@@ -16,73 +17,65 @@ import { GeneralService } from '../../service/general.service';
 })
 export class SecretariaEditarComponent extends BaseComponent implements OnInit {
 
-  estudiantes = [];
 
-  secretaria: Secretaria;
+  form: FormGroup;
+  hide = true;
 
-  editar: boolean;
 
-  identidad = 0;
 
   constructor(public dialogRef: MatDialogRef < SecretariaEditarComponent >,
-              private _general_services: GeneralService,
+              private generalService: GeneralService,
               @Inject(MAT_DIALOG_DATA) public data: SecretariaEditar,
               public _router: Router,
-              public snackBar: MatSnackBar) {
+              public snackBar: MatSnackBar,
+              private formBuilder: FormBuilder,) {
     super(snackBar, _router);
   }
 
   ngOnInit() {
-    if (this.data.secretaria == null) {
-      this.editar = false;
-      this.secretaria = {
-        id_administrador: 0,
-        id_usuario: 0,
-        nombres: '',
-        apellidos: '',
-        direccion: ''
-      };
-      this.identidad = 0;
-    } else {
-      this.editar = true;
-      this.secretaria = this.data.secretaria;
-
-    }
+    this.buildForm();
   }
 
-  AlertaGuardadoElemento( newForm ) {
-    // Preguntamos si desea Guardar el Registro
-    const mensaje = confirm('¿Te gustaría Guardar la Secretaria(o)?');
-    // Detectamos si el usuario acepto el mensaje
-    if (mensaje) {
-      this.guardar(newForm);
-      this.openSnackBar('Secretaria(o) Guardado', 99);
-    }
+  private buildForm() {
+    this.form = this.formBuilder.group({
+      nombres: ['', [Validators.required]],
+      apellidos: ['', [Validators.required]],
+      direccion: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      contrasenia: ['', [Validators.required]],
+    });
   }
 
-  guardar( newForm ) {
-    this._general_services.saveAdministrador(this.secretaria, this.getToken().token).subscribe(
+  saveUserAndSecretaria(event: Event) {
+    event.preventDefault();
+    // Aquí agregamos al usuario luego conseguimos su id, posterior a ello guardamos el estudiante
+    const req = {
+      nombre: this.form.value.email,
+      contrasenia: this.form.value.contrasenia,
+      role: 2
+    };
+    this.generalService.saveUsuarioForRegister(req, this.getToken()).subscribe(
       result => {
-        try {
-          if (result.estado) {
-            this.dialogRef.close({
-              flag: true,
-              data: this.secretaria,
-            });
-          } else {
-            this.openSnackBar(result.mensaje, 99);
+        this.generalService.getUsuariosForRegister(this.getToken()).subscribe(
+          result => {
+            const idNewUser = result.data.filter(user => user.nombre === this.form.value.email
+              && user.contrasenia === this.form.value.contrasenia).map(user => user.id_usuario);
+            const req1 = {
+              id_usuario: idNewUser[0],
+              nombres: this.form.value.nombres,
+              apellidos: this.form.value.apellidos,
+              direccion: this.form.value.direccion
+            };
+            console.log(req1);
+            this.generalService.saveAdministrador(req1, this.getToken()).subscribe(
+              result => {
+                console.log('Ya se guardó satisfactoriamente el/la Secretario(a)');
+              }
+            );
           }
-        } catch (error) {
-          this.openSnackBar(AppSettings.SERVICE_NO_CONECT_SERVER, 99);
-        }
-      }, error => {
-        console.error(error);
-        try {
-          this.openSnackBar(error.error.Detail, error.error.StatusCode);
-        } catch (error) {
-          this.openSnackBar(AppSettings.SERVICE_NO_CONECT_SERVER, 99);
-        }
-      });
+        );
+      }
+    );
   }
 
 }
