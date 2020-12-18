@@ -30,8 +30,8 @@ export class ControlReportesTramitesComponent extends BaseComponent implements O
 
   public tablaTramites: MatTableDataSource<any>;
   displayedColumns: string[] = ['nombres', 'apellidos', 'codigo', 'fecha', 'observacion', 'estado'];
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
+  @ViewChild(MatSort, { static: false }) sort: MatSort;
 
   constructor(
     public snackBar: MatSnackBar,

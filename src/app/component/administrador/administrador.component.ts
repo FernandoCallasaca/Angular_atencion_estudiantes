@@ -33,8 +33,12 @@ export class AdministradorComponent extends BaseComponent implements OnInit {
   public tablaAdministrador: MatTableDataSource < any > ;
   public confirmar: Confirmar;
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator, {
+    static: false
+  }) paginator: MatPaginator;
+  @ViewChild(MatSort, {
+    static: false
+  }) sort: MatSort;
 
   constructor(
     public snackBar: MatSnackBar,

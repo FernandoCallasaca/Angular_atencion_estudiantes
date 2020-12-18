@@ -7,7 +7,7 @@ import { Component, ViewChild, ElementRef, Input, OnInit, Output, EventEmitter }
 })
 export class DragGropFilesComponent implements OnInit {
 
-  @ViewChild('fileDropRef') fileDropEl: ElementRef;
+  @ViewChild('fileDropRef', { static: false }) fileDropEl: ElementRef;
 
   // Agregamos un input para que este componente reciva un arreglo vació
   @Input() files: any[] = [];

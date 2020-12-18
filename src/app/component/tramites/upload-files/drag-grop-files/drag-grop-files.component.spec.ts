@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DragGropFilesComponent } from './drag-grop-files.component';
 
@@ -6,7 +6,7 @@ describe('DragGropFilesComponent', () => {
   let component: DragGropFilesComponent;
   let fixture: ComponentFixture<DragGropFilesComponent>;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ DragGropFilesComponent ]
     })

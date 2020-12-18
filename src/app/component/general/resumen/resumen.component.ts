@@ -16,8 +16,8 @@ export class ResumenComponent implements OnInit {
 
   tabla4: MatTableDataSource<any>;
   displayedColumns4: string[] = ['proyecto', 'estado', 'avance', 'lp', 'rp', 'rs', 'aco', 'presupuestobase', 'presupuestoprogramado', 'presupuestoejecutado', 'inicio', 'fin'];
-  @ViewChild(MatPaginator) paginator4: MatPaginator;
-  @ViewChild(MatSort) sort4: MatSort;
+  @ViewChild(MatPaginator, { static: false }) paginator4: MatPaginator;
+  @ViewChild(MatSort, { static: false }) sort4: MatSort;
 
   resumen = [
     {

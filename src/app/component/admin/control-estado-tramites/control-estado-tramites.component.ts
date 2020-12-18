@@ -40,8 +40,8 @@ export class ControlEstadoTramitesComponent extends BaseComponent implements OnI
   public tablaTramitesReinicio: MatTableDataSource<any>;
 
   displayedColumns: string[] = ['nombres', 'apellidos', 'codigo', 'fecha', 'observacion', 'resumen'];
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
+  @ViewChild(MatSort, { static: false }) sort: MatSort;
 
   constructor(
     public snackBar: MatSnackBar,

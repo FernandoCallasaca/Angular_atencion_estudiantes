@@ -10,7 +10,6 @@ import { Confirmar } from '../../../interface/confirmar.interface';
 import { SeguridadService } from '../../../service/seguridad.service';
 import { GeneralService } from '../../../service/general.service';
 import {MatDatepickerInputEvent} from '@angular/material/datepicker';
-import {FormGroup, FormControl} from '@angular/forms';
 @Component({
   selector: 'app-filtro-fecha',
   templateUrl: './filtro-fecha.component.html',
@@ -20,10 +19,6 @@ import {FormGroup, FormControl} from '@angular/forms';
 )
 export class FiltroFechaComponent extends BaseComponent implements OnInit {
 
-  range = new FormGroup({
-    start: new FormControl(),
-    end: new FormControl()
-  });
 
   textfilter = '';
 
@@ -34,14 +29,17 @@ export class FiltroFechaComponent extends BaseComponent implements OnInit {
   tipoTramites: [];
   idTipoTramite = 0;
 
-  // Aquí incializamos las fechas para luego traer los valores y enviar el metodo del filtro
+  // Aquí incializamos las fechas
   fechaInc: Date;
   fechaFin: Date;
 
+  dateI;
+  dateF;
+
   public tablaTramites: MatTableDataSource<any>;
   displayedColumns: string[] = ['nombres', 'apellidos', 'codigo', 'fecha', 'observacion', 'estado'];
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
+  @ViewChild(MatSort, { static: false }) sort: MatSort;
 
   constructor(
     public snackBar: MatSnackBar,

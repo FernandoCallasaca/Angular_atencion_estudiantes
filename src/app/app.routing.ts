@@ -62,4 +62,4 @@ const appRoutes: Routes = [
     {path: '**', component: LoginComponent}
 ]
 export const appRoutingProviders: any[] = [];
-export const routing1: ModuleWithProviders<any> = RouterModule.forRoot(appRoutes, { relativeLinkResolution: 'legacy' });
+export const routing1: ModuleWithProviders = RouterModule.forRoot(appRoutes);

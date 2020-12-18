@@ -19,8 +19,12 @@ export class MisConsultasComponent extends BaseComponent implements OnInit {
   displayedColumns: string[] = ['fecha', 'asunto', 'mensaje'];
   textfilter = '';
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator, {
+    static: false
+  }) paginator: MatPaginator;
+  @ViewChild(MatSort, {
+    static: false
+  }) sort: MatSort;
 
   constructor(
     public snackBar: MatSnackBar,
