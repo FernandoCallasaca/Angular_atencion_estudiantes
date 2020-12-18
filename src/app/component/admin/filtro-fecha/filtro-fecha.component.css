@@ -1,0 +1,25 @@
+table {
+  width: 100%;
+}
+
+.contenedorBody {
+margin: 1%;
+}
+
+.contenedor {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+mat-panel-title {
+  align-items: center;
+}
+mat-panel-description {
+  align-items: center;
+}
+.example-events {
+  height: 200px;
+  border: 1px solid #555;
+  overflow: auto;
+}

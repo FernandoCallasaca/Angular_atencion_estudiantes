@@ -15,6 +15,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BaseComponent } from './component/base/base.component';
 import { LoginComponent } from './component/seguridad/login/login.component';
 
+import {MatNativeDateModule} from '@angular/material';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatStepperModule} from '@angular/material/stepper';
@@ -85,6 +86,8 @@ import { OrientacionSesionesComponent } from './component/tramites/tramites-info
 import { SearchPipe } from './component/tramites/tramites-informativos/search.pipe';
 import { FiltroFechaComponent } from './component/admin/filtro-fecha/filtro-fecha.component';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -151,6 +154,7 @@ import { FiltroFechaComponent } from './component/admin/filtro-fecha/filtro-fech
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
+    MatNativeDateModule,
     MatMenuModule,
     MatProgressBarModule,
     MatSidenavModule,
