@@ -24,7 +24,7 @@ export class ControlEstadoTramitesComponent extends BaseComponent implements OnI
   tit: String = 'Estudiantes > Gestor de Trámites';
 
 
-  estudiantes =  [];
+  estudiantes = [];
   idEstudiante = 0;
 
   tipoTramites = [];
@@ -38,6 +38,9 @@ export class ControlEstadoTramitesComponent extends BaseComponent implements OnI
   public tablaTramitesCursos: MatTableDataSource<any>;
   public tablaTramitesMatriculas: MatTableDataSource<any>;
   public tablaTramitesReinicio: MatTableDataSource<any>;
+  public tablaTramitesMatricula26: MatTableDataSource<any>;
+  public tablaTramitesCursosParalelos: MatTableDataSource<any>;
+  public tablaTramitesCruceHorarios: MatTableDataSource<any>;
 
   displayedColumns: string[] = ['nombres', 'apellidos', 'codigo', 'fecha', 'observacion', 'resumen'];
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
@@ -60,31 +63,72 @@ export class ControlEstadoTramitesComponent extends BaseComponent implements OnI
     this.getTablaTramitesCursos();
     this.getTablaTramitesMatriculas();
     this.getTablaTramitesReinicio();
+    this.getTablaTramitesMatricula26();
+    this.getTablaTramitesCursosParalelos();
+    this.getTablaTramitesCruceHorarios();
+
     this.getEstadoTramite();
   }
 
-  selectEstudiante(idEst,Tramite) {
+  selectEstudiante(idEst, Tramite) {
     this.idEstudiante = idEst;
-    if (Tramite == 1)
+    if (Tramite == 5)
       this.getTablaTramitesCursos();
-    if (Tramite == 2)
+    if (Tramite == 6)
       this.getTablaTramitesMatriculas();
-    if (Tramite == 3)
-     this.getTablaTramitesReinicio();
-  }
-
-  selectEstadoTramite(estadoTra,Tramite) {
-    this.estadoTramite = estadoTra;
-    if (Tramite === 1)
-      this.getTablaTramitesCursos();
-    if (Tramite == 2)
-      this.getTablaTramitesMatriculas();
-    if (Tramite == 3)
+    if (Tramite == 7)
       this.getTablaTramitesReinicio();
+    if (Tramite == 8)
+      this.getTablaTramitesMatricula26();
+    if (Tramite == 9)
+      this.getTablaTramitesCursosParalelos();
+    if (Tramite == 10)
+      this.getTablaTramitesCruceHorarios();
   }
 
-  applyFilter(filterValue: String) {
-    this.tablaTramitesCursos.filter = filterValue.trim().toLowerCase();
+  selectEstadoTramite(estadoTra, Tramite) {
+    this.estadoTramite = estadoTra;
+    if (Tramite === 5)
+      this.getTablaTramitesCursos();
+    if (Tramite === 6)
+      this.getTablaTramitesMatriculas();
+    if (Tramite === 7)
+      this.getTablaTramitesReinicio();
+    if (Tramite === 8)
+      this.getTablaTramitesMatricula26();
+    if (Tramite === 9)
+      this.getTablaTramitesCursosParalelos();
+    if (Tramite === 10)
+      this.getTablaTramitesCruceHorarios();
+  }
+
+  selectTabla(Tramite) {
+    if (Tramite == 5)
+      return 'tablaTramitesCursos';
+    if (Tramite == 6)
+      return 'tablaTramitesMatriculas';
+    if (Tramite == 7)
+      return 'tablaTramitesReinicio';
+    if (Tramite == 8)
+      return 'tablaTramitesMatricula26';
+    if (Tramite == 9)
+      return 'tablaTramitesCursosParalelos';
+    if (Tramite == 10)
+      return 'tablaTramitesCruceHorarios';
+  }
+  applyFilter(filterValue: String, Tramite) {
+    if (Tramite === 5)
+      this.tablaTramitesCursos.filter = filterValue.trim().toLowerCase();
+    if (Tramite === 6)
+      this.tablaTramitesMatriculas.filter = filterValue.trim().toLowerCase();
+    if (Tramite === 7)
+      this.tablaTramitesReinicio.filter = filterValue.trim().toLowerCase();
+    if (Tramite === 8)
+      this.tablaTramitesMatricula26.filter = filterValue.trim().toLowerCase();
+    if (Tramite === 9)
+      this.tablaTramitesCursosParalelos.filter = filterValue.trim().toLowerCase();
+    if (Tramite === 10)
+      this.tablaTramitesCruceHorarios.filter = filterValue.trim().toLowerCase();
   }
 
   getEstudiantes() {
@@ -143,14 +187,14 @@ export class ControlEstadoTramitesComponent extends BaseComponent implements OnI
         } catch (error) {
           this.openSnackBar(AppSettings.SERVICE_NO_CONECT_SERVER, 99);
         } finally {
-          this.applyFilter(this.textfilter);
+          this.applyFilter(this.textfilter,this.idTipoTramite);
         }
       }, error => {
         this.openSnackBar(error.error, 99);
       });
   }
   // Este método llena el arreglo vacío estadosTramite
-  getEstadoTramite(){
+  getEstadoTramite() {
     this._general_service.getEstadoTramite(this.getToken().token).subscribe(
       result => {
         let resultado = <ResultadoApi>result;
@@ -188,7 +232,7 @@ export class ControlEstadoTramitesComponent extends BaseComponent implements OnI
         } catch (error) {
           this.openSnackBar(AppSettings.SERVICE_NO_CONECT_SERVER, 99);
         } finally {
-          this.applyFilter(this.textfilter);
+          this.applyFilter(this.textfilter,this.idTipoTramite);
         }
       }, error => {
         this.openSnackBar(error.error, 99);
@@ -216,7 +260,88 @@ export class ControlEstadoTramitesComponent extends BaseComponent implements OnI
         } catch (error) {
           this.openSnackBar(AppSettings.SERVICE_NO_CONECT_SERVER, 99);
         } finally {
-          this.applyFilter(this.textfilter);
+          this.applyFilter(this.textfilter,this.idTipoTramite);
+        }
+      }, error => {
+        this.openSnackBar(error.error, 99);
+      });
+  }
+  //trae la tabla de tramites de matricula hasta 26cred
+  getTablaTramitesMatricula26() {
+    this.idTipoTramite = 8;
+    let request = {
+      id_estudiante: this.idEstudiante,
+      estado: this.estadoTramite,
+      id_tipo: this.idTipoTramite
+    };
+    this._general_service.getVwEstadoTramites(request, this.getToken().token).subscribe(
+      result => {
+        try {
+          if (result.estado) {
+            this.tablaTramitesMatricula26 = new MatTableDataSource<any>(result.data);
+            this.tablaTramitesMatricula26.sort = this.sort;
+            this.tablaTramitesMatricula26.paginator = this.paginator;
+          } else {
+            this.openSnackBar(result.mensaje, 99);
+          }
+        } catch (error) {
+          this.openSnackBar(AppSettings.SERVICE_NO_CONECT_SERVER, 99);
+        } finally {
+          this.applyFilter(this.textfilter,this.idTipoTramite);
+        }
+      }, error => {
+        this.openSnackBar(error.error, 99);
+      });
+  }
+  //trae la tabla de tramites de cursos paralelos
+  getTablaTramitesCursosParalelos() {
+    this.idTipoTramite = 9;
+    let request = {
+      id_estudiante: this.idEstudiante,
+      estado: this.estadoTramite,
+      id_tipo: this.idTipoTramite
+    };
+    this._general_service.getVwEstadoTramites(request, this.getToken().token).subscribe(
+      result => {
+        try {
+          if (result.estado) {
+            this.tablaTramitesCursosParalelos = new MatTableDataSource<any>(result.data);
+            this.tablaTramitesCursosParalelos.sort = this.sort;
+            this.tablaTramitesCursosParalelos.paginator = this.paginator;
+          } else {
+            this.openSnackBar(result.mensaje, 99);
+          }
+        } catch (error) {
+          this.openSnackBar(AppSettings.SERVICE_NO_CONECT_SERVER, 99);
+        } finally {
+          this.applyFilter(this.textfilter,this.idTipoTramite);
+        }
+      }, error => {
+        this.openSnackBar(error.error, 99);
+      });
+  }
+  //trae la tabla de tramites de cruce de horarios
+  getTablaTramitesCruceHorarios() {
+    this.idTipoTramite = 10;
+    let request = {
+      id_estudiante: this.idEstudiante,
+      estado: this.estadoTramite,
+      id_tipo: this.idTipoTramite
+    };
+    this._general_service.getVwEstadoTramites(request, this.getToken().token).subscribe(
+      result => {
+        try {
+          if (result.estado) {
+            this.tablaTramitesCruceHorarios = new MatTableDataSource<any>(result.data);
+            this.tablaTramitesCruceHorarios.sort = this.sort;
+            this.tablaTramitesCruceHorarios.paginator = this.paginator;
+          } else {
+            this.openSnackBar(result.mensaje, 99);
+          }
+        } catch (error) {
+          this.openSnackBar(AppSettings.SERVICE_NO_CONECT_SERVER, 99);
+        } finally {
+          this.applyFilter(this.textfilter,this.idTipoTramite);
         }
       }, error => {
         this.openSnackBar(error.error, 99);
@@ -233,6 +358,9 @@ export class ControlEstadoTramitesComponent extends BaseComponent implements OnI
         this.getTablaTramitesCursos();
         this.getTablaTramitesMatriculas();
         this.getTablaTramitesReinicio();
+        this.getTablaTramitesMatricula26();
+        this.getTablaTramitesCursosParalelos();
+        this.getTablaTramitesCruceHorarios();
       } catch (error) {
         console.log(error);
       }
