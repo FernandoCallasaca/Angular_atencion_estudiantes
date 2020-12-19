@@ -34,6 +34,7 @@ export class FiltroFechaComponent extends BaseComponent implements OnInit {
   fechaFin: Date;
   boolDisablesFecha: boolean;
   boolSelectTramite: boolean;
+  myFilter: any;
 
   dateI;
   dateF;
@@ -82,6 +83,9 @@ export class FiltroFechaComponent extends BaseComponent implements OnInit {
     this.boolDisablesFecha = false;
     if (this.fechaFin != null) {
       this.getTramiteEntreFechas();
+    }
+    this.myFilter = (d: Date | null): boolean => {
+      return d >= this.fechaInc;
     }
   }
 
