@@ -26,15 +26,14 @@ export class FiltroFechaComponent extends BaseComponent implements OnInit {
 
   tit: String = 'FILTRO > Entre Fechas';
 
-  // estudiantes: [];
-  // idEstudiante = 0;
-
   tipoTramites: [];
   idTipoTramite = 0;
 
   // Aquí incializamos las fechas
   fechaInc: Date;
   fechaFin: Date;
+  boolDisablesFecha: boolean;
+  boolSelectTramite: boolean;
 
   dateI;
   dateF;
@@ -52,6 +51,8 @@ export class FiltroFechaComponent extends BaseComponent implements OnInit {
     public dialog: MatDialog
   ) {
     super(snackBar, router);
+    this.boolDisablesFecha = true;
+    this.boolSelectTramite = true;
   }
 
   addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
@@ -59,15 +60,8 @@ export class FiltroFechaComponent extends BaseComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.getEstudiantes();
     this.getTipoTramite();
-    // this.getTramiteEntreFechas();
   }
-
-  // selectEstudiante(idEst) {
-  //   this.idEstudiante = idEst;
-  //   this.getTablaTramites();
-  // }
 
   selectTipoTramite(idTipoTra) {
     this.idTipoTramite = idTipoTra;
@@ -84,32 +78,19 @@ export class FiltroFechaComponent extends BaseComponent implements OnInit {
 
   fechaInicio(event: MatDatepickerInputEvent<Date>) {
     this.fechaInc = event.value;
-    console.log(this.fechaInc);
+    // console.log(this.fechaInc);
+    this.boolDisablesFecha = false;
+    if (this.fechaFin != null) {
+      this.getTramiteEntreFechas();
+    }
   }
 
   fechaFinal(event: MatDatepickerInputEvent<Date>) {
     this.fechaFin = event.value;
-    console.log(this.fechaFin);
+    // console.log(this.fechaFin);
     this.getTramiteEntreFechas();
+    this.boolSelectTramite = false;
   }
-
-  // getEstudiantes() {
-  //   this._general_service.getEstudiante(this.getToken().token).subscribe(
-  //     result => {
-  //       let resultado = <ResultadoApi>result;
-  //       if (resultado.estado) {
-  //         this.estudiantes = resultado.data;
-  //       } else {
-  //         this.openSnackBar(resultado.mensaje, 99);
-  //       }
-  //     }, error => {
-  //       try {
-  //         this.openSnackBar(error.error.Detail, error.error.StatusCode);
-  //       } catch (error) {
-  //         this.openSnackBar(AppSettings.SERVICE_NO_CONECT_SERVER, 99);
-  //       }
-  //     });
-  // }
 
   getTipoTramite() {
     this._general_service.getTipoTramite(this.getToken().token).subscribe(
@@ -129,32 +110,6 @@ export class FiltroFechaComponent extends BaseComponent implements OnInit {
         }
       });
   }
-  // getTablaTramites() {
-  //   let request = {
-  //     id_estudiante: this.idEstudiante,
-  //     id_tipo: this.idTipoTramite
-  //   }
-  //   this._general_service.getVwTramites(request, this.getToken().token).subscribe(
-  //     result => {
-
-  //       try {
-  //         if (result.estado) {
-  //           console.log(result);
-  //           this.tablaTramites = new MatTableDataSource<any>(result.data);
-  //           this.tablaTramites.sort = this.sort;
-  //           this.tablaTramites.paginator = this.paginator;
-  //         } else {
-  //           this.openSnackBar(result.mensaje, 99);
-  //         }
-  //       } catch (error) {
-  //         this.openSnackBar(AppSettings.SERVICE_NO_CONECT_SERVER, 99);
-  //       } finally {
-  //         this.applyFilter(this.textfilter);
-  //       }
-  //     }, error => {
-  //       this.openSnackBar(error.error, 99);
-  //     });
-  // }
 
   getTramiteEntreFechas() {
     const req = {

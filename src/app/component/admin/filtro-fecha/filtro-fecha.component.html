@@ -16,37 +16,19 @@
           <mat-form-field color="warn" appearance="fill">
             <mat-label>Fecha Inicial</mat-label>
             <input matInput [matDatepicker]="picker1" (dateInput)="fechaInicio($event)">
-            <mat-datepicker-toggle matSuffix [for]="picker1">{{ '$event.value' | date:'dd-MM-yyyy'}}</mat-datepicker-toggle>
-
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
             <mat-datepicker #picker1></mat-datepicker>
           </mat-form-field>
 
           <mat-form-field color="warn" appearance="fill">
             <mat-label>Fecha Final</mat-label>
-            <input matInput [min]="picker2._minDate" [matDatepicker]="picker2" (dateInput)="fechaFinal($event)">
+            <input [disabled]="boolDisablesFecha" matInput [matDatepicker]="picker2" (dateInput)="fechaFinal($event)">
             <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
             <mat-datepicker #picker2 color="primary"></mat-datepicker>
           </mat-form-field>
 
-          <!-- <div class="example-events">
-            <div *ngFor="let e of events">{{e}}</div>
-          </div> -->
-
-
-
-          <!-- <mat-form-field>
-            <mat-select placeholder="Estudiante">
-              <mat-option value="0" (click)='selectEstudiante(0)'>
-                -TODOS-
-              </mat-option>
-              <mat-option *ngFor="let estudiante of estudiantes" [value]="estudiante.id_estudiante"
-              (click)='selectEstudiante(estudiante.id_estudiante)'>
-                {{estudiante.codigo}}
-              </mat-option>
-            </mat-select>
-          </mat-form-field> -->
           <mat-form-field style="width: 300px">
-            <mat-select placeholder="Tipo Trámite">
+            <mat-select [disabled]="boolSelectTramite" placeholder="Tipo Trámite">
               <mat-option value="0" (click)='selectTipoTramite(0)'>
                 -TODOS-
               </mat-option>
