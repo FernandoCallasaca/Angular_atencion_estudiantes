@@ -36,9 +36,14 @@
                             <mat-icon>receipt</mat-icon>
                             Ciclo: {{sesion.ciclo}}
                         </mat-chip>
-                        <mat-chip color="warn" selected>
+                        <mat-chip *ngIf='funcionenlace(sesion.enlace)==true' color="warn" selected>
                             <mat-icon> person_pin</mat-icon>
-                            Enlace: {{sesion.enlace}}
+                            Enlace: 
+                            <a  target="_blank" href="{{sesion.enlace}}">{{sesion.enlace}}</a> 
+                        </mat-chip>
+                        <mat-chip *ngIf='funcionenlace(sesion.enlace)==false' color="warn" selected>
+                            <mat-icon> person_pin</mat-icon>
+                            Seguir : {{sesion.enlace}}
                         </mat-chip>
                         <mat-chip color="primary" selected>
                             <mat-icon> person_pin</mat-icon>

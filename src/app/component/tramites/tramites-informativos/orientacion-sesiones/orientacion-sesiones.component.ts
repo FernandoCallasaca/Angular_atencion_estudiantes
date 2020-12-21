@@ -59,6 +59,14 @@ export class OrientacionSesionesComponent extends BaseComponent  implements OnIn
       });
 
   }
+  funcionenlace(cadena){
+    if (cadena[0]=='h' && cadena[1]=='t' &&cadena[2]=='t' &&cadena[3]=='p'){
+      return true;
+    }
+    else
+      return false;
+  }
+
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
 
